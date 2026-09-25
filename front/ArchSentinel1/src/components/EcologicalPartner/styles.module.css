@@ -1,0 +1,39 @@
+.main {
+  background-color: rgb(2, 6, 33);
+  background-image: url(/static/img/HomePage/bg.png);
+  color: white;
+  padding: 2% 15%;
+  height: 30vh;
+}
+
+.title {
+  text-align: center;
+  font-size: 1.25rem;
+}
+
+.ecology {
+  margin-top: 28px
+}
+
+.ecology .line {
+  display: flex;
+  justify-content: center;
+  gap: 2%;
+}
+
+.ecology .line .img1 {
+  width: 200px;
+  height: 100px;
+  /* background: url(/static/img/HomePage/荣耀.png) no-repeat; */
+  background-size: 100% 100%;
+  border-color: transparent;
+}
+
+.ecology .line .img2 {
+  width: 250px;
+  height: 50px;
+  margin-top: 25px;
+  /* background: url(/static/img/HomePage/华为1.png) no-repeat; */
+  background-size: 100% 100%;
+  border: none;
+}

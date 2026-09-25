@@ -1,0 +1,334 @@
+<?xml version="1.0"?>
+
+<!--syh-->
+<ruleset name="Sonar">
+    <description>
+      Implementing Sonar rules through PMD custom rules.
+    </description>
+    <rule name="SQLInjectionCheck" language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.vulnerability.SQLInjectionCheckRule"
+          message="Executing SQL queries is security-sensitive">
+        <description>
+            <p>The parameter of String Type in ArgumentList of Sql-related Functions should be checked </p>
+            <p>This rule detects instances whether the parameter is using a bind mechanism like <code>"ok"+para</code></p>
+        </description>
+        <example>    
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+import java.sql.PreparedStatement;
+import org.hibernate.Session;
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
+
+import javax.jdo.PersistenceManager;
+
+import org.springframework.jdbc.core.jdbcTemplate;
+import org.springframework.jdbc.core.JdbcOperations;
+import org.springframework.jdbc.core.PreparedStatementCreatorFactory;
+
+class A {
+  private static final String CONSTANT = "SELECT * FROM TABLE";
+  public void method(String param, String param2, EntityManager entityManager) {
+    try {
+      Connection conn = DriverManager.getConnection("url", "user1", "password");
+      Statement stmt = conn.createStatement();
+      ResultSet rs = stmt.executeQuery("SELECT Lname FROM Customers WHERE Snum = 2001");
+      rs = stmt.executeQuery("SELECT Lname FROM Customers WHERE Snum = "+param); // Noncompliant [[sc=30;ec=79]] {{Use a variable binding mechanism to construct this query instead of concatenation.}}
+      String query = "SELECT Lname FROM Customers WHERE Snum = "+param;
+      rs = stmt.executeQuery(query); // Noncompliant
+
+      boolean bool = false;
+      String query2 = "Select Lname ";
+      if(bool) {
+        query2 += "FROM Customers";
+      }else {
+        query2 += "FROM Providers";
+      }
+      query2 = query2 + " WHERE Snum =2001";
+      rs = stmt.executeQuery(query2);
+
+      //Prepared statement
+      PreparedStatement ps = conn.prepareStatement("SELECT Lname FROM Customers"+" WHERE Snum = 2001");
+      ps.executeQuery(query); // Noncompliant
+      ps  = conn.prepareStatement("SELECT Lname FROM Customers WHERE Snum = "+param); // Noncompliant
+      ps = conn.prepareStatement(query); // Noncompliant
+      ps = conn.prepareStatement(query2);
+
+      //Callable Statement
+      CallableStatement cs = conn.prepareCall("SELECT Lname FROM Customers WHERE Snum = 2001");
+      cs.executeQuery(query); // Noncompliant
+      cs  = conn.prepareCall("SELECT Lname FROM Customers WHERE Snum = "+param2); // Noncompliant
+      cs = conn.prepareCall(query); // Noncompliant
+      cs = conn.prepareCall(query2);
+      cs = conn.prepareCall(CONSTANT);
+      cs = conn.prepareCall(foo());
+      String query3 = "SELECT * from table";
+      cs = conn.prepareCall(query3);
+
+      String s;
+      String tableName = "TableName";
+      String column = " column ";
+      String FROM = " FROM ";
+      if(true) {
+        s = "SELECT" +column+FROM +tableName;
+      } else {
+        s = "SELECT" +column+"FROM" +tableName;
+      }
+      cs = conn.prepareCall(s);
+      String request = foo() + " FROM table";
+      cs = conn.prepareCall(request);
+      new A().prepareStatement(query);
+      A a = new A();
+      a.prepareStatement(query);
+      ps.executeQuery();
+
+
+      Session session;
+      session.createQuery("From Customer where id > ?");
+      session.createQuery("From Customer where id > "+param); // Noncompliant
+      session.createQuery(query); // Noncompliant
+      conn.prepareStatement(param);
+      conn.prepareStatement(sqlQuery + "plop");
+
+      String sql = "SELECT lastname, firstname FROM employee where uid = '" + param + "'";
+      entityManager.createNativeQuery(sql); // Noncompliant
+    } catch (Exception e) {
+    }
+  }
+
+  String foo() {
+    return "SELECT * ";
+  }
+
+  private String sqlQuery;
+  class A {
+    void prepareStatement(String s) {
+
+    }
+  }
+
+  private static void makeQuery(Connection p_con) {
+    try {
+      String query = null;
+      StringBuffer qryBuffer = new StringBuffer();
+
+      qryBuffer = new StringBuffer();
+      qryBuffer.append(" select abc from xyz ");
+      qryBuffer.append(" where bulubulu=?");
+      query = qryBuffer.toString();
+
+      p_con.prepareStatement(query); // Compliant
+    } catch (Exception e) {
+      System.out.println("makeQuery");
+    }
+  }
+
+  PersistenceManager pm;
+
+  void jdo(int id, String name) {
+    javax.jdo.Query q = pm.newQuery(Person.class, id + " > query_id "); // Noncompliant
+    q.setFilter("name == " + name); // Noncompliant
+  }
+}
+
+
+class Spring {
+
+  private JdbcTemplate jdbcTemplate;
+  private JdbcOperations jdbcOperations;
+  private PreparedStatementCreatorFactory preparedStatementCreatorFactory;
+
+  void test(String parameter) {
+    java.lang.String sqlInjection = "select count(*) from t_actor where column =  " + parameter;
+    jdbcTemplate.queryForObject(sqlInjection, Integer.class); // Noncompliant
+    jdbcOperations.queryForObject(sqlInjection, Integer.class);  // Noncompliant
+
+    new PreparedStatementCreatorFactory(sqlInjection);  // Noncompliant
+    preparedStatementCreatorFactory.newPreparedStatementCreator(sqlInjection, new int[] {});  // Noncompliant
+  }
+}
+
+
+class Test {
+  public void foo() {
+    String from = "from ResourceDBO r, ProjectDBO p where p.id = r.entityId and r.type = :entityType and r.mimeType in :mimeTypes";
+    if (projectUuid != null) {
+      from += " and p.uuid = :projectUuid";
+    }
+    String sortField = "lastUpdateTime";
+    boolean asc = false;
+    if (page != null) {
+      String countJql = "select count(*) " + from;
+      Session session;
+      session.createQuery(countJql);
+
+    }
+  }
+} </example>
+        <priority>2</priority>
+    </rule>
+
+  <rule name="ForLoopIncrementSignCheck" language="java"
+        class="net.sourceforge.pmd.lang.java.rule.sonar.bug.ForLoopIncrementSignCheckRule"
+        message="A for loop update clause should move the counter in the right direction">
+    <description>
+      <p>In <code>ForLoopIncrement</code> "i" is increasing while the condition of <code>ForStatementExpression
+      </code> is in the form of i>N,so it will never reach "stop condition",vice versa.
+      </p>
+      <p>This rule detects instances whether the increment of for loop is correct</p>
+    </description>
+    <example>
+      class A {
+      void myMethod(int x, int y, int z) {
+      int j = 0, k = 0;
+      for (int i = x; i &lt; y; i++) {}
+      for (int i = x; i > y; i++) {} // Noncompliant [[sc=21;ec=26]] {{"i" is incremented and will never reach
+      "stop condition".}}
+      for (int i = x; i >=y; i++) {} // Noncompliant
+      for (int i = x; i > y; i--) {}
+      for (int z = x; z &lt; y; z--) {} // Noncompliant [[sc=21;ec=26]] {{"z" is decremented and will never reach
+      "stop condition".}}
+      for (int i = x; i&lt;=y; i--) {} // Noncompliant
+      for (int i = x; y > i; i++) {}
+      for (int i = x; yi; i++) {} // Noncompliant
+      for (int i = x; y&lt;=i; i++) {} // Noncompliant
+      for (int i = x; y&lt;i; i--) {}
+      for (int i = x; y > i; i--) {} // Noncompliant
+      for (int i = x; y >=i; i--) {} // Noncompliant
+      for (int i = x; x&lt;y; i--) {}
+      for (int i = x; x > y; i--) {}
+      for (int i = x; i > y; i-=1 ) {}
+      for (int i = x; i > y; i+=1 ) {} // Noncompliant
+      for (int i = x; i > y; i-=+1) {}
+      for (int i = x; i > y; i+=-x) {}
+      for (int i = x; i > y; i+=z ) {}
+      for (int i = x; i > y; i=i-1) {}
+      for (int i = x; i > y; i=i+1) {} // Noncompliant
+      for (int i = x; i > y; i=i+z) {}
+      for (int i = x; i > y; i=z+1) {}
+      for (int i = x; i > y; i=i*2) {}
+      for (int i = x; i > y; i=i-z) {}
+      for (int i = x; i > y; object.x = i + 1) {}
+      for (int i = x; i&lt;y; (-i)++) {}
+      for (int i = x; i+1&lt;y; i++) {}
+      for (int i = x; i&lt;y; ) {}
+      for (int i = x; i > y; update()) {}
+      for (int i = x; condition(); i++) {}
+      for (int i = x; ; i++) {}
+      }
+      }
+    </example>
+    <priority>1</priority>
+
+  </rule>
+
+  <rule name="IgnoredStreamReturnValueCheck" language="java"
+        class="net.sourceforge.pmd.lang.java.rule.sonar.bug.IgnoredStreamReturnValueCheckRule"
+        message="The value returned from a stream read should be checked">
+    <description>
+      <p>The return value of stream function <code>read</code> and <code>skip</code> should be checked </p>
+      <p>This rule detects instances whether the return value of directly or transitively using InputStream Function <code>read</code> and <code>skip</code> is checked</p>
+    </description>
+    <example>
+      import java.io.FileInputStream;
+      import java.io.IOException;
+      import java.io.InputStream;
+      import unknownPackage.MyUnknownClass;
+
+      class A {
+      public void foo() throws Exception {
+      FileInputStream is = new FileInputStream("");
+      byte[] buffer = new byte[1000];
+      long skipValue = 12L;
+
+      is.read(buffer); // Noncompliant [[sc=8;ec=12]] {{Check the return value of the "read" call to see how many bytes were read.}}
+      is.skip(skipValue); // Noncompliant
+      getInputStream().read(buffer); // Noncompliant
+      getInputStream().skip(skipValue); // Noncompliant
+
+      // return values are used
+      int i;
+      int l;
+      i= is.read(buffer); // Compliant
+      l = is.skip(skipValue); // Compliant
+
+      // methods not overriding the skip/read from InputStream
+      MyInputStream mis = new MyInputStream();
+      mis.skip(); // compliant
+      mis.skip(true); // compliant
+      mis.skip('c'); // compliant
+      mis.skip(0L, 0L); // Compliant
+      mis.read(0L); // Compliant
+      mis.read(buffer, null); // Compliant
+      mis.read(buffer, 0, 0); // Compliant
+
+      // same signature but no subtype of InputStream
+      MyClass mc = new MyClass();
+      mc.read(buffer); // Compliant
+      mc.skip(skipValue); // Complian
+      read(buffer); // compliant
+      skip(skipValue); // compliant
+
+      MyUnknownClass.unknownMethod(); // Compliant
+      }
+
+      private InputStream getInputStream() throws Exception {
+      return new FileInputStream("");
+      }
+
+      private int read(byte[] bytes) {
+      return 0;
+      }
+
+      private long skip(long value) {
+      return 0L;
+      }
+      }
+
+      class MyClass {
+      public int read(byte[] bytes) {
+      return 0;
+      }
+
+      public long skip(long value) {
+      return 0L;
+      }
+      }
+
+      class MyInputStream extends InputStream {
+
+      @Override
+      public int read() {
+      return 0;
+      }
+
+      public long read(byte[] bytes, Object o) {
+      return 0L;
+      }
+
+      public int read(long value) {
+      return 0;
+      }
+
+      public int skip() {
+      return 0;
+      }
+
+      public boolean skip(boolean value) {
+      return value;
+      }
+
+      public long skip(char value) {
+      return 0L;
+      }
+
+      public long skip(long v1, long v2) {
+      return 0L;
+      }
+      }    </example>
+    <priority>2</priority>
+
+  </rule>
+</ruleset> 

@@ -1,0 +1,480 @@
+<?xml version="1.0"?>
+
+<!--ztt-->
+<ruleset name="Sonar">
+    <description>
+        Implementing Sonar rules through PMD custom rules.
+    </description>
+    <rule name="CollectionMethodsWithLinearComplexityCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.codesmell.CollectionMethodsWithLinearComplexityCheckRule"
+          message="Collection methods with O(n) performance should be used carefully">
+        <description>
+            <p>The time complexity of method calls on collections is not always obvious. For instance, for most
+                collections the <code>size()</code> method takes
+                constant time, but the time required to execute <code>ConcurrentLinkedQueue.size()</code> is O(n), i.e.
+                directly proportional to the number of
+                elements in the collection. When the collection is large, this could therefore be an expensive
+                operation.
+            </p>
+            <p>This rule raises an issue when the following O(n) methods are called outside of constructors on class
+                fields:
+            </p>
+        </description>
+        <example>
+            <h2>Noncompliant Code Example</h2>
+            <pre>
+                ConcurrentLinkedQueue queue = new ConcurrentLinkedQueue();
+                //...
+                log.info("Queue contains " + queue.size() + " elements"); // Noncompliant
+            </pre>
+        </example>
+        <priority>2</priority>
+    </rule>
+    <rule name="CollectionCallingItselfCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.bug.CollectionCallingItselfCheckRule"
+          message="Collections should not be passed as arguments to their own methods">
+        <description>
+            <p>Passing a collection as an argument to the collection's own method is either an error - some other
+                argument was intended - or simply nonsensical
+                code.
+            </p>
+            <p>Further, because some methods require that the argument remain unmodified during the execution, passing a
+                collection to itself can result in
+                undefined behavior.
+            </p>
+        </description>
+        <example>
+            List &lt;Object&gt; objs = new ArrayList&lt;Object&gt;();
+            objs.add("Hello");
+
+            objs.add(objs); // Noncompliant; StackOverflowException if objs.hashCode() called
+            objs.addAll(objs); // Noncompliant; behavior undefined
+            objs.containsAll(objs); // Noncompliant; always true
+            objs.removeAll(objs); // Noncompliant; confusing. Use clear() instead
+            objs.retainAll(objs); // Noncompliant; NOOP
+        </example>
+        <priority>2</priority>
+    </rule>
+    <rule name="CompareToReturnValueCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.bug.CompareToReturnValueCheckRule"
+          message="compareTo should not return Integer.MIN_VALUE">
+        <description>
+            <p>It is the sign, rather than the magnitude of the value returned from <code>compareTo</code> that matters.
+                Returning
+                <code>Integer.MIN_VALUE</code>
+                does <em>not</em> convey a higher degree of inequality, and doing so can cause errors because the return
+                value of <code>compareTo</code> is sometimes
+                inversed, with the expectation that negative values become positive. However, inversing <code>
+                    Integer.MIN_VALUE
+                </code> yields
+                <code>Integer.MIN_VALUE</code>
+                rather than <code>Integer.MAX_VALUE</code>.
+            </p>
+        </description>
+        <example>
+            //Noncompliant Code Example
+            public int compareTo(MyClass) {
+            if (condition) {
+            return Integer.MIN_VALUE; // Noncompliant
+            }
+            //Compliant Solution
+            public int compareTo(MyClass) {
+            if (condition) {
+            return -1;
+            }
+        </example>
+        <priority>2</priority>
+    </rule>
+    <rule name="EqualsArgumentTypeCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.bug.EqualsArgumentTypeCheckRule"
+          message="equals(Object obj) should test argument type">
+        <description>
+            <p>Because the <code>equals</code> method takes a generic <code>Object</code> as a parameter, any type of
+                object may be passed to it. The method
+                should not assume it will only be used to test objects of its class type. It must instead check the
+                parameter's type.
+            </p>
+        </description>
+        <example>
+            <h2>Noncompliant Code Example</h2>
+            <pre>
+                public boolean equals(Object obj) {
+                MyClass mc = (MyClass)obj; // Noncompliant
+                // ...
+                }
+            </pre>
+            <h2>Compliant Solution</h2>
+            <pre>
+                public boolean equals(Object obj) {
+                if (obj == null)
+                return false;
+
+                if (this.getClass() != obj.getClass())
+                return false;
+
+                MyClass mc = (MyClass)obj;
+                // ...
+                }
+            </pre>
+        </example>
+        <priority>1</priority>
+    </rule>
+    <rule name="IdenticalOperandOnBinaryExpressionCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.bug.IdenticalOperandOnBinaryExpressionCheckRule"
+          message="Identical expressions should not be used on both sides of a binary operator">
+        <description>
+            <p>Using the same value on either side of a binary operator is almost always a mistake. In the case of
+                logical operators, it is either a copy/paste
+                error and therefore a bug, or it is simply wasted code, and should be simplified. In the case of bitwise
+                operators and most binary mathematical
+                operators, having the same value on both sides of an operator yields predictable results, and should be
+                simplified.
+            </p>
+            <p>This rule ignores <code>*</code>, <code>+</code>, and <code>=</code>.
+            </p>
+        </description>
+        <example>
+            <h2>Noncompliant Code Example</h2>
+            <pre>
+                if ( a == a ) { // always true
+                doZ();
+                }
+                if ( a != a ) { // always false
+                doY();
+                }
+                if ( a == b &amp;&amp; a == b ) { // if the first one is true, the second one is too
+                doX();
+                }
+                if ( a == b || a == b ) { // if the first one is true, the second one is too
+                doW();
+                }
+
+                int j = 5 / 5; //always 1
+                int k = 5 - 5; //always 0
+
+                c.equals(c); //always true
+            </pre>
+            <h2>Exceptions</h2>
+            <p>The specific case of testing a floating point value against itself is a valid test for <code>NaN</code> and
+                is therefore ignored.
+            </p>
+            <p>Similarly, left-shifting 1 onto 1 is common in the construction of bit masks, and is ignored.</p>
+            <pre>
+                float f;
+                if(f != f) { //test for NaN value
+                System.out.println("f is NaN");
+                }
+
+                int i = 1 &lt;&lt; 1; // Compliant
+                int j = a &lt;&lt; a; // Noncompliant
+            </pre>
+        </example>
+        <priority>2</priority>
+    </rule>
+    <rule name="LocksNotUnlockedCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.bug.LocksNotUnlockedCheckRule"
+          message="Locks should be released">
+        <description>
+            <p>If a lock is acquired and released within a method, then it must be released along all execution paths of
+                that method.
+            </p>
+            <p>Failing to do so will expose the conditional locking logic to the method's callers and hence be
+                deadlock-prone.
+            </p>
+        </description>
+        <example>
+            <h2>Noncompliant Code Example</h2>
+            <pre>
+                public class MyClass {
+                private Lock lock = new Lock();
+
+                public void doSomething() {
+                lock.lock(); // Noncompliant
+                if (isInitialized()) {
+                // ...
+                lock.unlock();
+                }
+                }
+                }
+            </pre>
+            <h2>Compliant Solution</h2>
+            <pre>
+                public class MyClass {
+                private Lock lock = new Lock();
+
+                public void doSomething() {
+                if (isInitialized()) {
+                lock.lock();
+                // ...
+                lock.unlock();
+                }
+                }
+                }
+            </pre>
+        </example>
+        <priority>2</priority>
+    </rule>
+    <rule name="NonShortCircuitLogicCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.codesmell.NonShortCircuitLogicCheckRule"
+          message="Short-circuit logic should be used in boolean contexts">
+        <description>
+            <p>The use of non-short-circuit logic in a boolean context is likely a mistake - one that could cause
+                serious program errors as conditions are
+                evaluated under the wrong circumstances.
+            </p>
+        </description>
+        <example>
+            if(getTrue() | getFalse()) { ... } // Noncompliant; both sides evaluated
+            if(getTrue() || getFalse()) { ... } // true short-circuit logic
+        </example>
+        <priority>2</priority>
+    </rule>
+    <rule name="ReturnInFinallyCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.bug.ReturnInFinallyCheckRule"
+          message="Jump statements should not occur in finally blocks">
+        <description>
+            <p>Using <code>return</code>, <code>break</code>, <code>throw</code>, and so on from a <code>finally</code> block
+                suppresses the propagation of any
+                unhandled <code>Throwable</code> which was thrown in the <code>try</code> or <code>catch</code> block.
+            </p>
+            <p>This rule raises an issue when a jump statement (<code>break</code>, <code>continue</code>, <code>
+                return</code>, <code>throw</code>, and
+                <code>goto</code>) would force control flow to leave a <code>finally</code> block.
+            </p>
+        </description>
+        <example>
+            Noncompliant Code Example
+            public static void main(String[] args) {
+            try {
+            doSomethingWhichThrowsException();
+            System.out.println("OK"); // incorrect "OK" message is printed
+            } catch (RuntimeException e) {
+            System.out.println("ERROR"); // this message is not shown
+            }
+            }
+
+            public static void doSomethingWhichThrowsException() {
+            try {
+            throw new RuntimeException();
+            } finally {
+            for (int i = 0; i &lt; 10; i ++) {
+            //...
+            if (q == i) {
+            break; // ignored
+            }
+            }
+
+            /* ... */
+            return; // Noncompliant - prevents the RuntimeException from being propagated
+            }
+            }
+            //Compliant Solution
+            public static void main(String[] args) {
+            try {
+            doSomethingWhichThrowsException();
+            System.out.println("OK");
+            } catch (RuntimeException e) {
+            System.out.println("ERROR"); // "ERROR" is printed as expected
+            }
+            }
+
+            public static void doSomethingWhichThrowsException() {
+            try {
+            throw new RuntimeException();
+            } finally {
+            for (int i = 0; i &lt; 10; i ++) {
+            //...
+            if (q == i) {
+            break; // ignored
+            }
+            }
+
+            /* ... */
+            }
+            }
+        </example>
+        <priority>1</priority>
+    </rule>
+    <rule name="StaticFieldUpateCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.codesmell.StaticFieldUpateCheckRule"
+          message="Instance methods should not write to static fields">
+        <description>
+            <p>Correctly updating a <code>static</code> field from a non-static method is tricky to get right and could
+                easily lead to bugs if there are multiple
+                class instances and/or multiple threads in play. Ideally, <code>static</code> fields are only updated
+                from
+                <code>synchronized static</code>
+                methods.
+            </p>
+            <p>This rule raises an issue each time a <code>static</code> field is updated from a non-static method.
+            </p>
+        </description>
+        <example>
+            <h2>Noncompliant Code Example</h2>
+            <pre>
+                public class MyClass {
+
+                private static int count = 0;
+
+                public void doSomething() {
+                //...
+                count++; // Noncompliant
+                }
+                }
+            </pre>
+        </example>
+        <priority>2</priority>
+    </rule>
+    <rule name="SynchronizationOnStringOrBoxedCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.bug.SynchronizationOnStringOrBoxedCheckRule"
+          message="Synchronization should not be based on Strings or boxed primitives">
+        <description>
+            <p>Objects which are pooled and potentially reused should not be used for synchronization. If they are, it
+                can cause unrelated threads to deadlock
+                with unhelpful stacktraces. Specifically, <code>String</code> literals, and boxed primitives such as
+                Integers should not be used as lock objects
+                because they are pooled and reused. The story is even worse for <code>Boolean</code> objects, because
+                there are only two instances of
+                <code>Boolean</code>, <code>Boolean.TRUE</code> and <code>Boolean.FALSE</code> and every class that uses
+                a Boolean will be referring to one of the
+                two.
+            </p>
+        </description>
+        <example>
+            //Noncompliant Code Example
+            private static final Boolean bLock = Boolean.FALSE;
+            private static final Integer iLock = Integer.valueOf(0);
+            private static final String sLock = "LOCK";
+
+            public void doSomething() {
+
+            synchronized(bLock) { // Noncompliant
+            // ...
+            }
+            synchronized(iLock) { // Noncompliant
+            // ...
+            }
+            synchronized(sLock) { // Noncompliant
+            // ...
+            }
+            //Compliant Solution
+            private static final Object lock1 = new Object();
+            private static final Object lock2 = new Object();
+            private static final Object lock3 = new Object();
+
+            public void doSomething() {
+
+            synchronized(lock1) {
+            // ...
+            }
+            synchronized(lock2) {
+            // ...
+            }
+            synchronized(lock3) {
+            // ...
+            }
+        </example>
+        <priority>1</priority>
+    </rule>
+    <rule name="SynchronizedLockCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.codesmell.SynchronizedLockCheckRule"
+          message="Lock objects should not be synchronized">
+        <description>
+            <p>
+                <code>java.util.concurrent.locks.Lock</code>
+                offers far more powerful and flexible locking operations than are available with
+                <code>synchronized</code>
+                blocks. So synchronizing on a <code>Lock</code> throws away the power of the object, and is just silly.
+                Instead, such
+                objects should be locked and unlocked using <code>tryLock()</code> and <code>unlock()</code>.
+            </p>
+        </description>
+        <example>
+            //Noncompliant Code Example
+            Lock lock = new MyLockImpl();
+            synchronized(lock) { // Noncompliant
+            //...
+            }
+            //Compliant Solution
+            Lock lock = new MyLockImpl();
+            lock.tryLock();
+            //...
+        </example>
+        <priority>1</priority>
+    </rule>
+    <rule name="ThreadRunCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.bug.ThreadRunCheckRule"
+          message="Thread.run() should not be called directly">
+        <description>
+            <p>To get the expected behavior, call the <code>Thread.start()</code> method instead.
+            </p>
+        </description>
+        <example>
+            Thread myThread = new Thread(runnable);
+            myThread.run(); // Noncompliant
+            Thread myThread = new Thread(runnable);
+            myThread.start(); // Compliant
+        </example>
+        <priority>2</priority>
+    </rule>
+    <rule name="URLHashCodeAndEqualsCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.codesmell.URLHashCodeAndEqualsCheckRule"
+          message="'URL.hashCode' and 'URL.equals' should be avoided">
+        <description>
+            <p>This rule checks for uses of <code>URL</code> 's in <code>Map</code> and <code>Set</code> , and for
+                explicit calls to the <code>equals</code> and
+                <code>hashCode</code>
+                methods.
+            </p>
+        </description>
+        <example>
+            public void checkUrl(URL url) {
+            Set&lt;URL&gt; sites = new HashSet&lt;URL&gt;(); // Noncompliant
+
+            URL homepage = new URL("http://sonarsource.com"); // Compliant
+            if (homepage.equals(url)) { // Noncompliant
+            // ...
+            }
+            }
+        </example>
+        <priority>2</priority>
+    </rule>
+    <rule name="UselessIncrementCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.bug.UselessIncrementCheckRule"
+          message="Values should not be uselessly incremented">
+        <description>
+            <p>A value that is incremented or decremented and then not stored is at best wasted code and at worst a
+                bug.
+            </p>
+        </description>
+        <example>
+            public int pickNumber() {
+            int i = 0;
+            int j = 0;
+            i = i++; // Noncompliant; i is still zero
+            return j++; // Noncompliant; 0 returned
+            }
+            public int pickNumber() {
+            int i = 0;
+            int j = 0;
+            i++;
+            return ++j;
+            }
+        </example>
+        <priority>2</priority>
+    </rule>
+</ruleset>

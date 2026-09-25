@@ -1,0 +1,17 @@
+# Operating system and IDE files
+.DS_Store
+**/.DS_Store
+.idea/
+.vscode/
+
+# Build and dependency outputs
+**/node_modules/
+**/target/
+**/dist/
+**/build/
+**/.scannerwork/
+*.log
+
+# Bundled archives are retained; extracted third-party source copies are not.
+backend/tools/PMD-main/
+backend/tools/UpFiles/

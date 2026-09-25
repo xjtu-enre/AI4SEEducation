@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+
+<!--gh-->
+<ruleset name="Sonar">
+    <description>
+        Implementing Sonar rules through PMD custom rules.
+    </description>
+    <rule name="RunFinalizersCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.bug.RunFinalizersCheckRule"
+          message="runFinalizersOnExit should not be called">
+        <description>
+            <p>Running finalizers on JVM exit is disabled by default. It can be enabled with <code>System.runFinalizersOnExit</code> and
+                <code>Runtime.runFinalizersOnExit</code>, but both methods are deprecated because they are are inherently unsafe. </p>
+            <p>According to the Oracle Javadoc:</p>
+            <blockquote>
+                <p>It may result in finalizers being called on live objects while other threads are concurrently manipulating those objects, resulting in erratic
+                    behavior or deadlock.</p>
+            </blockquote>
+            <p>If you really want to be execute something when the virtual machine begins its shutdown sequence, you should attach a shutdown hook. </p>
+        </description>
+        <example>
+            public static void main(String [] args) {
+            ...
+            System.runFinalizersOnExit(true);  // Noncompliant
+            ...
+            }
+
+            protected void finalize(){
+            doSomething();
+            }
+        </example>
+        <priority>2</priority>
+    </rule>
+
+<!--    <rule name="UnconditionalJumpStatementCheck"-->
+<!--          language="java"-->
+<!--          class="net.sourceforge.pmd.lang.java.rule.sonar.gh.UnconditionalJumpStatementCheckRule"-->
+<!--          message="Loop conditions should be true at least once">-->
+<!--        <description>-->
+<!--            <p>If a <code>for</code> loop's condition is false before the first loop iteration, the loop will never be executed. Such loops are almost always-->
+<!--                bugs, particularly when the initial value and stop conditions are hard-coded.</p>-->
+<!--        </description>-->
+<!--        <example>-->
+<!--            for (int i = 10; i &lt; 10; i++) {  // Noncompliant-->
+<!--            // ...-->
+<!--        </example>-->
+<!--        <priority>3</priority>-->
+<!--    </rule>-->
+
+    <rule name="ServletInstanceFieldCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.bug.ServletInstanceFieldCheckRule"
+          message="Servlets should not have mutable instance fields">
+        <description>
+            <p>By contract, a servlet container creates one instance of each servlet and then a dedicated thread is attached to each new incoming HTTP request to
+                process this request. So all threads are sharing the servlet instances and by extension instance fields. To prevent any misunderstanding and
+                unexpected behavior at runtime, all servlet fields should then be either <code>static</code> and/or <code>final</code>, or simply removed.</p>
+            <p>With Struts 1.X, the same constraint exists on <code>org.apache.struts.action.Action</code>.</p>
+        </description>
+        <example>
+            <pre>
+                public class MyServlet extends HttpServlet {
+                private String userName;  //As this field is shared by all users, it's obvious that this piece of information should be managed differently
+                ...
+                }
+            </pre>
+            <p>or </p>
+            <pre>
+                public class MyAction extends Action {
+                private String userName;  //Same reason
+                ...
+                }
+            </pre>
+        </example>
+        <priority>2</priority>
+    </rule>
+
+    <rule name="ForLoopFalseConditionCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.bug.ForLoopFalseConditionCheckRule"
+          message="Loop conditions should be true at least once">
+        <description>
+            <p>If a <code>for</code> loop's condition is false before the first loop iteration, the loop will never be executed. Such loops are almost always
+                bugs, particularly when the initial value and stop conditions are hard-coded.</p>
+        </description>
+        <example>
+            for (int i = 10; i &lt; 10; i++) {  // Noncompliant
+            // ...
+        </example>
+        <priority>3</priority>
+    </rule>
+
+    <rule name="LockShouldWithTryFinallyRule"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.concurrent.LockShouldWithTryFinallyRule"
+          message="Lock should with try finally">
+        <description>
+            在使用阻塞等待获取锁的方式中，必须在try代码块之外，并且在加锁方法与try代码块之间没有任何可能抛出异常的方法调用，避免加锁成功后，在finally中无法解锁。
+            说明一：如果在lock方法与try代码块之间的方法调用抛出异常，那么无法解锁，造成其它线程无法成功获取锁。
+            说明二：如果lock方法在try代码块之内，可能由于其它方法抛出异常，导致在finally代码块中，unlock对未加锁的对象解锁，它会调用AQS的tryRelease方法（取决于具体实现类），抛出IllegalMonitorStateException异常。
+            说明三：在Lock对象的lock方法实现中可能抛出unchecked异常，产生的后果与说明二相同。
+        </description>
+        <example>
+            <![CDATA[
+package com.alibaba.test.p3c;
+
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+/**
+ * @author caikang
+ * @date 2019/09/29
+ */
+public class LockTest {
+    private Lock lock = new ReentrantLock();
+
+    public void testLock() {
+        try {
+            lock.lockInterruptibly();       // Noncompliant
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        try {
+            lock.lock();                    // Noncompliant
+            try {
+
+            } finally {
+            }
+        } catch (Exception e) {
+
+        } finally {
+            lock.unlock();
+        }
+    }
+}
+        ]]>
+        </example>
+        <priority>3</priority>
+    </rule>
+</ruleset>

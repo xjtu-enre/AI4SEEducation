@@ -1,0 +1,2323 @@
+{
+    "commits": [
+        {
+            "repository": "https://github.com/LineageOS/android_frameworks_base.git",
+            "sha1": "d56f59389212df5462b342be7600c1974d27c0d5",
+            "url": "https://github.com/LineageOS/android_frameworks_base/commit/d56f59389212df5462b342be7600c1974d27c0d5",
+            "refactorings": [
+                {
+                    "type": "Rename Variable",
+                    "description": "Rename Variable firstScan : boolean to cacheInvalid : boolean in method private generateServicesMap(changedUids int[], userId int) : void from class android.content.pm.RegisteredServicesCache",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "core/java/android/content/pm/RegisteredServicesCache.java",
+                            "startLine": 486,
+                            "endLine": 486,
+                            "startColumn": 27,
+                            "endColumn": 60,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "original variable declaration",
+                            "codeElement": "firstScan : boolean"
+                        },
+                        {
+                            "filePath": "core/java/android/content/pm/RegisteredServicesCache.java",
+                            "startLine": 456,
+                            "endLine": 585,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "private generateServicesMap(changedUids int[], userId int) : void"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "core/java/android/content/pm/RegisteredServicesCache.java",
+                            "startLine": 476,
+                            "endLine": 476,
+                            "startColumn": 27,
+                            "endColumn": 63,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "renamed variable declaration",
+                            "codeElement": "cacheInvalid : boolean"
+                        },
+                        {
+                            "filePath": "core/java/android/content/pm/RegisteredServicesCache.java",
+                            "startLine": 461,
+                            "endLine": 604,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "method declaration with renamed variable",
+                            "codeElement": "private generateServicesMap(changedUids int[], userId int) : void"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Method",
+                    "description": "Rename Method public getFatVolumeId() : int renamed to public getVolumeId() : int in class android.os.storage.StorageVolume",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "core/java/android/os/storage/StorageVolume.java",
+                            "startLine": 251,
+                            "endLine": 265,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "public getFatVolumeId() : int"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "core/java/android/os/storage/StorageVolume.java",
+                            "startLine": 251,
+                            "endLine": 270,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "renamed method declaration",
+                            "codeElement": "public getVolumeId() : int"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Attribute",
+                    "description": "Rename Attribute ASSIST_GESTURE_SENSITIVITY_VALIDATOR : Validator to VOLUME_LINK_NOTIFICATION_VALIDATOR : Validator in class android.provider.Settings.Secure",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "core/java/android/provider/Settings.java",
+                            "startLine": 7544,
+                            "endLine": 7545,
+                            "startColumn": 40,
+                            "endColumn": 80,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "ASSIST_GESTURE_SENSITIVITY_VALIDATOR : Validator"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "core/java/android/provider/Settings.java",
+                            "startLine": 8013,
+                            "endLine": 8013,
+                            "startColumn": 40,
+                            "endColumn": 94,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "renamed attribute declaration",
+                            "codeElement": "VOLUME_LINK_NOTIFICATION_VALIDATOR : Validator"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Method",
+                    "description": "Rename Method public fromResources(res Resources, displayWidth int, displayHeight int) : DisplayCutout renamed to public fromResourcesRectApproximation(res Resources, displayWidth int, displayHeight int) : DisplayCutout in class android.view.DisplayCutout",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "core/java/android/view/DisplayCutout.java",
+                            "startLine": 356,
+                            "endLine": 364,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "public fromResources(res Resources, displayWidth int, displayHeight int) : DisplayCutout"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "core/java/android/view/DisplayCutout.java",
+                            "startLine": 344,
+                            "endLine": 354,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "renamed method declaration",
+                            "codeElement": "public fromResourcesRectApproximation(res Resources, displayWidth int, displayHeight int) : DisplayCutout"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Variable",
+                    "description": "Rename Variable clipRegion : Region to r : Region in method private pathAndDisplayCutoutFromSpec(spec String, displayWidth int, displayHeight int, density float) : Pair<Path,DisplayCutout> from class android.view.DisplayCutout",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "core/java/android/view/DisplayCutout.java",
+                            "startLine": 346,
+                            "endLine": 346,
+                            "startColumn": 16,
+                            "endColumn": 44,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "original variable declaration",
+                            "codeElement": "clipRegion : Region"
+                        },
+                        {
+                            "filePath": "core/java/android/view/DisplayCutout.java",
+                            "startLine": 338,
+                            "endLine": 354,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "public fromBounds(path Path) : DisplayCutout"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "core/java/android/view/DisplayCutout.java",
+                            "startLine": 411,
+                            "endLine": 411,
+                            "startColumn": 22,
+                            "endColumn": 41,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "renamed variable declaration",
+                            "codeElement": "r : Region"
+                        },
+                        {
+                            "filePath": "core/java/android/view/DisplayCutout.java",
+                            "startLine": 378,
+                            "endLine": 462,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "method declaration with renamed variable",
+                            "codeElement": "private pathAndDisplayCutoutFromSpec(spec String, displayWidth int, displayHeight int, density float) : Pair<Path,DisplayCutout>"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Variable",
+                    "description": "Rename Variable clipRect : RectF to rectF : RectF in method private toRectAndAddToRegion(p Path, inoutRegion Region, inoutRect Rect) : void from class android.view.DisplayCutout",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "core/java/android/view/DisplayCutout.java",
+                            "startLine": 344,
+                            "endLine": 344,
+                            "startColumn": 15,
+                            "endColumn": 37,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "original variable declaration",
+                            "codeElement": "clipRect : RectF"
+                        },
+                        {
+                            "filePath": "core/java/android/view/DisplayCutout.java",
+                            "startLine": 387,
+                            "endLine": 457,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "private pathAndDisplayCutoutFromSpec(spec String, displayWidth int, displayHeight int, density float) : Pair<Path,DisplayCutout>"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "core/java/android/view/DisplayCutout.java",
+                            "startLine": 465,
+                            "endLine": 465,
+                            "startColumn": 21,
+                            "endColumn": 40,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "renamed variable declaration",
+                            "codeElement": "rectF : RectF"
+                        },
+                        {
+                            "filePath": "core/java/android/view/DisplayCutout.java",
+                            "startLine": 464,
+                            "endLine": 469,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "method declaration with renamed variable",
+                            "codeElement": "private toRectAndAddToRegion(p Path, inoutRegion Region, inoutRect Rect) : void"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Variable",
+                    "description": "Rename Variable path : Path to r : Region in method public fromBoundingRect(left int, top int, right int, bottom int) : DisplayCutout from class android.view.DisplayCutout",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "core/java/android/view/DisplayCutout.java",
+                            "startLine": 328,
+                            "endLine": 328,
+                            "startColumn": 14,
+                            "endColumn": 31,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "original variable declaration",
+                            "codeElement": "path : Path"
+                        },
+                        {
+                            "filePath": "core/java/android/view/DisplayCutout.java",
+                            "startLine": 322,
+                            "endLine": 336,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "public fromBoundingRect(left int, top int, right int, bottom int) : DisplayCutout"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "core/java/android/view/DisplayCutout.java",
+                            "startLine": 330,
+                            "endLine": 330,
+                            "startColumn": 16,
+                            "endColumn": 35,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "renamed variable declaration",
+                            "codeElement": "r : Region"
+                        },
+                        {
+                            "filePath": "core/java/android/view/DisplayCutout.java",
+                            "startLine": 323,
+                            "endLine": 333,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "method declaration with renamed variable",
+                            "codeElement": "public fromBoundingRect(left int, top int, right int, bottom int) : DisplayCutout"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Variable",
+                    "description": "Rename Variable time : Date to localTime : LocalDateTime in method package update() : void from class android.widget.DateTimeView",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "core/java/android/widget/DateTimeView.java",
+                            "startLine": 162,
+                            "endLine": 162,
+                            "startColumn": 14,
+                            "endColumn": 26,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "original variable declaration",
+                            "codeElement": "time : Date"
+                        },
+                        {
+                            "filePath": "core/java/android/widget/DateTimeView.java",
+                            "startLine": 152,
+                            "endLine": 234,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "package update() : void"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "core/java/android/widget/DateTimeView.java",
+                            "startLine": 167,
+                            "endLine": 167,
+                            "startColumn": 23,
+                            "endColumn": 45,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "renamed variable declaration",
+                            "codeElement": "localTime : LocalDateTime"
+                        },
+                        {
+                            "filePath": "core/java/android/widget/DateTimeView.java",
+                            "startLine": 154,
+                            "endLine": 232,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "method declaration with renamed variable",
+                            "codeElement": "package update() : void"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Variable",
+                    "description": "Rename Variable timeZone : TimeZone to zoneId : ZoneId in method private updateRelativeTime() : void from class android.widget.DateTimeView",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "core/java/android/widget/DateTimeView.java",
+                            "startLine": 265,
+                            "endLine": 265,
+                            "startColumn": 22,
+                            "endColumn": 54,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "original variable declaration",
+                            "codeElement": "timeZone : TimeZone"
+                        },
+                        {
+                            "filePath": "core/java/android/widget/DateTimeView.java",
+                            "startLine": 236,
+                            "endLine": 296,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "private updateRelativeTime() : void"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "core/java/android/widget/DateTimeView.java",
+                            "startLine": 264,
+                            "endLine": 264,
+                            "startColumn": 20,
+                            "endColumn": 51,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "renamed variable declaration",
+                            "codeElement": "zoneId : ZoneId"
+                        },
+                        {
+                            "filePath": "core/java/android/widget/DateTimeView.java",
+                            "startLine": 234,
+                            "endLine": 297,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "method declaration with renamed variable",
+                            "codeElement": "private updateRelativeTime() : void"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Variable",
+                    "description": "Rename Variable timeZone : TimeZone to zoneId : ZoneId in method public onInitializeAccessibilityNodeInfoInternal(info AccessibilityNodeInfo) : void from class android.widget.DateTimeView",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "core/java/android/widget/DateTimeView.java",
+                            "startLine": 377,
+                            "endLine": 377,
+                            "startColumn": 26,
+                            "endColumn": 58,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "original variable declaration",
+                            "codeElement": "timeZone : TimeZone"
+                        },
+                        {
+                            "filePath": "core/java/android/widget/DateTimeView.java",
+                            "startLine": 344,
+                            "endLine": 399,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "public onInitializeAccessibilityNodeInfoInternal(info AccessibilityNodeInfo) : void"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "core/java/android/widget/DateTimeView.java",
+                            "startLine": 373,
+                            "endLine": 373,
+                            "startColumn": 24,
+                            "endColumn": 55,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "renamed variable declaration",
+                            "codeElement": "zoneId : ZoneId"
+                        },
+                        {
+                            "filePath": "core/java/android/widget/DateTimeView.java",
+                            "startLine": 339,
+                            "endLine": 397,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "method declaration with renamed variable",
+                            "codeElement": "public onInitializeAccessibilityNodeInfoInternal(info AccessibilityNodeInfo) : void"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Attribute",
+                    "description": "Rename Attribute mTime : Date to mLocalTime : LocalDateTime in class android.widget.DateTimeView",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "core/java/android/widget/DateTimeView.java",
+                            "startLine": 64,
+                            "endLine": 64,
+                            "startColumn": 10,
+                            "endColumn": 15,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "mTime : Date"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "core/java/android/widget/DateTimeView.java",
+                            "startLine": 68,
+                            "endLine": 68,
+                            "startColumn": 27,
+                            "endColumn": 37,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "renamed attribute declaration",
+                            "codeElement": "mLocalTime : LocalDateTime"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Method",
+                    "description": "Rename Method private areAllRotationsAllowed(context Context) : boolean renamed to private isCurrentRotationAllowed(context Context) : boolean in class com.android.internal.view.RotationPolicy",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "core/java/com/android/internal/view/RotationPolicy.java",
+                            "startLine": 141,
+                            "endLine": 143,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "private areAllRotationsAllowed(context Context) : boolean"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "core/java/com/android/internal/view/RotationPolicy.java",
+                            "startLine": 168,
+                            "endLine": 181,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "renamed method declaration",
+                            "codeElement": "private isCurrentRotationAllowed(context Context) : boolean"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Method",
+                    "description": "Rename Method public setHearingAidDeviceConnectionState(device BluetoothDevice, state int) : void renamed to public setBluetoothHearingAidDeviceConnectionState(device BluetoothDevice, state int, suppressNoisyIntent boolean, musicDevice int) : int in class android.media.AudioManager",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "media/java/android/media/AudioManager.java",
+                            "startLine": 3898,
+                            "endLine": 3911,
+                            "startColumn": 6,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "public setHearingAidDeviceConnectionState(device BluetoothDevice, state int) : void"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "media/java/android/media/AudioManager.java",
+                            "startLine": 3898,
+                            "endLine": 3924,
+                            "startColumn": 6,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "renamed method declaration",
+                            "codeElement": "public setBluetoothHearingAidDeviceConnectionState(device BluetoothDevice, state int, suppressNoisyIntent boolean, musicDevice int) : int"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Attribute",
+                    "description": "Rename Attribute STORAGE_MANAGER_SHOW_OPT_IN_PROPERTY : String to STORAGE_MANAGER_ENABLED_PROPERTY : String in class com.android.settingslib.Utils",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "packages/SettingsLib/src/com/android/settingslib/Utils.java",
+                            "startLine": 38,
+                            "endLine": 39,
+                            "startColumn": 25,
+                            "endColumn": 45,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "STORAGE_MANAGER_SHOW_OPT_IN_PROPERTY : String"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "packages/SettingsLib/src/com/android/settingslib/Utils.java",
+                            "startLine": 38,
+                            "endLine": 39,
+                            "startColumn": 25,
+                            "endColumn": 41,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "renamed attribute declaration",
+                            "codeElement": "STORAGE_MANAGER_ENABLED_PROPERTY : String"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Variable",
+                    "description": "Rename Variable iprovider : IContentProvider to provider : IContentProvider in method public onCommand(cmd String) : int from class com.android.providers.settings.SettingsService.MyShellCommand",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "packages/SettingsProvider/src/com/android/providers/settings/SettingsService.java",
+                            "startLine": 278,
+                            "endLine": 278,
+                            "startColumn": 36,
+                            "endColumn": 79,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "original variable declaration",
+                            "codeElement": "iprovider : IContentProvider"
+                        },
+                        {
+                            "filePath": "packages/SettingsProvider/src/com/android/providers/settings/SettingsService.java",
+                            "startLine": 125,
+                            "endLine": 305,
+                            "startColumn": 9,
+                            "endColumn": 10,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "public onCommand(cmd String) : int"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "packages/SettingsProvider/src/com/android/providers/settings/SettingsService.java",
+                            "startLine": 296,
+                            "endLine": 296,
+                            "startColumn": 40,
+                            "endColumn": 66,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "renamed variable declaration",
+                            "codeElement": "provider : IContentProvider"
+                        },
+                        {
+                            "filePath": "packages/SettingsProvider/src/com/android/providers/settings/SettingsService.java",
+                            "startLine": 130,
+                            "endLine": 335,
+                            "startColumn": 9,
+                            "endColumn": 10,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "method declaration with renamed variable",
+                            "codeElement": "public onCommand(cmd String) : int"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Attribute",
+                    "description": "Rename Attribute mBackground : HardwareBgDrawable to mListBackground : HardwareBgDrawable in class com.android.systemui.HardwareUiLayout",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/HardwareUiLayout.java",
+                            "startLine": 53,
+                            "endLine": 53,
+                            "startColumn": 32,
+                            "endColumn": 43,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "mBackground : HardwareBgDrawable"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/HardwareUiLayout.java",
+                            "startLine": 52,
+                            "endLine": 52,
+                            "startColumn": 32,
+                            "endColumn": 47,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "renamed attribute declaration",
+                            "codeElement": "mListBackground : HardwareBgDrawable"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Attribute",
+                    "description": "Rename Attribute mChild : View to mList : View in class com.android.systemui.HardwareUiLayout",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/HardwareUiLayout.java",
+                            "startLine": 47,
+                            "endLine": 47,
+                            "startColumn": 18,
+                            "endColumn": 24,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "mChild : View"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/HardwareUiLayout.java",
+                            "startLine": 45,
+                            "endLine": 45,
+                            "startColumn": 18,
+                            "endColumn": 23,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "renamed attribute declaration",
+                            "codeElement": "mList : View"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Method",
+                    "description": "Rename Method private setupPadding(padding int) : void renamed to private setupStatusBarPadding(padding int) : void in class com.android.systemui.ScreenDecorations",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/ScreenDecorations.java",
+                            "startLine": 282,
+                            "endLine": 296,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "private setupPadding(padding int) : void"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/ScreenDecorations.java",
+                            "startLine": 377,
+                            "endLine": 391,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "renamed method declaration",
+                            "codeElement": "private setupStatusBarPadding(padding int) : void"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Method",
+                    "description": "Rename Method public setMediaBackdropVisible(visible boolean) : void renamed to public setHasBackdrop(hasBackdrop boolean) : void in class com.android.systemui.colorextraction.SysuiColorExtractor",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/colorextraction/SysuiColorExtractor.java",
+                            "startLine": 184,
+                            "endLine": 189,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "public setMediaBackdropVisible(visible boolean) : void"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/colorextraction/SysuiColorExtractor.java",
+                            "startLine": 183,
+                            "endLine": 188,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "renamed method declaration",
+                            "codeElement": "public setHasBackdrop(hasBackdrop boolean) : void"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Attribute",
+                    "description": "Rename Attribute mMediaBackdropVisible : boolean to mHasBackdrop : boolean in class com.android.systemui.colorextraction.SysuiColorExtractor",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/colorextraction/SysuiColorExtractor.java",
+                            "startLine": 49,
+                            "endLine": 49,
+                            "startColumn": 21,
+                            "endColumn": 42,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "mMediaBackdropVisible : boolean"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/colorextraction/SysuiColorExtractor.java",
+                            "startLine": 48,
+                            "endLine": 48,
+                            "startColumn": 21,
+                            "endColumn": 33,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "renamed attribute declaration",
+                            "codeElement": "mHasBackdrop : boolean"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Variable",
+                    "description": "Rename Variable icon : Drawable to avatar : Drawable in method private addUsersToMenu(items ArrayList<Action>) : void from class com.android.systemui.globalactions.GlobalActionsDialog",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialog.java",
+                            "startLine": 757,
+                            "endLine": 758,
+                            "startColumn": 30,
+                            "endColumn": 35,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "original variable declaration",
+                            "codeElement": "icon : Drawable"
+                        },
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialog.java",
+                            "startLine": 748,
+                            "endLine": 783,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "private addUsersToMenu(items ArrayList<Action>) : void"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialog.java",
+                            "startLine": 1018,
+                            "endLine": 1018,
+                            "startColumn": 30,
+                            "endColumn": 43,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "renamed variable declaration",
+                            "codeElement": "avatar : Drawable"
+                        },
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialog.java",
+                            "startLine": 1007,
+                            "endLine": 1055,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "method declaration with renamed variable",
+                            "codeElement": "private addUsersToMenu(items ArrayList<Action>) : void"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Attribute",
+                    "description": "Rename Attribute mRecentTemps : float[] to mRecentSkinTemps : float[] in class com.android.systemui.power.PowerUI",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/power/PowerUI.java",
+                            "startLine": 89,
+                            "endLine": 89,
+                            "startColumn": 21,
+                            "endColumn": 63,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "mRecentTemps : float[]"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/power/PowerUI.java",
+                            "startLine": 98,
+                            "endLine": 98,
+                            "startColumn": 21,
+                            "endColumn": 67,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "renamed attribute declaration",
+                            "codeElement": "mRecentSkinTemps : float[]"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Attribute",
+                    "description": "Rename Attribute mNumTemps : int to mWarningNumTemps : int in class com.android.systemui.power.PowerUI",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/power/PowerUI.java",
+                            "startLine": 90,
+                            "endLine": 90,
+                            "startColumn": 17,
+                            "endColumn": 26,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "mNumTemps : int"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/power/PowerUI.java",
+                            "startLine": 100,
+                            "endLine": 100,
+                            "startColumn": 17,
+                            "endColumn": 33,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "renamed attribute declaration",
+                            "codeElement": "mWarningNumTemps : int"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Method",
+                    "description": "Rename Method private formatBytes(bytes long) : String renamed to private formatDataUsage(byteValue long) : CharSequence in class com.android.systemui.qs.tiles.DataUsageDetailView",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/qs/tiles/DataUsageDetailView.java",
+                            "startLine": 126,
+                            "endLine": 141,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "private formatBytes(bytes long) : String"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/qs/tiles/DataUsageDetailView.java",
+                            "startLine": 125,
+                            "endLine": 130,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "renamed method declaration",
+                            "codeElement": "private formatDataUsage(byteValue long) : CharSequence"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Method",
+                    "description": "Rename Method public showDetail(show boolean) : void renamed to public turnOnDND(showDetails int) : void in class com.android.systemui.qs.tiles.DndTile",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/qs/tiles/DndTile.java",
+                            "startLine": 143,
+                            "endLine": 183,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "public showDetail(show boolean) : void"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/qs/tiles/DndTile.java",
+                            "startLine": 147,
+                            "endLine": 210,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "renamed method declaration",
+                            "codeElement": "public turnOnDND(showDetails int) : void"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Variable",
+                    "description": "Rename Variable locationEnabled : boolean to newValue : boolean in method protected handleUpdateState(state BooleanState, arg Object) : void from class com.android.systemui.qs.tiles.LocationTile",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/qs/tiles/LocationTile.java",
+                            "startLine": 97,
+                            "endLine": 97,
+                            "startColumn": 23,
+                            "endColumn": 73,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "original variable declaration",
+                            "codeElement": "locationEnabled : boolean"
+                        },
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/qs/tiles/LocationTile.java",
+                            "startLine": 92,
+                            "endLine": 120,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "protected handleUpdateState(state BooleanState, arg Object) : void"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/qs/tiles/LocationTile.java",
+                            "startLine": 139,
+                            "endLine": 139,
+                            "startColumn": 23,
+                            "endColumn": 83,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "renamed variable declaration",
+                            "codeElement": "newValue : boolean"
+                        },
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/qs/tiles/LocationTile.java",
+                            "startLine": 132,
+                            "endLine": 184,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "method declaration with renamed variable",
+                            "codeElement": "protected handleUpdateState(state BooleanState, arg Object) : void"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Attribute",
+                    "description": "Rename Attribute mDarkAmount : float to mInterpolatedDarkAmount : float in class com.android.systemui.statusbar.phone.NotificationPanelView",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationPanelView.java",
+                            "startLine": 239,
+                            "endLine": 239,
+                            "startColumn": 19,
+                            "endColumn": 30,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "mDarkAmount : float"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationPanelView.java",
+                            "startLine": 259,
+                            "endLine": 259,
+                            "startColumn": 19,
+                            "endColumn": 42,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "renamed attribute declaration",
+                            "codeElement": "mInterpolatedDarkAmount : float"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Attribute",
+                    "description": "Rename Attribute mTrackColorEvaluator : ArgbEvaluator to mTrackPaint : Paint in class com.android.systemui.statusbar.phone.QuickStepController",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/statusbar/phone/QuickStepController.java",
+                            "startLine": 97,
+                            "endLine": 97,
+                            "startColumn": 33,
+                            "endColumn": 75,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "mTrackColorEvaluator : ArgbEvaluator"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/statusbar/phone/QuickStepController.java",
+                            "startLine": 97,
+                            "endLine": 97,
+                            "startColumn": 25,
+                            "endColumn": 50,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "renamed attribute declaration",
+                            "codeElement": "mTrackPaint : Paint"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Method",
+                    "description": "Rename Method public onCameraHintStarted() : void renamed to public onPhoneHintStarted(hint CharSequence) : void in class com.android.systemui.statusbar.phone.StatusBar",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBar.java",
+                            "startLine": 4104,
+                            "endLine": 4107,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "public onCameraHintStarted() : void"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBar.java",
+                            "startLine": 4452,
+                            "endLine": 4456,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "renamed method declaration",
+                            "codeElement": "public onPhoneHintStarted(hint CharSequence) : void"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Method",
+                    "description": "Rename Method public onPhoneHintStarted() : void renamed to public onCameraHintStarted(hint CharSequence) : void in class com.android.systemui.statusbar.phone.StatusBar",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBar.java",
+                            "startLine": 4114,
+                            "endLine": 4117,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "public onPhoneHintStarted() : void"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBar.java",
+                            "startLine": 4440,
+                            "endLine": 4444,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "renamed method declaration",
+                            "codeElement": "public onCameraHintStarted(hint CharSequence) : void"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Attribute",
+                    "description": "Rename Attribute mWaitingForCallback : boolean to mWaitingForTerminalState : boolean in class com.android.systemui.statusbar.policy.HotspotControllerImpl",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/statusbar/policy/HotspotControllerImpl.java",
+                            "startLine": 48,
+                            "endLine": 48,
+                            "startColumn": 21,
+                            "endColumn": 40,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "mWaitingForCallback : boolean"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/statusbar/policy/HotspotControllerImpl.java",
+                            "startLine": 44,
+                            "endLine": 44,
+                            "startColumn": 21,
+                            "endColumn": 45,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "renamed attribute declaration",
+                            "codeElement": "mWaitingForTerminalState : boolean"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Method",
+                    "description": "Rename Method private updateAntiBurnInTranslation() : void renamed to private updatePanelTranslation() : void in class com.android.systemui.statusbar.stack.NotificationStackScrollLayout",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/statusbar/stack/NotificationStackScrollLayout.java",
+                            "startLine": 3996,
+                            "endLine": 3998,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "private updateAntiBurnInTranslation() : void"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/statusbar/stack/NotificationStackScrollLayout.java",
+                            "startLine": 4008,
+                            "endLine": 4010,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "renamed method declaration",
+                            "codeElement": "private updatePanelTranslation() : void"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Variable",
+                    "description": "Rename Variable showDemoMode : boolean to fragment : Fragment in method protected onCreate(savedInstanceState Bundle) : void from class com.android.systemui.tuner.TunerActivity",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/tuner/TunerActivity.java",
+                            "startLine": 44,
+                            "endLine": 45,
+                            "startColumn": 21,
+                            "endColumn": 61,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "original variable declaration",
+                            "codeElement": "showDemoMode : boolean"
+                        },
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/tuner/TunerActivity.java",
+                            "startLine": 38,
+                            "endLine": 51,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "protected onCreate(savedInstanceState Bundle) : void"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/tuner/TunerActivity.java",
+                            "startLine": 44,
+                            "endLine": 44,
+                            "startColumn": 28,
+                            "endColumn": 36,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "renamed variable declaration",
+                            "codeElement": "fragment : Fragment"
+                        },
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/tuner/TunerActivity.java",
+                            "startLine": 38,
+                            "endLine": 62,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "method declaration with renamed variable",
+                            "codeElement": "protected onCreate(savedInstanceState Bundle) : void"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Attribute",
+                    "description": "Rename Attribute mSettingsView : View to mExpandRowsView : View in class com.android.systemui.volume.VolumeDialogImpl",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+                            "startLine": 127,
+                            "endLine": 127,
+                            "startColumn": 18,
+                            "endColumn": 31,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "mSettingsView : View"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+                            "startLine": 135,
+                            "endLine": 135,
+                            "startColumn": 18,
+                            "endColumn": 33,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "renamed attribute declaration",
+                            "codeElement": "mExpandRowsView : View"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Attribute",
+                    "description": "Rename Attribute mSettingsIcon : ImageButton to mExpandRows : ExpandableIndicator in class com.android.systemui.volume.VolumeDialogImpl",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+                            "startLine": 128,
+                            "endLine": 128,
+                            "startColumn": 25,
+                            "endColumn": 38,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "mSettingsIcon : ImageButton"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+                            "startLine": 136,
+                            "endLine": 136,
+                            "startColumn": 33,
+                            "endColumn": 44,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "renamed attribute declaration",
+                            "codeElement": "mExpandRows : ExpandableIndicator"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Method",
+                    "description": "Rename Method public testShouldDismissLowBatteryWarning_dismissWhenPowerSaverEnabled() : void renamed to public testShouldDismissLowBatteryWarning_dismissWhenPowerSaverEnabledLegacy() : void in class com.android.systemui.power.PowerUITest",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/tests/src/com/android/systemui/power/PowerUITest.java",
+                            "startLine": 322,
+                            "endLine": 334,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "public testShouldDismissLowBatteryWarning_dismissWhenPowerSaverEnabled() : void"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/tests/src/com/android/systemui/power/PowerUITest.java",
+                            "startLine": 405,
+                            "endLine": 417,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "renamed method declaration",
+                            "codeElement": "public testShouldDismissLowBatteryWarning_dismissWhenPowerSaverEnabledLegacy() : void"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Method",
+                    "description": "Rename Method public testCloseControlsDoesNotUpdateIfCheckSaveListenerIsNoOp() : void renamed to public testBlockDoesNothingIfCheckSaveListenerIsNoOp() : void in class com.android.systemui.statusbar.NotificationInfoTest",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/tests/src/com/android/systemui/statusbar/NotificationInfoTest.java",
+                            "startLine": 789,
+                            "endLine": 804,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "public testCloseControlsDoesNotUpdateIfCheckSaveListenerIsNoOp() : void"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/tests/src/com/android/systemui/statusbar/NotificationInfoTest.java",
+                            "startLine": 791,
+                            "endLine": 806,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "renamed method declaration",
+                            "codeElement": "public testBlockDoesNothingIfCheckSaveListenerIsNoOp() : void"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Method",
+                    "description": "Rename Method private cancelBroadcasts(provider Provider) : void renamed to private cancelBroadcastsLocked(provider Provider) : void in class com.android.server.appwidget.AppWidgetServiceImpl",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "services/appwidget/java/com/android/server/appwidget/AppWidgetServiceImpl.java",
+                            "startLine": 1847,
+                            "endLine": 1861,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "private cancelBroadcasts(provider Provider) : void"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "services/appwidget/java/com/android/server/appwidget/AppWidgetServiceImpl.java",
+                            "startLine": 1846,
+                            "endLine": 1858,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "renamed method declaration",
+                            "codeElement": "private cancelBroadcastsLocked(provider Provider) : void"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Method",
+                    "description": "Rename Method package onUserUnlocked(userId int) : void renamed to package handleUserUnlocked(userId int) : void in class com.android.server.appwidget.AppWidgetServiceImpl",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "services/appwidget/java/com/android/server/appwidget/AppWidgetServiceImpl.java",
+                            "startLine": 2700,
+                            "endLine": 2739,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "package onUserUnlocked(userId int) : void"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "services/appwidget/java/com/android/server/appwidget/AppWidgetServiceImpl.java",
+                            "startLine": 2694,
+                            "endLine": 2738,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "renamed method declaration",
+                            "codeElement": "package handleUserUnlocked(userId int) : void"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Method",
+                    "description": "Rename Method private handlePinCamera(userHandle int) : void renamed to private pinApp(key int, appInfo ApplicationInfo) : void in class com.android.server.PinnerService",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/PinnerService.java",
+                            "startLine": 177,
+                            "endLine": 187,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "private handlePinCamera(userHandle int) : void"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/PinnerService.java",
+                            "startLine": 532,
+                            "endLine": 597,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "renamed method declaration",
+                            "codeElement": "private pinApp(key int, appInfo ApplicationInfo) : void"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Method",
+                    "description": "Rename Method private unpinCameraApp() : void renamed to private unpinApp(key int) : void in class com.android.server.PinnerService",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/PinnerService.java",
+                            "startLine": 189,
+                            "endLine": 198,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "private unpinCameraApp() : void"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/PinnerService.java",
+                            "startLine": 337,
+                            "endLine": 350,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "renamed method declaration",
+                            "codeElement": "private unpinApp(key int) : void"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Method",
+                    "description": "Rename Method private pinCamera(userHandle int) : boolean renamed to private pinApp(key int, userHandle int, force boolean) : void in class com.android.server.PinnerService",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/PinnerService.java",
+                            "startLine": 233,
+                            "endLine": 299,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "private pinCamera(userHandle int) : boolean"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/PinnerService.java",
+                            "startLine": 449,
+                            "endLine": 471,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "renamed method declaration",
+                            "codeElement": "private pinApp(key int, userHandle int, force boolean) : void"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Variable",
+                    "description": "Rename Variable cameraResolveInfo : ResolveInfo to info : ApplicationInfo in method private getCameraInfo(userHandle int) : ApplicationInfo from class com.android.server.PinnerService",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/PinnerService.java",
+                            "startLine": 210,
+                            "endLine": 213,
+                            "startColumn": 21,
+                            "endColumn": 28,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "original variable declaration",
+                            "codeElement": "cameraResolveInfo : ResolveInfo"
+                        },
+                        {
+                            "filePath": "services/core/java/com/android/server/PinnerService.java",
+                            "startLine": 204,
+                            "endLine": 231,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "private getCameraInfo(userHandle int) : ApplicationInfo"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/PinnerService.java",
+                            "startLine": 358,
+                            "endLine": 359,
+                            "startColumn": 25,
+                            "endColumn": 44,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "renamed variable declaration",
+                            "codeElement": "info : ApplicationInfo"
+                        },
+                        {
+                            "filePath": "services/core/java/com/android/server/PinnerService.java",
+                            "startLine": 356,
+                            "endLine": 380,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "method declaration with renamed variable",
+                            "codeElement": "private getCameraInfo(userHandle int) : ApplicationInfo"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Variable",
+                    "description": "Rename Variable pinnedCameraFiles : ArrayList<PinnedFile> to pinnedAppFiles : ArrayList<PinnedFile> in method private unpinApp(key int) : void from class com.android.server.PinnerService",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/PinnerService.java",
+                            "startLine": 190,
+                            "endLine": 190,
+                            "startColumn": 31,
+                            "endColumn": 48,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "original variable declaration",
+                            "codeElement": "pinnedCameraFiles : ArrayList<PinnedFile>"
+                        },
+                        {
+                            "filePath": "services/core/java/com/android/server/PinnerService.java",
+                            "startLine": 189,
+                            "endLine": 198,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "private unpinCameraApp() : void"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/PinnerService.java",
+                            "startLine": 338,
+                            "endLine": 338,
+                            "startColumn": 31,
+                            "endColumn": 45,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "renamed variable declaration",
+                            "codeElement": "pinnedAppFiles : ArrayList<PinnedFile>"
+                        },
+                        {
+                            "filePath": "services/core/java/com/android/server/PinnerService.java",
+                            "startLine": 337,
+                            "endLine": 350,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "method declaration with renamed variable",
+                            "codeElement": "private unpinApp(key int) : void"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Attribute",
+                    "description": "Rename Attribute mWiredDevLogger : AudioEventLogger to mDeviceLogger : AudioEventLogger in class com.android.server.audio.AudioService",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/audio/AudioService.java",
+                            "startLine": 7184,
+                            "endLine": 7187,
+                            "startColumn": 36,
+                            "endColumn": 14,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "mWiredDevLogger : AudioEventLogger"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/audio/AudioService.java",
+                            "startLine": 7240,
+                            "endLine": 7241,
+                            "startColumn": 36,
+                            "endColumn": 77,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "renamed attribute declaration",
+                            "codeElement": "mDeviceLogger : AudioEventLogger"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Method",
+                    "description": "Rename Method private setCurrentAudioRouteName(name String) : void renamed to private setCurrentAudioRouteNameIfPossible(name String) : void in class com.android.server.audio.AudioService",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/audio/AudioService.java",
+                            "startLine": 6054,
+                            "endLine": 6062,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "private setCurrentAudioRouteName(name String) : void"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/audio/AudioService.java",
+                            "startLine": 6091,
+                            "endLine": 6101,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "renamed method declaration",
+                            "codeElement": "private setCurrentAudioRouteNameIfPossible(name String) : void"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Method",
+                    "description": "Rename Method public updateCapabilities(cm ConnectivityManager, underlyingNetworks Network[], caps NetworkCapabilities) : void renamed to public applyUnderlyingCapabilities(cm ConnectivityManager, underlyingNetworks Network[], caps NetworkCapabilities) : void in class com.android.server.connectivity.Vpn",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/connectivity/Vpn.java",
+                            "startLine": 313,
+                            "endLine": 357,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "public updateCapabilities(cm ConnectivityManager, underlyingNetworks Network[], caps NetworkCapabilities) : void"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/connectivity/Vpn.java",
+                            "startLine": 332,
+                            "endLine": 379,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "renamed method declaration",
+                            "codeElement": "public applyUnderlyingCapabilities(cm ConnectivityManager, underlyingNetworks Network[], caps NetworkCapabilities) : void"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Attribute",
+                    "description": "Rename Attribute CALLBACK_TRACK_DEFAULT : int to CALLBACK_DEFAULT_INTERNET : int in class com.android.server.connectivity.tethering.UpstreamNetworkMonitor",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/connectivity/tethering/UpstreamNetworkMonitor.java",
+                            "startLine": 84,
+                            "endLine": 84,
+                            "startColumn": 30,
+                            "endColumn": 56,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "CALLBACK_TRACK_DEFAULT : int"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/connectivity/tethering/UpstreamNetworkMonitor.java",
+                            "startLine": 90,
+                            "endLine": 90,
+                            "startColumn": 30,
+                            "endColumn": 59,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "renamed attribute declaration",
+                            "codeElement": "CALLBACK_DEFAULT_INTERNET : int"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Attribute",
+                    "description": "Rename Attribute mBrighteningLuxThreshold : float to mAmbientBrighteningThreshold : float in class com.android.server.display.AutomaticBrightnessController",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/display/AutomaticBrightnessController.java",
+                            "startLine": 150,
+                            "endLine": 150,
+                            "startColumn": 19,
+                            "endColumn": 43,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "mBrighteningLuxThreshold : float"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/display/AutomaticBrightnessController.java",
+                            "startLine": 147,
+                            "endLine": 147,
+                            "startColumn": 19,
+                            "endColumn": 47,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "renamed attribute declaration",
+                            "codeElement": "mAmbientBrighteningThreshold : float"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Variable",
+                    "description": "Rename Variable brightLevels : int[] to ambientBrighteningThresholds : int[] in method public DisplayPowerController(context Context, callbacks DisplayPowerCallbacks, handler Handler, sensorManager SensorManager, blanker DisplayBlanker) from class com.android.server.display.DisplayPowerController",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/display/DisplayPowerController.java",
+                            "startLine": 425,
+                            "endLine": 426,
+                            "startColumn": 19,
+                            "endColumn": 87,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "original variable declaration",
+                            "codeElement": "brightLevels : int[]"
+                        },
+                        {
+                            "filePath": "services/core/java/com/android/server/display/DisplayPowerController.java",
+                            "startLine": 365,
+                            "endLine": 493,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "public DisplayPowerController(context Context, callbacks DisplayPowerCallbacks, handler Handler, sensorManager SensorManager, blanker DisplayBlanker)"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/display/DisplayPowerController.java",
+                            "startLine": 430,
+                            "endLine": 431,
+                            "startColumn": 19,
+                            "endColumn": 86,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "renamed variable declaration",
+                            "codeElement": "ambientBrighteningThresholds : int[]"
+                        },
+                        {
+                            "filePath": "services/core/java/com/android/server/display/DisplayPowerController.java",
+                            "startLine": 369,
+                            "endLine": 510,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "method declaration with renamed variable",
+                            "codeElement": "public DisplayPowerController(context Context, callbacks DisplayPowerCallbacks, handler Handler, sensorManager SensorManager, blanker DisplayBlanker)"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Variable",
+                    "description": "Rename Variable hysteresisLevels : HysteresisLevels to ambientBrightnessThresholds : HysteresisLevels in method public DisplayPowerController(context Context, callbacks DisplayPowerCallbacks, handler Handler, sensorManager SensorManager, blanker DisplayBlanker) from class com.android.server.display.DisplayPowerController",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/display/DisplayPowerController.java",
+                            "startLine": 431,
+                            "endLine": 432,
+                            "startColumn": 30,
+                            "endColumn": 67,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "original variable declaration",
+                            "codeElement": "hysteresisLevels : HysteresisLevels"
+                        },
+                        {
+                            "filePath": "services/core/java/com/android/server/display/DisplayPowerController.java",
+                            "startLine": 365,
+                            "endLine": 493,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "public DisplayPowerController(context Context, callbacks DisplayPowerCallbacks, handler Handler, sensorManager SensorManager, blanker DisplayBlanker)"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/display/DisplayPowerController.java",
+                            "startLine": 436,
+                            "endLine": 438,
+                            "startColumn": 30,
+                            "endColumn": 44,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "renamed variable declaration",
+                            "codeElement": "ambientBrightnessThresholds : HysteresisLevels"
+                        },
+                        {
+                            "filePath": "services/core/java/com/android/server/display/DisplayPowerController.java",
+                            "startLine": 369,
+                            "endLine": 510,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "method declaration with renamed variable",
+                            "codeElement": "public DisplayPowerController(context Context, callbacks DisplayPowerCallbacks, handler Handler, sensorManager SensorManager, blanker DisplayBlanker)"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Attribute",
+                    "description": "Rename Attribute mBrightLevels : float[] to mBrighteningThresholds : float[] in class com.android.server.display.HysteresisLevels",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/display/HysteresisLevels.java",
+                            "startLine": 38,
+                            "endLine": 38,
+                            "startColumn": 27,
+                            "endColumn": 40,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "mBrightLevels : float[]"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/display/HysteresisLevels.java",
+                            "startLine": 38,
+                            "endLine": 38,
+                            "startColumn": 27,
+                            "endColumn": 49,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "renamed attribute declaration",
+                            "codeElement": "mBrighteningThresholds : float[]"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Attribute",
+                    "description": "Rename Attribute CLEANUP_UNUSED_FP : boolean to mCleanupUnusedFingerprints : boolean in class com.android.server.fingerprint.FingerprintService",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/fingerprint/FingerprintService.java",
+                            "startLine": 104,
+                            "endLine": 104,
+                            "startColumn": 34,
+                            "endColumn": 58,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "CLEANUP_UNUSED_FP : boolean"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/fingerprint/FingerprintService.java",
+                            "startLine": 156,
+                            "endLine": 156,
+                            "startColumn": 27,
+                            "endColumn": 53,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "renamed attribute declaration",
+                            "codeElement": "mCleanupUnusedFingerprints : boolean"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Attribute",
+                    "description": "Rename Attribute SYNTHETIC_PASSWORD_VERSION : byte to SYNTHETIC_PASSWORD_VERSION_V2 : byte in class com.android.server.locksettings.SyntheticPasswordManager",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/locksettings/SyntheticPasswordManager.java",
+                            "startLine": 105,
+                            "endLine": 105,
+                            "startColumn": 31,
+                            "endColumn": 61,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "SYNTHETIC_PASSWORD_VERSION : byte"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/locksettings/SyntheticPasswordManager.java",
+                            "startLine": 105,
+                            "endLine": 105,
+                            "startColumn": 31,
+                            "endColumn": 64,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "renamed attribute declaration",
+                            "codeElement": "SYNTHETIC_PASSWORD_VERSION_V2 : byte"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Attribute",
+                    "description": "Rename Attribute MSG_REGISTER_GLOBAL_ALERT : int to MSG_PERFORM_POLL_REGISTER_ALERT : int in class com.android.server.net.NetworkStatsService",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/net/NetworkStatsService.java",
+                            "startLine": 164,
+                            "endLine": 164,
+                            "startColumn": 30,
+                            "endColumn": 59,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "MSG_REGISTER_GLOBAL_ALERT : int"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/net/NetworkStatsService.java",
+                            "startLine": 164,
+                            "endLine": 164,
+                            "startColumn": 30,
+                            "endColumn": 65,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "renamed attribute declaration",
+                            "codeElement": "MSG_PERFORM_POLL_REGISTER_ALERT : int"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Method",
+                    "description": "Rename Method private showWiredChargingStarted() : void renamed to private showWiredCharging() : void in class com.android.server.power.Notifier",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/power/Notifier.java",
+                            "startLine": 764,
+                            "endLine": 767,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "private showWiredChargingStarted() : void"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/power/Notifier.java",
+                            "startLine": 783,
+                            "endLine": 787,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "renamed method declaration",
+                            "codeElement": "private showWiredCharging() : void"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Variable",
+                    "description": "Rename Variable brightness : int to screenBrightness : int in method package performSurfacePlacement(recoveringMemory boolean) : void from class com.android.server.wm.RootWindowContainer",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/wm/RootWindowContainer.java",
+                            "startLine": 731,
+                            "endLine": 732,
+                            "startColumn": 23,
+                            "endColumn": 67,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "original variable declaration",
+                            "codeElement": "brightness : int"
+                        },
+                        {
+                            "filePath": "services/core/java/com/android/server/wm/RootWindowContainer.java",
+                            "startLine": 559,
+                            "endLine": 824,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "package performSurfacePlacement(recoveringMemory boolean) : void"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/wm/RootWindowContainer.java",
+                            "startLine": 737,
+                            "endLine": 738,
+                            "startColumn": 23,
+                            "endColumn": 67,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "renamed variable declaration",
+                            "codeElement": "screenBrightness : int"
+                        },
+                        {
+                            "filePath": "services/core/java/com/android/server/wm/RootWindowContainer.java",
+                            "startLine": 561,
+                            "endLine": 831,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "method declaration with renamed variable",
+                            "codeElement": "package performSurfacePlacement(recoveringMemory boolean) : void"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Method",
+                    "description": "Rename Method private checkDevicePoint(x int, y int) : DevicePointAssertable renamed to private checkPoint(x int, y int) : TransformPointAssertable in class com.android.server.wm.utils.CoordinateTransformsTest",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "services/tests/servicestests/src/com/android/server/wm/utils/CoordinateTransformsTest.java",
+                            "startLine": 83,
+                            "endLine": 93,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "private checkDevicePoint(x int, y int) : DevicePointAssertable"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "services/tests/servicestests/src/com/android/server/wm/utils/CoordinateTransformsTest.java",
+                            "startLine": 190,
+                            "endLine": 200,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "renamed method declaration",
+                            "codeElement": "private checkPoint(x int, y int) : TransformPointAssertable"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Method",
+                    "description": "Rename Method private getCustomLightsNotification() : NotificationRecord renamed to private getLightsOnceNotification() : NotificationRecord in class com.android.server.notification.BuzzBeepBlinkTest",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "services/tests/uiservicestests/src/com/android/server/notification/BuzzBeepBlinkTest.java",
+                            "startLine": 223,
+                            "endLine": 228,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "private getCustomLightsNotification() : NotificationRecord"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "services/tests/uiservicestests/src/com/android/server/notification/BuzzBeepBlinkTest.java",
+                            "startLine": 229,
+                            "endLine": 232,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "renamed method declaration",
+                            "codeElement": "private getLightsOnceNotification() : NotificationRecord"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Attribute",
+                    "description": "Rename Attribute mAdbNotificationShown : boolean to mAdbNotificationId : int in class com.android.server.usb.UsbDeviceManager.UsbHandler",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "services/usb/java/com/android/server/usb/UsbDeviceManager.java",
+                            "startLine": 471,
+                            "endLine": 471,
+                            "startColumn": 25,
+                            "endColumn": 46,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "mAdbNotificationShown : boolean"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "services/usb/java/com/android/server/usb/UsbDeviceManager.java",
+                            "startLine": 488,
+                            "endLine": 488,
+                            "startColumn": 21,
+                            "endColumn": 39,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "renamed attribute declaration",
+                            "codeElement": "mAdbNotificationId : int"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Variable",
+                    "description": "Rename Variable hotLaunchSuccess : boolean to launchSuccess : boolean in method private parseLaunchTimeAndWrite(parcelDesc ParcelFileDescriptor, headerInfo String) : AppLaunchResult from class com.android.tests.applaunch.AppLaunch.AppLaunchRunnable",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "tests/AppLaunch/src/com/android/tests/applaunch/AppLaunch.java",
+                            "startLine": 808,
+                            "endLine": 808,
+                            "startColumn": 21,
+                            "endColumn": 45,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "original variable declaration",
+                            "codeElement": "hotLaunchSuccess : boolean"
+                        },
+                        {
+                            "filePath": "tests/AppLaunch/src/com/android/tests/applaunch/AppLaunch.java",
+                            "startLine": 796,
+                            "endLine": 885,
+                            "startColumn": 9,
+                            "endColumn": 10,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "private parseLaunchTimeAndWrite(parcelDesc ParcelFileDescriptor, headerInfo String) : AppLaunchResult"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "tests/AppLaunch/src/com/android/tests/applaunch/AppLaunch.java",
+                            "startLine": 806,
+                            "endLine": 806,
+                            "startColumn": 21,
+                            "endColumn": 42,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "renamed variable declaration",
+                            "codeElement": "launchSuccess : boolean"
+                        },
+                        {
+                            "filePath": "tests/AppLaunch/src/com/android/tests/applaunch/AppLaunch.java",
+                            "startLine": 795,
+                            "endLine": 864,
+                            "startColumn": 9,
+                            "endColumn": 10,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "method declaration with renamed variable",
+                            "codeElement": "private parseLaunchTimeAndWrite(parcelDesc ParcelFileDescriptor, headerInfo String) : AppLaunchResult"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Variable",
+                    "description": "Rename Variable stats : NetworkStats to statsXt : NetworkStats in method public testApply464xlatAdjustments() : void from class android.net.NetworkStatsTest",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "tests/net/java/android/net/NetworkStatsTest.java",
+                            "startLine": 796,
+                            "endLine": 809,
+                            "startColumn": 22,
+                            "endColumn": 39,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "original variable declaration",
+                            "codeElement": "stats : NetworkStats"
+                        },
+                        {
+                            "filePath": "tests/net/java/android/net/NetworkStatsTest.java",
+                            "startLine": 778,
+                            "endLine": 829,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "public testApply464xlatAdjustments() : void"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "tests/net/java/android/net/NetworkStatsTest.java",
+                            "startLine": 828,
+                            "endLine": 831,
+                            "startColumn": 28,
+                            "endColumn": 39,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "renamed variable declaration",
+                            "codeElement": "statsXt : NetworkStats"
+                        },
+                        {
+                            "filePath": "tests/net/java/android/net/NetworkStatsTest.java",
+                            "startLine": 779,
+                            "endLine": 863,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "method declaration with renamed variable",
+                            "codeElement": "public testApply464xlatAdjustments() : void"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Method",
+                    "description": "Rename Method public testVpnWithAndWithoutInternet() : void renamed to public testVpnWithInternet() : void in class com.android.server.ConnectivityServiceTest",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "tests/net/java/com/android/server/ConnectivityServiceTest.java",
+                            "startLine": 4345,
+                            "endLine": 4394,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "public testVpnWithAndWithoutInternet() : void"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "tests/net/java/com/android/server/ConnectivityServiceTest.java",
+                            "startLine": 4427,
+                            "endLine": 4456,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "renamed method declaration",
+                            "codeElement": "public testVpnWithInternet() : void"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Attribute",
+                    "description": "Rename Attribute VISIBLE : int to GONE : int in class android.view.View",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "core/java/android/view/View.java",
+                            "startLine": 967,
+                            "endLine": 967,
+                            "startColumn": 29,
+                            "endColumn": 49,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "VISIBLE : int"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "core/java/android/view/View.java",
+                            "startLine": 981,
+                            "endLine": 981,
+                            "startColumn": 29,
+                            "endColumn": 46,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "renamed attribute declaration",
+                            "codeElement": "GONE : int"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Attribute",
+                    "description": "Rename Attribute QS_SHOW_BRIGHTNESS : String to QS_SHOW_BRIGHTNESS_SLIDER : String in class com.android.systemui.qs.QSPanel",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/qs/QSPanel.java",
+                            "startLine": 60,
+                            "endLine": 60,
+                            "startColumn": 32,
+                            "endColumn": 73,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "QS_SHOW_BRIGHTNESS : String"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/qs/QSPanel.java",
+                            "startLine": 65,
+                            "endLine": 66,
+                            "startColumn": 32,
+                            "endColumn": 80,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "renamed attribute declaration",
+                            "codeElement": "QS_SHOW_BRIGHTNESS_SLIDER : String"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Attribute",
+                    "description": "Rename Attribute TYPE_NAVIGATION_BAR_PANEL : int to TYPE_APPLICATION_OVERLAY : int in class android.view.WindowManager.LayoutParams",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "core/java/android/view/WindowManager.java",
+                            "startLine": 898,
+                            "endLine": 898,
+                            "startColumn": 33,
+                            "endColumn": 83,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "TYPE_NAVIGATION_BAR_PANEL : int"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "core/java/android/view/WindowManager.java",
+                            "startLine": 989,
+                            "endLine": 989,
+                            "startColumn": 33,
+                            "endColumn": 84,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "renamed attribute declaration",
+                            "codeElement": "TYPE_APPLICATION_OVERLAY : int"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Attribute",
+                    "description": "Rename Attribute OP_NONE : int to OP_BOOT_COMPLETED : int in class android.app.AppOpsManager",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "core/java/android/app/AppOpsManager.java",
+                            "startLine": 196,
+                            "endLine": 196,
+                            "startColumn": 29,
+                            "endColumn": 41,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "OP_NONE : int"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "core/java/android/app/AppOpsManager.java",
+                            "startLine": 367,
+                            "endLine": 367,
+                            "startColumn": 29,
+                            "endColumn": 51,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "renamed attribute declaration",
+                            "codeElement": "OP_BOOT_COMPLETED : int"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Attribute",
+                    "description": "Rename Attribute FINGERPRINT : String to DATE : String in class android.os.Build",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "core/java/android/os/Build.java",
+                            "startLine": 924,
+                            "endLine": 924,
+                            "startColumn": 32,
+                            "endColumn": 65,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "FINGERPRINT : String"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "core/java/android/os/Build.java",
+                            "startLine": 63,
+                            "endLine": 63,
+                            "startColumn": 32,
+                            "endColumn": 65,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "renamed attribute declaration",
+                            "codeElement": "DATE : String"
+                        }
+                    ]
+                },
+                {
+                    "type": "Rename Variable",
+                    "description": "Rename Variable cameraInfo : ApplicationInfo to info : ApplicationInfo in method public update(updatedPackages ArraySet<String>, force boolean) : void from class com.android.server.PinnerService",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/PinnerService.java",
+                            "startLine": 146,
+                            "endLine": 146,
+                            "startColumn": 25,
+                            "endColumn": 75,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "original variable declaration",
+                            "codeElement": "cameraInfo : ApplicationInfo"
+                        },
+                        {
+                            "filePath": "services/core/java/com/android/server/PinnerService.java",
+                            "startLine": 140,
+                            "endLine": 152,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "public update(updatedPackages ArraySet<String>) : void"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/PinnerService.java",
+                            "startLine": 223,
+                            "endLine": 223,
+                            "startColumn": 29,
+                            "endColumn": 67,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "renamed variable declaration",
+                            "codeElement": "info : ApplicationInfo"
+                        },
+                        {
+                            "filePath": "services/core/java/com/android/server/PinnerService.java",
+                            "startLine": 214,
+                            "endLine": 229,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "method declaration with renamed variable",
+                            "codeElement": "public update(updatedPackages ArraySet<String>, force boolean) : void"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

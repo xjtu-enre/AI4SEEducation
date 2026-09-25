@@ -1,0 +1,3 @@
+id,category,qualifiedName,file_path,not_aosp,old_aosp,isIntrusive,intrusiveModify,refactor
+532235,Class,com.android.systemui.HardwareUiLayout,packages/SystemUI/src/com/android/systemui/HardwareUiLayout.java,0,-1,1,"{'body_modify': '-', 'parent_class_modify': 'FrameLayout-LinearLayout'}",[]
+780224,Class,com.android.internal.telephony.cdma.sms.BearerData.TimeStamp,telephony/java/com/android/internal/telephony/cdma/BearerData.java,0,-1,1,"{'body_modify': '-', 'parent_class_modify': 'Time-'}",[]

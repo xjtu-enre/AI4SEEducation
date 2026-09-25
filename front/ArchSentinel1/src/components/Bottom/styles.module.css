@@ -1,0 +1,62 @@
+.main {
+    padding: 2% 15%;
+    height: 100vh;
+    color: white;
+    background: url(/static/img/HomePage/vision.726d1186.png) no-repeat;
+    background-size: 100% auto;
+    background-position: 0 -180px
+}
+
+/* .btBg {
+    padding-top: 160px;
+    padding-bottom: 30px
+} */
+
+.btLogo {
+    width: 90px;
+    height: 90px;
+    background: url(/static/img/logo.png) no-repeat;
+    background-size: 100% 100%;
+    margin: 0 auto
+}
+
+.btTitle {
+    font-size: 32px;
+    color: #fff;
+    text-align: center;
+    margin-top: 0%;
+}
+
+.btTip {
+    color: #d9d9d9;
+    text-align: center;
+    font-size: 26px;
+    margin: 2% auto 0
+}
+
+.unit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3%;
+}
+
+.tip {
+    color: #d9d9d9;
+    font-size: 18px
+}
+
+.unitItem {
+    width: 70px;
+    height: 70px;
+    background: url(/static/img/HomePage/西安交通大学.png) no-repeat;
+    background-size: 100% 100%;
+    /* margin-left: 68px; */
+    cursor: pointer
+}
+
+.unitItemText {
+    color: #d9d9d9;
+    font-size: 18px;
+    margin-left: 0.5%;
+}

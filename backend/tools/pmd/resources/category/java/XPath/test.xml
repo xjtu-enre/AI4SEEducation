@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+
+<ruleset name="XPath Rule">
+    <rule  name="WhileLoopsMustUseBracesRule"
+           language="java"
+           message="Avoid using 'while' statements without curly braces"
+           class="net.sourceforge.pmd.lang.rule.XPathRule">
+        <description>
+            Avoid using 'while' statements without using curly braces
+        </description>
+        <properties>
+            <property name="xpath">
+                <value>
+                    <![CDATA[
+//WhileStatement[not(Statement/Block)]
+]]>
+                </value>
+            </property>
+        </properties>
+        <priority>3</priority>
+        <example>
+            <![CDATA[
+class Example {
+ void bar() {
+  while (baz)
+   buz.doSomething();
+ }
+}
+]]>
+        </example>
+    </rule>
+</ruleset>

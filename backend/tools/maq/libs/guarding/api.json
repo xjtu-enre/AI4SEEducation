@@ -1,0 +1,6 @@
+{
+  "result": [
+    "methods().that().areActivelyNative().should().bePublic",
+	"classes().that().areActivelyNative().should().notBeExtendedByClassesThat().areExtensive()"
+  ]
+}

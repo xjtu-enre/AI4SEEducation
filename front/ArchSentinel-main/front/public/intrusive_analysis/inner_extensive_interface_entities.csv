@@ -1,0 +1,4 @@
+id,category,qualifiedName,file_path,not_aosp,old_aosp,isIntrusive,intrusiveModify,refactor
+65870,Interface,android.hardware.Camera.CameraDataCallback,core/java/android/hardware/Camera.java,1,-1,0,{},[]
+65880,Interface,android.hardware.Camera.CameraMetaDataCallback,core/java/android/hardware/Camera.java,1,-1,0,{},[]
+749450,Interface,com.android.server.wm.utils.CoordinateTransformsTest.TransformPointAssertable,services/tests/servicestests/src/com/android/server/wm/utils/CoordinateTransformsTest.java,1,-1,0,{},[]

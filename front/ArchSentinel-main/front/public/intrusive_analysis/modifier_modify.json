@@ -1,0 +1,2339 @@
+{
+    "commits": [
+        {
+            "repository": "https://github.com/LineageOS/android_frameworks_base.git",
+            "sha1": "d56f59389212df5462b342be7600c1974d27c0d5",
+            "url": "https://github.com/LineageOS/android_frameworks_base/commit/d56f59389212df5462b342be7600c1974d27c0d5",
+            "refactorings": [
+                {
+                    "type": "Remove Variable Modifier",
+                    "description": "Remove Variable Modifier final in variable cn : ComponentName in method public getDefaultWallpaperComponent(context Context) : ComponentName from class android.app.WallpaperManager",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "core/java/android/app/WallpaperManager.java",
+                            "startLine": 1879,
+                            "endLine": 1879,
+                            "startColumn": 33,
+                            "endColumn": 77,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "original variable declaration",
+                            "codeElement": "cn : ComponentName"
+                        },
+                        {
+                            "filePath": "core/java/android/app/WallpaperManager.java",
+                            "startLine": 1870,
+                            "endLine": 1894,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "public getDefaultWallpaperComponent(context Context) : ComponentName"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "core/java/android/app/WallpaperManager.java",
+                            "startLine": 1877,
+                            "endLine": 1877,
+                            "startColumn": 23,
+                            "endColumn": 32,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "variable declaration with removed modifier",
+                            "codeElement": "cn : ComponentName"
+                        },
+                        {
+                            "filePath": "core/java/android/app/WallpaperManager.java",
+                            "startLine": 1870,
+                            "endLine": 1904,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "method declaration with removed variable modifier",
+                            "codeElement": "public getDefaultWallpaperComponent(context Context) : ComponentName"
+                        }
+                    ]
+                },
+                {
+                    "type": "Remove Variable Modifier",
+                    "description": "Remove Variable Modifier final in variable cn : ComponentName in method public getDefaultWallpaperComponent(context Context) : ComponentName from class android.app.WallpaperManager",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "core/java/android/app/WallpaperManager.java",
+                            "startLine": 1887,
+                            "endLine": 1887,
+                            "startColumn": 33,
+                            "endColumn": 77,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "original variable declaration",
+                            "codeElement": "cn : ComponentName"
+                        },
+                        {
+                            "filePath": "core/java/android/app/WallpaperManager.java",
+                            "startLine": 1870,
+                            "endLine": 1894,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "public getDefaultWallpaperComponent(context Context) : ComponentName"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "core/java/android/app/WallpaperManager.java",
+                            "startLine": 1877,
+                            "endLine": 1877,
+                            "startColumn": 23,
+                            "endColumn": 32,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "variable declaration with removed modifier",
+                            "codeElement": "cn : ComponentName"
+                        },
+                        {
+                            "filePath": "core/java/android/app/WallpaperManager.java",
+                            "startLine": 1870,
+                            "endLine": 1904,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "method declaration with removed variable modifier",
+                            "codeElement": "public getDefaultWallpaperComponent(context Context) : ComponentName"
+                        }
+                    ]
+                },
+                {
+                    "type": "Remove Method Modifier",
+                    "description": "Remove Method Modifier final in method private handlePackageEvent(intent Intent, userId int) : void from class android.content.pm.RegisteredServicesCache",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "core/java/android/content/pm/RegisteredServicesCache.java",
+                            "startLine": 177,
+                            "endLine": 206,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "private handlePackageEvent(intent Intent, userId int) : void"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "core/java/android/content/pm/RegisteredServicesCache.java",
+                            "startLine": 178,
+                            "endLine": 208,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "method declaration with removed modifier",
+                            "codeElement": "protected handlePackageEvent(intent Intent, userId int) : void"
+                        }
+                    ]
+                },
+                {
+                    "type": "Remove Class Modifier",
+                    "description": "Remove Class Modifier final in class android.nfc.cardemulation.AidGroup",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "core/java/android/nfc/cardemulation/AidGroup.java",
+                            "startLine": 31,
+                            "endLine": 203,
+                            "startColumn": 0,
+                            "endColumn": 2,
+                            "codeElementType": "TYPE_DECLARATION",
+                            "description": "original class declaration",
+                            "codeElement": "android.nfc.cardemulation.AidGroup"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "core/java/android/nfc/cardemulation/AidGroup.java",
+                            "startLine": 34,
+                            "endLine": 206,
+                            "startColumn": 0,
+                            "endColumn": 2,
+                            "codeElementType": "TYPE_DECLARATION",
+                            "description": "class declaration with removed modifier",
+                            "codeElement": "android.nfc.cardemulation.AidGroup"
+                        }
+                    ]
+                },
+                {
+                    "type": "Remove Attribute Modifier",
+                    "description": "Remove Attribute Modifier final in attribute package aids : List<String> from class android.nfc.cardemulation.AidGroup",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "core/java/android/nfc/cardemulation/AidGroup.java",
+                            "startLine": 48,
+                            "endLine": 48,
+                            "startColumn": 24,
+                            "endColumn": 28,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "package aids : List<String>"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "core/java/android/nfc/cardemulation/AidGroup.java",
+                            "startLine": 51,
+                            "endLine": 51,
+                            "startColumn": 28,
+                            "endColumn": 32,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "attribute declaration with removed modifier",
+                            "codeElement": "protected aids : List<String>"
+                        }
+                    ]
+                },
+                {
+                    "type": "Remove Attribute Modifier",
+                    "description": "Remove Attribute Modifier final in attribute package category : String from class android.nfc.cardemulation.AidGroup",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "core/java/android/nfc/cardemulation/AidGroup.java",
+                            "startLine": 49,
+                            "endLine": 49,
+                            "startColumn": 18,
+                            "endColumn": 26,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "package category : String"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "core/java/android/nfc/cardemulation/AidGroup.java",
+                            "startLine": 52,
+                            "endLine": 52,
+                            "startColumn": 22,
+                            "endColumn": 30,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "attribute declaration with removed modifier",
+                            "codeElement": "protected category : String"
+                        }
+                    ]
+                },
+                {
+                    "type": "Remove Attribute Modifier",
+                    "description": "Remove Attribute Modifier final in attribute package description : String from class android.nfc.cardemulation.AidGroup",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "core/java/android/nfc/cardemulation/AidGroup.java",
+                            "startLine": 50,
+                            "endLine": 50,
+                            "startColumn": 18,
+                            "endColumn": 29,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "package description : String"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "core/java/android/nfc/cardemulation/AidGroup.java",
+                            "startLine": 53,
+                            "endLine": 53,
+                            "startColumn": 22,
+                            "endColumn": 33,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "attribute declaration with removed modifier",
+                            "codeElement": "protected description : String"
+                        }
+                    ]
+                },
+                {
+                    "type": "Remove Class Modifier",
+                    "description": "Remove Class Modifier final in class android.nfc.cardemulation.ApduServiceInfo",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "core/java/android/nfc/cardemulation/ApduServiceInfo.java",
+                            "startLine": 48,
+                            "endLine": 537,
+                            "startColumn": 0,
+                            "endColumn": 2,
+                            "codeElementType": "TYPE_DECLARATION",
+                            "description": "original class declaration",
+                            "codeElement": "android.nfc.cardemulation.ApduServiceInfo"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "core/java/android/nfc/cardemulation/ApduServiceInfo.java",
+                            "startLine": 51,
+                            "endLine": 540,
+                            "startColumn": 0,
+                            "endColumn": 2,
+                            "codeElementType": "TYPE_DECLARATION",
+                            "description": "class declaration with removed modifier",
+                            "codeElement": "android.nfc.cardemulation.ApduServiceInfo"
+                        }
+                    ]
+                },
+                {
+                    "type": "Remove Attribute Modifier",
+                    "description": "Remove Attribute Modifier final in attribute package mService : ResolveInfo from class android.nfc.cardemulation.ApduServiceInfo",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "core/java/android/nfc/cardemulation/ApduServiceInfo.java",
+                            "startLine": 57,
+                            "endLine": 57,
+                            "startColumn": 23,
+                            "endColumn": 31,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "package mService : ResolveInfo"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "core/java/android/nfc/cardemulation/ApduServiceInfo.java",
+                            "startLine": 60,
+                            "endLine": 60,
+                            "startColumn": 27,
+                            "endColumn": 35,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "attribute declaration with removed modifier",
+                            "codeElement": "protected mService : ResolveInfo"
+                        }
+                    ]
+                },
+                {
+                    "type": "Remove Attribute Modifier",
+                    "description": "Remove Attribute Modifier final in attribute package mDescription : String from class android.nfc.cardemulation.ApduServiceInfo",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "core/java/android/nfc/cardemulation/ApduServiceInfo.java",
+                            "startLine": 62,
+                            "endLine": 62,
+                            "startColumn": 18,
+                            "endColumn": 30,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "package mDescription : String"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "core/java/android/nfc/cardemulation/ApduServiceInfo.java",
+                            "startLine": 65,
+                            "endLine": 65,
+                            "startColumn": 22,
+                            "endColumn": 34,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "attribute declaration with removed modifier",
+                            "codeElement": "protected mDescription : String"
+                        }
+                    ]
+                },
+                {
+                    "type": "Remove Attribute Modifier",
+                    "description": "Remove Attribute Modifier final in attribute package mOnHost : boolean from class android.nfc.cardemulation.ApduServiceInfo",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "core/java/android/nfc/cardemulation/ApduServiceInfo.java",
+                            "startLine": 67,
+                            "endLine": 67,
+                            "startColumn": 19,
+                            "endColumn": 26,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "package mOnHost : boolean"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "core/java/android/nfc/cardemulation/ApduServiceInfo.java",
+                            "startLine": 70,
+                            "endLine": 70,
+                            "startColumn": 23,
+                            "endColumn": 30,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "attribute declaration with removed modifier",
+                            "codeElement": "protected mOnHost : boolean"
+                        }
+                    ]
+                },
+                {
+                    "type": "Remove Attribute Modifier",
+                    "description": "Remove Attribute Modifier final in attribute package mStaticAidGroups : HashMap<String,AidGroup> from class android.nfc.cardemulation.ApduServiceInfo",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "core/java/android/nfc/cardemulation/ApduServiceInfo.java",
+                            "startLine": 72,
+                            "endLine": 72,
+                            "startColumn": 37,
+                            "endColumn": 53,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "package mStaticAidGroups : HashMap<String,AidGroup>"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "core/java/android/nfc/cardemulation/ApduServiceInfo.java",
+                            "startLine": 75,
+                            "endLine": 75,
+                            "startColumn": 41,
+                            "endColumn": 57,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "attribute declaration with removed modifier",
+                            "codeElement": "protected mStaticAidGroups : HashMap<String,AidGroup>"
+                        }
+                    ]
+                },
+                {
+                    "type": "Remove Attribute Modifier",
+                    "description": "Remove Attribute Modifier final in attribute package mDynamicAidGroups : HashMap<String,AidGroup> from class android.nfc.cardemulation.ApduServiceInfo",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "core/java/android/nfc/cardemulation/ApduServiceInfo.java",
+                            "startLine": 77,
+                            "endLine": 77,
+                            "startColumn": 37,
+                            "endColumn": 54,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "package mDynamicAidGroups : HashMap<String,AidGroup>"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "core/java/android/nfc/cardemulation/ApduServiceInfo.java",
+                            "startLine": 80,
+                            "endLine": 80,
+                            "startColumn": 41,
+                            "endColumn": 58,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "attribute declaration with removed modifier",
+                            "codeElement": "protected mDynamicAidGroups : HashMap<String,AidGroup>"
+                        }
+                    ]
+                },
+                {
+                    "type": "Remove Attribute Modifier",
+                    "description": "Remove Attribute Modifier final in attribute package mRequiresDeviceUnlock : boolean from class android.nfc.cardemulation.ApduServiceInfo",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "core/java/android/nfc/cardemulation/ApduServiceInfo.java",
+                            "startLine": 82,
+                            "endLine": 82,
+                            "startColumn": 19,
+                            "endColumn": 40,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "package mRequiresDeviceUnlock : boolean"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "core/java/android/nfc/cardemulation/ApduServiceInfo.java",
+                            "startLine": 85,
+                            "endLine": 85,
+                            "startColumn": 23,
+                            "endColumn": 44,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "attribute declaration with removed modifier",
+                            "codeElement": "protected mRequiresDeviceUnlock : boolean"
+                        }
+                    ]
+                },
+                {
+                    "type": "Remove Attribute Modifier",
+                    "description": "Remove Attribute Modifier final in attribute package mBannerResourceId : int from class android.nfc.cardemulation.ApduServiceInfo",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "core/java/android/nfc/cardemulation/ApduServiceInfo.java",
+                            "startLine": 87,
+                            "endLine": 87,
+                            "startColumn": 15,
+                            "endColumn": 32,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "package mBannerResourceId : int"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "core/java/android/nfc/cardemulation/ApduServiceInfo.java",
+                            "startLine": 90,
+                            "endLine": 90,
+                            "startColumn": 19,
+                            "endColumn": 36,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "attribute declaration with removed modifier",
+                            "codeElement": "protected mBannerResourceId : int"
+                        }
+                    ]
+                },
+                {
+                    "type": "Remove Attribute Modifier",
+                    "description": "Remove Attribute Modifier final in attribute package mUid : int from class android.nfc.cardemulation.ApduServiceInfo",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "core/java/android/nfc/cardemulation/ApduServiceInfo.java",
+                            "startLine": 92,
+                            "endLine": 92,
+                            "startColumn": 15,
+                            "endColumn": 19,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "package mUid : int"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "core/java/android/nfc/cardemulation/ApduServiceInfo.java",
+                            "startLine": 95,
+                            "endLine": 95,
+                            "startColumn": 19,
+                            "endColumn": 23,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "attribute declaration with removed modifier",
+                            "codeElement": "protected mUid : int"
+                        }
+                    ]
+                },
+                {
+                    "type": "Remove Attribute Modifier",
+                    "description": "Remove Attribute Modifier final in attribute package mSettingsActivityName : String from class android.nfc.cardemulation.ApduServiceInfo",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "core/java/android/nfc/cardemulation/ApduServiceInfo.java",
+                            "startLine": 97,
+                            "endLine": 97,
+                            "startColumn": 18,
+                            "endColumn": 39,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "package mSettingsActivityName : String"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "core/java/android/nfc/cardemulation/ApduServiceInfo.java",
+                            "startLine": 100,
+                            "endLine": 100,
+                            "startColumn": 22,
+                            "endColumn": 43,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "attribute declaration with removed modifier",
+                            "codeElement": "protected mSettingsActivityName : String"
+                        }
+                    ]
+                },
+                {
+                    "type": "Remove Attribute Modifier",
+                    "description": "Remove Attribute Modifier final in attribute private mServer : String from class android.util.NtpTrustedTime",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "core/java/android/util/NtpTrustedTime.java",
+                            "startLine": 43,
+                            "endLine": 43,
+                            "startColumn": 26,
+                            "endColumn": 33,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "private mServer : String"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "core/java/android/util/NtpTrustedTime.java",
+                            "startLine": 44,
+                            "endLine": 44,
+                            "startColumn": 20,
+                            "endColumn": 27,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "attribute declaration with removed modifier",
+                            "codeElement": "private mServer : String"
+                        }
+                    ]
+                },
+                {
+                    "type": "Add Variable Modifier",
+                    "description": "Add Variable Modifier final in variable r : Region in method private pathAndDisplayCutoutFromSpec(spec String, displayWidth int, displayHeight int, density float) : Pair<Path,DisplayCutout> from class android.view.DisplayCutout",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "core/java/android/view/DisplayCutout.java",
+                            "startLine": 346,
+                            "endLine": 346,
+                            "startColumn": 16,
+                            "endColumn": 44,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "original variable declaration",
+                            "codeElement": "clipRegion : Region"
+                        },
+                        {
+                            "filePath": "core/java/android/view/DisplayCutout.java",
+                            "startLine": 338,
+                            "endLine": 354,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "public fromBounds(path Path) : DisplayCutout"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "core/java/android/view/DisplayCutout.java",
+                            "startLine": 411,
+                            "endLine": 411,
+                            "startColumn": 22,
+                            "endColumn": 41,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "variable declaration with added modifier",
+                            "codeElement": "r : Region"
+                        },
+                        {
+                            "filePath": "core/java/android/view/DisplayCutout.java",
+                            "startLine": 378,
+                            "endLine": 462,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "method declaration with added variable modifier",
+                            "codeElement": "private pathAndDisplayCutoutFromSpec(spec String, displayWidth int, displayHeight int, density float) : Pair<Path,DisplayCutout>"
+                        }
+                    ]
+                },
+                {
+                    "type": "Add Variable Modifier",
+                    "description": "Add Variable Modifier final in variable rectF : RectF in method private toRectAndAddToRegion(p Path, inoutRegion Region, inoutRect Rect) : void from class android.view.DisplayCutout",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "core/java/android/view/DisplayCutout.java",
+                            "startLine": 344,
+                            "endLine": 344,
+                            "startColumn": 15,
+                            "endColumn": 37,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "original variable declaration",
+                            "codeElement": "clipRect : RectF"
+                        },
+                        {
+                            "filePath": "core/java/android/view/DisplayCutout.java",
+                            "startLine": 387,
+                            "endLine": 457,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "private pathAndDisplayCutoutFromSpec(spec String, displayWidth int, displayHeight int, density float) : Pair<Path,DisplayCutout>"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "core/java/android/view/DisplayCutout.java",
+                            "startLine": 465,
+                            "endLine": 465,
+                            "startColumn": 21,
+                            "endColumn": 40,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "variable declaration with added modifier",
+                            "codeElement": "rectF : RectF"
+                        },
+                        {
+                            "filePath": "core/java/android/view/DisplayCutout.java",
+                            "startLine": 464,
+                            "endLine": 469,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "method declaration with added variable modifier",
+                            "codeElement": "private toRectAndAddToRegion(p Path, inoutRegion Region, inoutRect Rect) : void"
+                        }
+                    ]
+                },
+                {
+                    "type": "Remove Attribute Modifier",
+                    "description": "Remove Attribute Modifier final in attribute private mModelPtr : long from class android.view.textclassifier.TextClassifierImplNative",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "core/java/android/view/textclassifier/TextClassifierImplNative.java",
+                            "startLine": 31,
+                            "endLine": 31,
+                            "startColumn": 24,
+                            "endColumn": 33,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "private mModelPtr : long"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "core/java/android/view/textclassifier/TextClassifierImplNative.java",
+                            "startLine": 32,
+                            "endLine": 32,
+                            "startColumn": 18,
+                            "endColumn": 27,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "attribute declaration with removed modifier",
+                            "codeElement": "private mModelPtr : long"
+                        }
+                    ]
+                },
+                {
+                    "type": "Remove Variable Modifier",
+                    "description": "Remove Variable Modifier final in variable id : int in method private readPowerValuesFromXml(context Context, forTest boolean) : void from class com.android.internal.os.PowerProfile",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "core/java/com/android/internal/os/PowerProfile.java",
+                            "startLine": 246,
+                            "endLine": 247,
+                            "startColumn": 19,
+                            "endColumn": 57,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "original variable declaration",
+                            "codeElement": "id : int"
+                        },
+                        {
+                            "filePath": "core/java/com/android/internal/os/PowerProfile.java",
+                            "startLine": 245,
+                            "endLine": 328,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "private readPowerValuesFromXml(context Context, forTest boolean) : void"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "core/java/com/android/internal/os/PowerProfile.java",
+                            "startLine": 249,
+                            "endLine": 249,
+                            "startColumn": 13,
+                            "endColumn": 56,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "variable declaration with removed modifier",
+                            "codeElement": "id : int"
+                        },
+                        {
+                            "filePath": "core/java/com/android/internal/os/PowerProfile.java",
+                            "startLine": 248,
+                            "endLine": 330,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "method declaration with removed variable modifier",
+                            "codeElement": "private readPowerValuesFromXml(context Context, forTest boolean) : void"
+                        }
+                    ]
+                },
+                {
+                    "type": "Remove Attribute Modifier",
+                    "description": "Remove Attribute Modifier final in attribute private sCells : Cell[][] from class com.android.internal.widget.LockPatternView.Cell",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "core/java/com/android/internal/widget/LockPatternView.java",
+                            "startLine": 161,
+                            "endLine": 161,
+                            "startColumn": 39,
+                            "endColumn": 61,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "private sCells : Cell[][]"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "core/java/com/android/internal/widget/LockPatternView.java",
+                            "startLine": 167,
+                            "endLine": 167,
+                            "startColumn": 25,
+                            "endColumn": 31,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "attribute declaration with removed modifier",
+                            "codeElement": "package sCells : Cell[][]"
+                        }
+                    ]
+                },
+                {
+                    "type": "Add Method Modifier",
+                    "description": "Add Method Modifier synchronized in method public of(row int, column int, size byte) : Cell from class com.android.internal.widget.LockPatternView.Cell",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "core/java/com/android/internal/widget/LockPatternView.java",
+                            "startLine": 191,
+                            "endLine": 194,
+                            "startColumn": 9,
+                            "endColumn": 10,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "public of(row int, column int) : Cell"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "core/java/com/android/internal/widget/LockPatternView.java",
+                            "startLine": 190,
+                            "endLine": 197,
+                            "startColumn": 9,
+                            "endColumn": 10,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "method declaration with added modifier",
+                            "codeElement": "public of(row int, column int, size byte) : Cell"
+                        }
+                    ]
+                },
+                {
+                    "type": "Remove Attribute Modifier",
+                    "description": "Remove Attribute Modifier final in attribute private mCellStates : CellState[][] from class com.android.internal.widget.LockPatternView",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "core/java/com/android/internal/widget/LockPatternView.java",
+                            "startLine": 74,
+                            "endLine": 74,
+                            "startColumn": 33,
+                            "endColumn": 44,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "private mCellStates : CellState[][]"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "core/java/com/android/internal/widget/LockPatternView.java",
+                            "startLine": 75,
+                            "endLine": 75,
+                            "startColumn": 27,
+                            "endColumn": 38,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "attribute declaration with removed modifier",
+                            "codeElement": "private mCellStates : CellState[][]"
+                        }
+                    ]
+                },
+                {
+                    "type": "Remove Attribute Modifier",
+                    "description": "Remove Attribute Modifier final in attribute private mPattern : ArrayList<Cell> from class com.android.internal.widget.LockPatternView",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "core/java/com/android/internal/widget/LockPatternView.java",
+                            "startLine": 102,
+                            "endLine": 102,
+                            "startColumn": 35,
+                            "endColumn": 68,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "private mPattern : ArrayList<Cell>"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "core/java/com/android/internal/widget/LockPatternView.java",
+                            "startLine": 105,
+                            "endLine": 105,
+                            "startColumn": 29,
+                            "endColumn": 88,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "attribute declaration with removed modifier",
+                            "codeElement": "private mPattern : ArrayList<Cell>"
+                        }
+                    ]
+                },
+                {
+                    "type": "Remove Attribute Modifier",
+                    "description": "Remove Attribute Modifier final in attribute private mPatternDrawLookup : boolean[][] from class com.android.internal.widget.LockPatternView",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "core/java/com/android/internal/widget/LockPatternView.java",
+                            "startLine": 110,
+                            "endLine": 110,
+                            "startColumn": 31,
+                            "endColumn": 69,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "private mPatternDrawLookup : boolean[][]"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "core/java/com/android/internal/widget/LockPatternView.java",
+                            "startLine": 113,
+                            "endLine": 113,
+                            "startColumn": 25,
+                            "endColumn": 85,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "attribute declaration with removed modifier",
+                            "codeElement": "private mPatternDrawLookup : boolean[][]"
+                        }
+                    ]
+                },
+                {
+                    "type": "Add Variable Modifier",
+                    "description": "Add Variable Modifier final in variable keystoreAlias : String in method private ParcelableKeyGenParameterSpec(in Parcel) from class android.security.keystore.ParcelableKeyGenParameterSpec",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "keystore/java/android/security/keystore/ParcelableKeyGenParameterSpec.java",
+                            "startLine": 117,
+                            "endLine": 117,
+                            "startColumn": 16,
+                            "endColumn": 47,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "original variable declaration",
+                            "codeElement": "keystoreAlias : String"
+                        },
+                        {
+                            "filePath": "keystore/java/android/security/keystore/ParcelableKeyGenParameterSpec.java",
+                            "startLine": 116,
+                            "endLine": 170,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "private ParcelableKeyGenParameterSpec(in Parcel)"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "keystore/java/android/security/keystore/ParcelableKeyGenParameterSpec.java",
+                            "startLine": 120,
+                            "endLine": 120,
+                            "startColumn": 22,
+                            "endColumn": 53,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "variable declaration with added modifier",
+                            "codeElement": "keystoreAlias : String"
+                        },
+                        {
+                            "filePath": "keystore/java/android/security/keystore/ParcelableKeyGenParameterSpec.java",
+                            "startLine": 119,
+                            "endLine": 194,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "method declaration with added variable modifier",
+                            "codeElement": "private ParcelableKeyGenParameterSpec(in Parcel)"
+                        }
+                    ]
+                },
+                {
+                    "type": "Add Variable Modifier",
+                    "description": "Add Variable Modifier final in variable purposes : int in method private ParcelableKeyGenParameterSpec(in Parcel) from class android.security.keystore.ParcelableKeyGenParameterSpec",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "keystore/java/android/security/keystore/ParcelableKeyGenParameterSpec.java",
+                            "startLine": 118,
+                            "endLine": 118,
+                            "startColumn": 13,
+                            "endColumn": 36,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "original variable declaration",
+                            "codeElement": "purposes : int"
+                        },
+                        {
+                            "filePath": "keystore/java/android/security/keystore/ParcelableKeyGenParameterSpec.java",
+                            "startLine": 116,
+                            "endLine": 170,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "private ParcelableKeyGenParameterSpec(in Parcel)"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "keystore/java/android/security/keystore/ParcelableKeyGenParameterSpec.java",
+                            "startLine": 121,
+                            "endLine": 121,
+                            "startColumn": 19,
+                            "endColumn": 42,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "variable declaration with added modifier",
+                            "codeElement": "purposes : int"
+                        },
+                        {
+                            "filePath": "keystore/java/android/security/keystore/ParcelableKeyGenParameterSpec.java",
+                            "startLine": 119,
+                            "endLine": 194,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "method declaration with added variable modifier",
+                            "codeElement": "private ParcelableKeyGenParameterSpec(in Parcel)"
+                        }
+                    ]
+                },
+                {
+                    "type": "Add Variable Modifier",
+                    "description": "Add Variable Modifier final in variable keySpecType : int in method private ParcelableKeyGenParameterSpec(in Parcel) from class android.security.keystore.ParcelableKeyGenParameterSpec",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "keystore/java/android/security/keystore/ParcelableKeyGenParameterSpec.java",
+                            "startLine": 129,
+                            "endLine": 129,
+                            "startColumn": 13,
+                            "endColumn": 39,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "original variable declaration",
+                            "codeElement": "keySpecType : int"
+                        },
+                        {
+                            "filePath": "keystore/java/android/security/keystore/ParcelableKeyGenParameterSpec.java",
+                            "startLine": 116,
+                            "endLine": 170,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "private ParcelableKeyGenParameterSpec(in Parcel)"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "keystore/java/android/security/keystore/ParcelableKeyGenParameterSpec.java",
+                            "startLine": 125,
+                            "endLine": 125,
+                            "startColumn": 19,
+                            "endColumn": 45,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "variable declaration with added modifier",
+                            "codeElement": "keySpecType : int"
+                        },
+                        {
+                            "filePath": "keystore/java/android/security/keystore/ParcelableKeyGenParameterSpec.java",
+                            "startLine": 119,
+                            "endLine": 194,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "method declaration with added variable modifier",
+                            "codeElement": "private ParcelableKeyGenParameterSpec(in Parcel)"
+                        }
+                    ]
+                },
+                {
+                    "type": "Remove Attribute Modifier",
+                    "description": "Remove Attribute Modifier final in attribute private mIntrinsicWidth : int from class com.android.settingslib.graph.BatteryMeterDrawableBase",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "packages/SettingsLib/src/com/android/settingslib/graph/BatteryMeterDrawableBase.java",
+                            "startLine": 70,
+                            "endLine": 70,
+                            "startColumn": 23,
+                            "endColumn": 38,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "private mIntrinsicWidth : int"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "packages/SettingsLib/src/com/android/settingslib/graph/BatteryMeterDrawableBase.java",
+                            "startLine": 75,
+                            "endLine": 75,
+                            "startColumn": 17,
+                            "endColumn": 32,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "attribute declaration with removed modifier",
+                            "codeElement": "private mIntrinsicWidth : int"
+                        }
+                    ]
+                },
+                {
+                    "type": "Remove Attribute Modifier",
+                    "description": "Remove Attribute Modifier final in attribute private mIntrinsicHeight : int from class com.android.settingslib.graph.BatteryMeterDrawableBase",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "packages/SettingsLib/src/com/android/settingslib/graph/BatteryMeterDrawableBase.java",
+                            "startLine": 71,
+                            "endLine": 71,
+                            "startColumn": 23,
+                            "endColumn": 39,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "private mIntrinsicHeight : int"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "packages/SettingsLib/src/com/android/settingslib/graph/BatteryMeterDrawableBase.java",
+                            "startLine": 76,
+                            "endLine": 76,
+                            "startColumn": 17,
+                            "endColumn": 33,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "attribute declaration with removed modifier",
+                            "codeElement": "private mIntrinsicHeight : int"
+                        }
+                    ]
+                },
+                {
+                    "type": "Add Attribute Modifier",
+                    "description": "Add Attribute Modifier final in attribute private mCallback : KeyguardUpdateMonitorCallback from class com.android.keyguard.CarrierText",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/keyguard/CarrierText.java",
+                            "startLine": 66,
+                            "endLine": 95,
+                            "startColumn": 43,
+                            "endColumn": 6,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "private mCallback : KeyguardUpdateMonitorCallback"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/keyguard/CarrierText.java",
+                            "startLine": 65,
+                            "endLine": 105,
+                            "startColumn": 49,
+                            "endColumn": 6,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "attribute declaration with added modifier",
+                            "codeElement": "private mCallback : KeyguardUpdateMonitorCallback"
+                        }
+                    ]
+                },
+                {
+                    "type": "Remove Attribute Modifier",
+                    "description": "Remove Attribute Modifier final in attribute private mStart : boolean from class com.android.systemui.ScreenDecorations.DisplayCutoutView",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/ScreenDecorations.java",
+                            "startLine": 419,
+                            "endLine": 419,
+                            "startColumn": 31,
+                            "endColumn": 37,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "private mStart : boolean"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/ScreenDecorations.java",
+                            "startLine": 520,
+                            "endLine": 520,
+                            "startColumn": 25,
+                            "endColumn": 31,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "attribute declaration with removed modifier",
+                            "codeElement": "private mStart : boolean"
+                        }
+                    ]
+                },
+                {
+                    "type": "Remove Attribute Modifier",
+                    "description": "Remove Attribute Modifier final in attribute private mMessageResId : int from class com.android.systemui.globalactions.GlobalActionsDialog.SinglePressAction",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialog.java",
+                            "startLine": 951,
+                            "endLine": 951,
+                            "startColumn": 27,
+                            "endColumn": 40,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "private mMessageResId : int"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialog.java",
+                            "startLine": 1228,
+                            "endLine": 1228,
+                            "startColumn": 23,
+                            "endColumn": 36,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "attribute declaration with removed modifier",
+                            "codeElement": "protected mMessageResId : int"
+                        }
+                    ]
+                },
+                {
+                    "type": "Remove Variable Modifier",
+                    "description": "Remove Variable Modifier final in variable estimate : Estimate in method protected maybeShowBatteryWarning(plugged boolean, oldPlugged boolean, oldBucket int, bucket int) : void from class com.android.systemui.power.PowerUI",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/power/PowerUI.java",
+                            "startLine": 272,
+                            "endLine": 272,
+                            "startColumn": 28,
+                            "endColumn": 71,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "original variable declaration",
+                            "codeElement": "estimate : Estimate"
+                        },
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/power/PowerUI.java",
+                            "startLine": 265,
+                            "endLine": 311,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "protected maybeShowBatteryWarning(plugged boolean, oldPlugged boolean, oldBucket int, bucket int) : void"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/power/PowerUI.java",
+                            "startLine": 287,
+                            "endLine": 287,
+                            "startColumn": 22,
+                            "endColumn": 46,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "variable declaration with removed modifier",
+                            "codeElement": "estimate : Estimate"
+                        },
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/power/PowerUI.java",
+                            "startLine": 280,
+                            "endLine": 330,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "method declaration with removed variable modifier",
+                            "codeElement": "protected maybeShowBatteryWarning(oldBatteryLevel int, plugged boolean, oldPlugged boolean, oldBucket int, bucket int) : void"
+                        }
+                    ]
+                },
+                {
+                    "type": "Remove Variable Modifier",
+                    "description": "Remove Variable Modifier final in variable dozeTranslation : int in method public dozeTimeTick() : void from class com.android.systemui.statusbar.phone.KeyguardBottomAreaView",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/statusbar/phone/KeyguardBottomAreaView.java",
+                            "startLine": 844,
+                            "endLine": 844,
+                            "startColumn": 23,
+                            "endColumn": 97,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "original variable declaration",
+                            "codeElement": "dozeTranslation : int"
+                        },
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/statusbar/phone/KeyguardBottomAreaView.java",
+                            "startLine": 841,
+                            "endLine": 847,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "public dozeTimeTick() : void"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/statusbar/phone/KeyguardBottomAreaView.java",
+                            "startLine": 917,
+                            "endLine": 917,
+                            "startColumn": 17,
+                            "endColumn": 91,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "variable declaration with removed modifier",
+                            "codeElement": "dozeTranslation : int"
+                        },
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/statusbar/phone/KeyguardBottomAreaView.java",
+                            "startLine": 914,
+                            "endLine": 921,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "method declaration with removed variable modifier",
+                            "codeElement": "public dozeTimeTick() : void"
+                        }
+                    ]
+                },
+                {
+                    "type": "Remove Attribute Modifier",
+                    "description": "Remove Attribute Modifier static in attribute public MAX_VISIBLE_ICONS_WHEN_DARK : int from class com.android.systemui.statusbar.phone.NotificationIconContainer",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationIconContainer.java",
+                            "startLine": 130,
+                            "endLine": 130,
+                            "startColumn": 29,
+                            "endColumn": 60,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "public MAX_VISIBLE_ICONS_WHEN_DARK : int"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationIconContainer.java",
+                            "startLine": 130,
+                            "endLine": 131,
+                            "startColumn": 22,
+                            "endColumn": 92,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "attribute declaration with removed modifier",
+                            "codeElement": "public MAX_VISIBLE_ICONS_WHEN_DARK : int"
+                        }
+                    ]
+                },
+                {
+                    "type": "Remove Attribute Modifier",
+                    "description": "Remove Attribute Modifier static in attribute public MAX_STATIC_ICONS : int from class com.android.systemui.statusbar.phone.NotificationIconContainer",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationIconContainer.java",
+                            "startLine": 131,
+                            "endLine": 131,
+                            "startColumn": 29,
+                            "endColumn": 49,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "public MAX_STATIC_ICONS : int"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationIconContainer.java",
+                            "startLine": 132,
+                            "endLine": 133,
+                            "startColumn": 22,
+                            "endColumn": 84,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "attribute declaration with removed modifier",
+                            "codeElement": "public MAX_STATIC_ICONS : int"
+                        }
+                    ]
+                },
+                {
+                    "type": "Remove Variable Modifier",
+                    "description": "Remove Variable Modifier final in variable currentScrimColors : GradientColors in method protected updateScrims() : void from class com.android.systemui.statusbar.phone.ScrimController",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/statusbar/phone/ScrimController.java",
+                            "startLine": 485,
+                            "endLine": 485,
+                            "startColumn": 34,
+                            "endColumn": 52,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "original variable declaration",
+                            "codeElement": "currentScrimColors : GradientColors"
+                        },
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/statusbar/phone/ScrimController.java",
+                            "startLine": 481,
+                            "endLine": 524,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "protected updateScrims() : void"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/statusbar/phone/ScrimController.java",
+                            "startLine": 486,
+                            "endLine": 486,
+                            "startColumn": 28,
+                            "endColumn": 89,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "variable declaration with removed modifier",
+                            "codeElement": "currentScrimColors : GradientColors"
+                        },
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/statusbar/phone/ScrimController.java",
+                            "startLine": 481,
+                            "endLine": 516,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "method declaration with removed variable modifier",
+                            "codeElement": "protected updateScrims() : void"
+                        }
+                    ]
+                },
+                {
+                    "type": "Remove Attribute Modifier",
+                    "description": "Remove Attribute Modifier final in attribute private mKeyguardScreenRotation : boolean from class com.android.systemui.statusbar.phone.StatusBarWindowManager",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBarWindowManager.java",
+                            "startLine": 66,
+                            "endLine": 66,
+                            "startColumn": 27,
+                            "endColumn": 50,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "private mKeyguardScreenRotation : boolean"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBarWindowManager.java",
+                            "startLine": 71,
+                            "endLine": 71,
+                            "startColumn": 21,
+                            "endColumn": 44,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "attribute declaration with removed modifier",
+                            "codeElement": "private mKeyguardScreenRotation : boolean"
+                        }
+                    ]
+                },
+                {
+                    "type": "Remove Attribute Modifier",
+                    "description": "Remove Attribute Modifier final in attribute private mAmPmStyle : int from class com.android.systemui.statusbar.policy.Clock",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/statusbar/policy/Clock.java",
+                            "startLine": 86,
+                            "endLine": 86,
+                            "startColumn": 23,
+                            "endColumn": 33,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "private mAmPmStyle : int"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/statusbar/policy/Clock.java",
+                            "startLine": 94,
+                            "endLine": 94,
+                            "startColumn": 17,
+                            "endColumn": 46,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "attribute declaration with removed modifier",
+                            "codeElement": "private mAmPmStyle : int"
+                        }
+                    ]
+                },
+                {
+                    "type": "Remove Attribute Modifier",
+                    "description": "Remove Attribute Modifier final in attribute private mIconState : IconState from class com.android.systemui.tuner.LockscreenFragment.ShortcutButton",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/tuner/LockscreenFragment.java",
+                            "startLine": 355,
+                            "endLine": 355,
+                            "startColumn": 33,
+                            "endColumn": 43,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "private mIconState : IconState"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/tuner/LockscreenFragment.java",
+                            "startLine": 386,
+                            "endLine": 386,
+                            "startColumn": 27,
+                            "endColumn": 37,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "attribute declaration with removed modifier",
+                            "codeElement": "private mIconState : IconState"
+                        }
+                    ]
+                },
+                {
+                    "type": "Remove Attribute Modifier",
+                    "description": "Remove Attribute Modifier final in attribute private mIntent : Intent from class com.android.systemui.tuner.LockscreenFragment.ActivityButton",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/tuner/LockscreenFragment.java",
+                            "startLine": 382,
+                            "endLine": 382,
+                            "startColumn": 30,
+                            "endColumn": 37,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "private mIntent : Intent"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/tuner/LockscreenFragment.java",
+                            "startLine": 429,
+                            "endLine": 429,
+                            "startColumn": 24,
+                            "endColumn": 31,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "attribute declaration with removed modifier",
+                            "codeElement": "private mIntent : Intent"
+                        }
+                    ]
+                },
+                {
+                    "type": "Remove Attribute Modifier",
+                    "description": "Remove Attribute Modifier final in attribute private mIconState : IconState from class com.android.systemui.tuner.LockscreenFragment.ActivityButton",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/tuner/LockscreenFragment.java",
+                            "startLine": 383,
+                            "endLine": 383,
+                            "startColumn": 33,
+                            "endColumn": 43,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "private mIconState : IconState"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/tuner/LockscreenFragment.java",
+                            "startLine": 428,
+                            "endLine": 428,
+                            "startColumn": 27,
+                            "endColumn": 37,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "attribute declaration with removed modifier",
+                            "codeElement": "private mIconState : IconState"
+                        }
+                    ]
+                },
+                {
+                    "type": "Add Variable Modifier",
+                    "description": "Add Variable Modifier final in variable fragment : Fragment in method protected onCreate(savedInstanceState Bundle) : void from class com.android.systemui.tuner.TunerActivity",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/tuner/TunerActivity.java",
+                            "startLine": 44,
+                            "endLine": 45,
+                            "startColumn": 21,
+                            "endColumn": 61,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "original variable declaration",
+                            "codeElement": "showDemoMode : boolean"
+                        },
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/tuner/TunerActivity.java",
+                            "startLine": 38,
+                            "endLine": 51,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "protected onCreate(savedInstanceState Bundle) : void"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/tuner/TunerActivity.java",
+                            "startLine": 44,
+                            "endLine": 44,
+                            "startColumn": 28,
+                            "endColumn": 36,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "variable declaration with added modifier",
+                            "codeElement": "fragment : Fragment"
+                        },
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/tuner/TunerActivity.java",
+                            "startLine": 38,
+                            "endLine": 62,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "method declaration with added variable modifier",
+                            "codeElement": "protected onCreate(savedInstanceState Bundle) : void"
+                        }
+                    ]
+                },
+                {
+                    "type": "Add Variable Modifier",
+                    "description": "Add Variable Modifier final in variable uri : Uri in method private addTunable(tunable Tunable, key String) : void from class com.android.systemui.tuner.TunerServiceImpl",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/tuner/TunerServiceImpl.java",
+                            "startLine": 170,
+                            "endLine": 170,
+                            "startColumn": 13,
+                            "endColumn": 49,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "original variable declaration",
+                            "codeElement": "uri : Uri"
+                        },
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/tuner/TunerServiceImpl.java",
+                            "startLine": 161,
+                            "endLine": 178,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "private addTunable(tunable Tunable, key String) : void"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/tuner/TunerServiceImpl.java",
+                            "startLine": 276,
+                            "endLine": 276,
+                            "startColumn": 19,
+                            "endColumn": 22,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "variable declaration with added modifier",
+                            "codeElement": "uri : Uri"
+                        },
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/tuner/TunerServiceImpl.java",
+                            "startLine": 267,
+                            "endLine": 296,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "method declaration with added variable modifier",
+                            "codeElement": "private addTunable(tunable Tunable, key String) : void"
+                        }
+                    ]
+                },
+                {
+                    "type": "Remove Variable Modifier",
+                    "description": "Remove Variable Modifier final in variable volumeDownToEnterSilent : boolean in method public onTuningChanged(key String, newValue String) : void from class com.android.systemui.volume.VolumeDialogComponent",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogComponent.java",
+                            "startLine": 112,
+                            "endLine": 114,
+                            "startColumn": 27,
+                            "endColumn": 58,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "original variable declaration",
+                            "codeElement": "volumeDownToEnterSilent : boolean"
+                        },
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogComponent.java",
+                            "startLine": 109,
+                            "endLine": 133,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "public onTuningChanged(key String, newValue String) : void"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogComponent.java",
+                            "startLine": 111,
+                            "endLine": 111,
+                            "startColumn": 17,
+                            "endColumn": 80,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "variable declaration with removed modifier",
+                            "codeElement": "volumeDownToEnterSilent : boolean"
+                        },
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogComponent.java",
+                            "startLine": 109,
+                            "endLine": 128,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "method declaration with removed variable modifier",
+                            "codeElement": "public onTuningChanged(key String, newValue String) : void"
+                        }
+                    ]
+                },
+                {
+                    "type": "Remove Variable Modifier",
+                    "description": "Remove Variable Modifier final in variable volumeUpToExitSilent : boolean in method public onTuningChanged(key String, newValue String) : void from class com.android.systemui.volume.VolumeDialogComponent",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogComponent.java",
+                            "startLine": 119,
+                            "endLine": 121,
+                            "startColumn": 27,
+                            "endColumn": 55,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "original variable declaration",
+                            "codeElement": "volumeUpToExitSilent : boolean"
+                        },
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogComponent.java",
+                            "startLine": 109,
+                            "endLine": 133,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "public onTuningChanged(key String, newValue String) : void"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogComponent.java",
+                            "startLine": 112,
+                            "endLine": 112,
+                            "startColumn": 17,
+                            "endColumn": 74,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "variable declaration with removed modifier",
+                            "codeElement": "volumeUpToExitSilent : boolean"
+                        },
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogComponent.java",
+                            "startLine": 109,
+                            "endLine": 128,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "method declaration with removed variable modifier",
+                            "codeElement": "public onTuningChanged(key String, newValue String) : void"
+                        }
+                    ]
+                },
+                {
+                    "type": "Remove Variable Modifier",
+                    "description": "Remove Variable Modifier final in variable doNotDisturbWhenSilent : boolean in method public onTuningChanged(key String, newValue String) : void from class com.android.systemui.volume.VolumeDialogComponent",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogComponent.java",
+                            "startLine": 126,
+                            "endLine": 128,
+                            "startColumn": 27,
+                            "endColumn": 57,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "original variable declaration",
+                            "codeElement": "doNotDisturbWhenSilent : boolean"
+                        },
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogComponent.java",
+                            "startLine": 109,
+                            "endLine": 133,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "public onTuningChanged(key String, newValue String) : void"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogComponent.java",
+                            "startLine": 113,
+                            "endLine": 113,
+                            "startColumn": 17,
+                            "endColumn": 78,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "variable declaration with removed modifier",
+                            "codeElement": "doNotDisturbWhenSilent : boolean"
+                        },
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogComponent.java",
+                            "startLine": 109,
+                            "endLine": 128,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "method declaration with removed variable modifier",
+                            "codeElement": "public onTuningChanged(key String, newValue String) : void"
+                        }
+                    ]
+                },
+                {
+                    "type": "Remove Variable Modifier",
+                    "description": "Remove Variable Modifier final in variable row : VolumeRow in method private trimObsoleteH() : void from class com.android.systemui.volume.VolumeDialogImpl",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+                            "startLine": 732,
+                            "endLine": 732,
+                            "startColumn": 29,
+                            "endColumn": 47,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "original variable declaration",
+                            "codeElement": "row : VolumeRow"
+                        },
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+                            "startLine": 729,
+                            "endLine": 739,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "private trimObsoleteH() : void"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+                            "startLine": 392,
+                            "endLine": 392,
+                            "startColumn": 28,
+                            "endColumn": 47,
+                            "codeElementType": "SINGLE_VARIABLE_DECLARATION",
+                            "description": "variable declaration with removed modifier",
+                            "codeElement": "volumeRow : VolumeRow"
+                        },
+                        {
+                            "filePath": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+                            "startLine": 392,
+                            "endLine": 395,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "method declaration with removed variable modifier",
+                            "codeElement": "private removeRow(volumeRow VolumeRow) : void"
+                        }
+                    ]
+                },
+                {
+                    "type": "Add Variable Modifier",
+                    "description": "Add Variable Modifier final in variable netCap : NetworkCapabilities in method private createDefaultInternetRequestForTransport(transportType int, type NetworkRequest.Type) : NetworkRequest from class com.android.server.ConnectivityService",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/ConnectivityService.java",
+                            "startLine": 945,
+                            "endLine": 945,
+                            "startColumn": 29,
+                            "endColumn": 63,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "original variable declaration",
+                            "codeElement": "netCap : NetworkCapabilities"
+                        },
+                        {
+                            "filePath": "services/core/java/com/android/server/ConnectivityService.java",
+                            "startLine": 943,
+                            "endLine": 952,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "private createDefaultInternetRequestForTransport(transportType int, type NetworkRequest.Type) : NetworkRequest"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/ConnectivityService.java",
+                            "startLine": 954,
+                            "endLine": 954,
+                            "startColumn": 35,
+                            "endColumn": 69,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "variable declaration with added modifier",
+                            "codeElement": "netCap : NetworkCapabilities"
+                        },
+                        {
+                            "filePath": "services/core/java/com/android/server/ConnectivityService.java",
+                            "startLine": 952,
+                            "endLine": 961,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "method declaration with added variable modifier",
+                            "codeElement": "private createDefaultInternetRequestForTransport(transportType int, type NetworkRequest.Type) : NetworkRequest"
+                        }
+                    ]
+                },
+                {
+                    "type": "Add Attribute Modifier",
+                    "description": "Add Attribute Modifier static in attribute package LOG_NB_EVENTS_PHONE_STATE : int from class com.android.server.audio.AudioService",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/audio/AudioService.java",
+                            "startLine": 7175,
+                            "endLine": 7175,
+                            "startColumn": 15,
+                            "endColumn": 45,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "package LOG_NB_EVENTS_PHONE_STATE : int"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/audio/AudioService.java",
+                            "startLine": 7228,
+                            "endLine": 7228,
+                            "startColumn": 22,
+                            "endColumn": 52,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "attribute declaration with added modifier",
+                            "codeElement": "package LOG_NB_EVENTS_PHONE_STATE : int"
+                        }
+                    ]
+                },
+                {
+                    "type": "Add Attribute Modifier",
+                    "description": "Add Attribute Modifier static in attribute package LOG_NB_EVENTS_FORCE_USE : int from class com.android.server.audio.AudioService",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/audio/AudioService.java",
+                            "startLine": 7177,
+                            "endLine": 7177,
+                            "startColumn": 15,
+                            "endColumn": 43,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "package LOG_NB_EVENTS_FORCE_USE : int"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/audio/AudioService.java",
+                            "startLine": 7230,
+                            "endLine": 7230,
+                            "startColumn": 22,
+                            "endColumn": 50,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "attribute declaration with added modifier",
+                            "codeElement": "package LOG_NB_EVENTS_FORCE_USE : int"
+                        }
+                    ]
+                },
+                {
+                    "type": "Add Attribute Modifier",
+                    "description": "Add Attribute Modifier static in attribute package LOG_NB_EVENTS_VOLUME : int from class com.android.server.audio.AudioService",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/audio/AudioService.java",
+                            "startLine": 7178,
+                            "endLine": 7178,
+                            "startColumn": 15,
+                            "endColumn": 40,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "package LOG_NB_EVENTS_VOLUME : int"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/audio/AudioService.java",
+                            "startLine": 7231,
+                            "endLine": 7231,
+                            "startColumn": 22,
+                            "endColumn": 47,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "attribute declaration with added modifier",
+                            "codeElement": "package LOG_NB_EVENTS_VOLUME : int"
+                        }
+                    ]
+                },
+                {
+                    "type": "Add Attribute Modifier",
+                    "description": "Add Attribute Modifier static in attribute package LOG_NB_EVENTS_DYN_POLICY : int from class com.android.server.audio.AudioService",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/audio/AudioService.java",
+                            "startLine": 7179,
+                            "endLine": 7179,
+                            "startColumn": 15,
+                            "endColumn": 44,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "package LOG_NB_EVENTS_DYN_POLICY : int"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/audio/AudioService.java",
+                            "startLine": 7232,
+                            "endLine": 7232,
+                            "startColumn": 22,
+                            "endColumn": 51,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "attribute declaration with added modifier",
+                            "codeElement": "package LOG_NB_EVENTS_DYN_POLICY : int"
+                        }
+                    ]
+                },
+                {
+                    "type": "Remove Variable Modifier",
+                    "description": "Remove Variable Modifier final in variable underlyingNetworks : Network[] in method public updateCapabilities() : void from class com.android.server.connectivity.Vpn",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/connectivity/Vpn.java",
+                            "startLine": 304,
+                            "endLine": 304,
+                            "startColumn": 25,
+                            "endColumn": 99,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "original variable declaration",
+                            "codeElement": "underlyingNetworks : Network[]"
+                        },
+                        {
+                            "filePath": "services/core/java/com/android/server/connectivity/Vpn.java",
+                            "startLine": 303,
+                            "endLine": 311,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "public updateCapabilities() : void"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/connectivity/Vpn.java",
+                            "startLine": 318,
+                            "endLine": 318,
+                            "startColumn": 19,
+                            "endColumn": 66,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "variable declaration with removed modifier",
+                            "codeElement": "underlyingNetworks : Network[]"
+                        },
+                        {
+                            "filePath": "services/core/java/com/android/server/connectivity/Vpn.java",
+                            "startLine": 303,
+                            "endLine": 330,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "method declaration with removed variable modifier",
+                            "codeElement": "public updateCapabilities(defaultNetwork Network) : NetworkCapabilities"
+                        }
+                    ]
+                },
+                {
+                    "type": "Add Method Modifier",
+                    "description": "Add Method Modifier synchronized in method public updateCapabilities(defaultNetwork Network) : NetworkCapabilities from class com.android.server.connectivity.Vpn",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/connectivity/Vpn.java",
+                            "startLine": 303,
+                            "endLine": 311,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "public updateCapabilities() : void"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/connectivity/Vpn.java",
+                            "startLine": 303,
+                            "endLine": 330,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "method declaration with added modifier",
+                            "codeElement": "public updateCapabilities(defaultNetwork Network) : NetworkCapabilities"
+                        }
+                    ]
+                },
+                {
+                    "type": "Remove Attribute Modifier",
+                    "description": "Remove Attribute Modifier final in attribute private mWifiP2pChannel : Channel from class com.android.server.display.WifiDisplayController",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/display/WifiDisplayController.java",
+                            "startLine": 98,
+                            "endLine": 98,
+                            "startColumn": 27,
+                            "endColumn": 42,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "private mWifiP2pChannel : Channel"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/display/WifiDisplayController.java",
+                            "startLine": 98,
+                            "endLine": 98,
+                            "startColumn": 21,
+                            "endColumn": 36,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "attribute declaration with removed modifier",
+                            "codeElement": "private mWifiP2pChannel : Channel"
+                        }
+                    ]
+                },
+                {
+                    "type": "Remove Attribute Modifier",
+                    "description": "Remove Attribute Modifier static in attribute private CLEANUP_UNUSED_FP : boolean from class com.android.server.fingerprint.FingerprintService",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/fingerprint/FingerprintService.java",
+                            "startLine": 104,
+                            "endLine": 104,
+                            "startColumn": 34,
+                            "endColumn": 58,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "original attribute declaration",
+                            "codeElement": "private CLEANUP_UNUSED_FP : boolean"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/fingerprint/FingerprintService.java",
+                            "startLine": 156,
+                            "endLine": 156,
+                            "startColumn": 27,
+                            "endColumn": 53,
+                            "codeElementType": "FIELD_DECLARATION",
+                            "description": "attribute declaration with removed modifier",
+                            "codeElement": "private mCleanupUnusedFingerprints : boolean"
+                        }
+                    ]
+                },
+                {
+                    "type": "Remove Variable Modifier",
+                    "description": "Remove Variable Modifier final in variable states : NetworkState[] in method private updateIfacesLocked(defaultNetworks Network[]) : void from class com.android.server.net.NetworkStatsService",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/net/NetworkStatsService.java",
+                            "startLine": 1095,
+                            "endLine": 1095,
+                            "startColumn": 30,
+                            "endColumn": 36,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "original variable declaration",
+                            "codeElement": "states : NetworkState[]"
+                        },
+                        {
+                            "filePath": "services/core/java/com/android/server/net/NetworkStatsService.java",
+                            "startLine": 1076,
+                            "endLine": 1172,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "private updateIfacesLocked(defaultNetworks Network[]) : void"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/net/NetworkStatsService.java",
+                            "startLine": 1105,
+                            "endLine": 1105,
+                            "startColumn": 64,
+                            "endColumn": 85,
+                            "codeElementType": "SINGLE_VARIABLE_DECLARATION",
+                            "description": "variable declaration with removed modifier",
+                            "codeElement": "states : NetworkState[]"
+                        },
+                        {
+                            "filePath": "services/core/java/com/android/server/net/NetworkStatsService.java",
+                            "startLine": 1098,
+                            "endLine": 1182,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "method declaration with removed variable modifier",
+                            "codeElement": "private updateIfacesLocked(defaultNetworks Network[], states NetworkState[]) : void"
+                        }
+                    ]
+                },
+                {
+                    "type": "Add Variable Modifier",
+                    "description": "Add Variable Modifier final in variable fd : FileDescriptor in method public sendOneShotKernelMessage(nlProto int, msg byte[]) : void from class android.net.netlink.NetlinkSocket",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "services/net/java/android/net/netlink/NetlinkSocket.java",
+                            "startLine": 62,
+                            "endLine": 62,
+                            "startColumn": 24,
+                            "endColumn": 26,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "original variable declaration",
+                            "codeElement": "fd : FileDescriptor"
+                        },
+                        {
+                            "filePath": "services/net/java/android/net/netlink/NetlinkSocket.java",
+                            "startLine": 58,
+                            "endLine": 102,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "public sendOneShotKernelMessage(nlProto int, msg byte[]) : void"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "services/net/java/android/net/netlink/NetlinkSocket.java",
+                            "startLine": 62,
+                            "endLine": 62,
+                            "startColumn": 30,
+                            "endColumn": 52,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "variable declaration with added modifier",
+                            "codeElement": "fd : FileDescriptor"
+                        },
+                        {
+                            "filePath": "services/net/java/android/net/netlink/NetlinkSocket.java",
+                            "startLine": 58,
+                            "endLine": 101,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "method declaration with added variable modifier",
+                            "codeElement": "public sendOneShotKernelMessage(nlProto int, msg byte[]) : void"
+                        }
+                    ]
+                },
+                {
+                    "type": "Add Variable Modifier",
+                    "description": "Add Variable Modifier final in variable statsXt : NetworkStats in method public testApply464xlatAdjustments() : void from class android.net.NetworkStatsTest",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "tests/net/java/android/net/NetworkStatsTest.java",
+                            "startLine": 796,
+                            "endLine": 809,
+                            "startColumn": 22,
+                            "endColumn": 39,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "original variable declaration",
+                            "codeElement": "stats : NetworkStats"
+                        },
+                        {
+                            "filePath": "tests/net/java/android/net/NetworkStatsTest.java",
+                            "startLine": 778,
+                            "endLine": 829,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "public testApply464xlatAdjustments() : void"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "tests/net/java/android/net/NetworkStatsTest.java",
+                            "startLine": 828,
+                            "endLine": 831,
+                            "startColumn": 28,
+                            "endColumn": 39,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "variable declaration with added modifier",
+                            "codeElement": "statsXt : NetworkStats"
+                        },
+                        {
+                            "filePath": "tests/net/java/android/net/NetworkStatsTest.java",
+                            "startLine": 779,
+                            "endLine": 863,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "method declaration with added variable modifier",
+                            "codeElement": "public testApply464xlatAdjustments() : void"
+                        }
+                    ]
+                },
+                {
+                    "type": "Add Variable Modifier",
+                    "description": "Add Variable Modifier final in variable otherEntry : NetworkStats.Entry in method public testApply464xlatAdjustments() : void from class android.net.NetworkStatsTest",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "tests/net/java/android/net/NetworkStatsTest.java",
+                            "startLine": 788,
+                            "endLine": 794,
+                            "startColumn": 28,
+                            "endColumn": 36,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "original variable declaration",
+                            "codeElement": "otherEntry : NetworkStats.Entry"
+                        },
+                        {
+                            "filePath": "tests/net/java/android/net/NetworkStatsTest.java",
+                            "startLine": 778,
+                            "endLine": 829,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "public testApply464xlatAdjustments() : void"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "tests/net/java/android/net/NetworkStatsTest.java",
+                            "startLine": 820,
+                            "endLine": 826,
+                            "startColumn": 34,
+                            "endColumn": 36,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "variable declaration with added modifier",
+                            "codeElement": "otherEntry : NetworkStats.Entry"
+                        },
+                        {
+                            "filePath": "tests/net/java/android/net/NetworkStatsTest.java",
+                            "startLine": 779,
+                            "endLine": 863,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "method declaration with added variable modifier",
+                            "codeElement": "public testApply464xlatAdjustments() : void"
+                        }
+                    ]
+                },
+                {
+                    "type": "Remove Variable Modifier",
+                    "description": "Remove Variable Modifier final in variable attrs : LayoutParams in method public adjustClearableFlags(win WindowState, clearableFlags int) : int from class com.android.server.policy.PolicyControl",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "services/core/java/com/android/server/policy/PolicyControl.java",
+                            "startLine": 102,
+                            "endLine": 102,
+                            "startColumn": 28,
+                            "endColumn": 71,
+                            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                            "description": "original variable declaration",
+                            "codeElement": "attrs : LayoutParams"
+                        },
+                        {
+                            "filePath": "services/core/java/com/android/server/policy/PolicyControl.java",
+                            "startLine": 101,
+                            "endLine": 107,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "public adjustClearableFlags(win WindowState, clearableFlags int) : int"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "core/java/android/view/WindowManagerPolicyControl.java",
+                            "startLine": 150,
+                            "endLine": 150,
+                            "startColumn": 44,
+                            "endColumn": 62,
+                            "codeElementType": "SINGLE_VARIABLE_DECLARATION",
+                            "description": "variable declaration with removed modifier",
+                            "codeElement": "attrs : LayoutParams"
+                        },
+                        {
+                            "filePath": "core/java/android/view/WindowManagerPolicyControl.java",
+                            "startLine": 150,
+                            "endLine": 155,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "method declaration with removed variable modifier",
+                            "codeElement": "public adjustClearableFlags(attrs LayoutParams, clearableFlags int) : int"
+                        }
+                    ]
+                },
+                {
+                    "type": "Add Method Modifier",
+                    "description": "Add Method Modifier static in method private computeNextMidnight(time LocalDateTime, zoneId ZoneId) : long from class android.widget.DateTimeView",
+                    "leftSideLocations": [
+                        {
+                            "filePath": "core/java/android/widget/DateTimeView.java",
+                            "startLine": 298,
+                            "endLine": 311,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "original method declaration",
+                            "codeElement": "private computeNextMidnight(timeZone TimeZone) : long"
+                        }
+                    ],
+                    "rightSideLocations": [
+                        {
+                            "filePath": "core/java/android/widget/DateTimeView.java",
+                            "startLine": 299,
+                            "endLine": 307,
+                            "startColumn": 5,
+                            "endColumn": 6,
+                            "codeElementType": "METHOD_DECLARATION",
+                            "description": "method declaration with added modifier",
+                            "codeElement": "private computeNextMidnight(time LocalDateTime, zoneId ZoneId) : long"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

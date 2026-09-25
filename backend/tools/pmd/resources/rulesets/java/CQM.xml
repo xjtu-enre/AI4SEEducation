@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset xmlns="http://pmd.sourceforge.net/ruleset/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="CQM" xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 https://pmd.sourceforge.io/ruleset_2_0_0.xsd">
+    <description>CQM test</description>
+    <!--    Sonar 64 -->
+    <!--    hy 32 （34 - 2）  -->
+    <rule deprecated="true" ref="category/java/Sonar/sonar_5.xml/AbsOnNegativeCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_5.xml/ArrayHashCodeAndToStringCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_5.xml/CustomSerializationMethodCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_5.xml/EqualsOnAtomicClassCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_5.xml/InnerClassOfNonSerializableCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_5.xml/InvalidDateValuesCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_5.xml/LongBitsToDoubleOnIntCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_5.xml/MethodNamedEqualsCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_5.xml/NonSerializableWriteCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_5.xml/PrimitiveWrappersInTernaryOperatorCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_5.xml/PrintfFailCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_5.xml/ScheduledThreadPoolExecutorZeroCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_5.xml/SerializableObjectInSessionCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_5.xml/SerializableSuperConstructorCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_5.xml/StaticMultithreadedUnsafeFieldsCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_5.xml/ThreadSleepCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_5.xml/ThreadWaitCallCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_5.xml/ToStringReturningNullCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_5.xml/TransactionalMethodVisibilityCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_5.xml/WaitInSynchronizeCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_5.xml/BooleanMethodReturnCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_5.xml/CatchIllegalMonitorStateExceptionCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_5.xml/GarbageCollectorCalledCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_5.xml/ObjectFinalizeOverridenCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_5.xml/ResultSetIsLastCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_5.xml/SystemExitCalledCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_5.xml/WaitInWhileLoopCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_5.xml/WaitOnConditionCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_5.xml/FileCreateTempFileCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_5.xml/GetRequestedSessionIdCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_5.xml/PublicStaticFieldShouldBeFinalCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_5.xml/SecureCookieCheck"/>
+    <!--    pmd内置支持-->
+    <!--    <rule deprecated="true" ref="category/java/Sonar/sonar_5.xml/BigDecimalDoubleConstructorCheck"/>-->
+    <!--    <rule deprecated="true" ref="category/java/Sonar/sonar_5.xml/PrintStackTraceCalledWithoutArgumentCheck"/>-->
+
+    <!--    sl 7 -->
+    <rule deprecated="true" ref="category/java/Sonar/sonar_3.xml/HasNextCallingNextCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_3.xml/ReflectionOnNonRuntimeAnnotationCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_3.xml/CollectionInappropriateCallsCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_3.xml/SwitchCasesWithoutBreakCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_3.xml/ForLoopTerminationConditionCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_3.xml/MultilineBlocksCurlyBracesCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_3.xml/PublicStaticMutableMembersCheck"/>
+
+    <!--    ztt  14 -->
+    <rule deprecated="true" ref="category/java/Sonar/sonar_6.xml/CollectionCallingItselfCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_6.xml/CompareToReturnValueCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_6.xml/EqualsArgumentTypeCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_6.xml/IdenticalOperandOnBinaryExpressionCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_6.xml/LocksNotUnlockedCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_6.xml/NonShortCircuitLogicCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_6.xml/StaticFieldUpateCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_6.xml/SynchronizationOnStringOrBoxedCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_6.xml/SynchronizedLockCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_6.xml/ThreadRunCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_6.xml/URLHashCodeAndEqualsCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_6.xml/UselessIncrementCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_6.xml/CollectionMethodsWithLinearComplexityCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_6.xml/ReturnInFinallyCheck"/>
+
+    <!--asiv 5  -->
+    <rule deprecated="true" ref="category/java/Sonar/sonar_1.xml/ClassComparedByNameCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_1.xml/RSAUsesOAEPCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_1.xml/ShiftOnIntOrLongCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_1.xml/ThreadAsRunnableArgumentCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_1.xml/UnusedReturnedDataCheck"/>
+
+    <!--    syh 3 -->
+    <rule deprecated="true" ref="category/java/Sonar/sonar_4.xml/ForLoopIncrementSignCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_4.xml/IgnoredStreamReturnValueCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_4.xml/SQLInjectionCheck"/>
+
+
+    <!--    gh 3 + 1 -->
+    <rule deprecated="true" ref="category/java/Sonar/sonar_2.xml/RunFinalizersCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_2.xml/ServletInstanceFieldCheck"/>
+    <rule deprecated="true" ref="category/java/Sonar/sonar_2.xml/ForLoopFalseConditionCheck"/>
+<!--        转换p3c kotlin规则-->
+    <!--    <rule deprecated="true" ref="category/java/Sonar/sonar_2.xml/LockShouldWithTryFinallyRule"/>-->
+
+
+
+<!--    &lt;!&ndash;    Sonar rules are supported through PMD built-in rules - 13 &ndash;&gt;-->
+<!--    <rule deprecated="true" ref="category/java/errorprone.xml/CloseResource"/>-->
+<!--    <rule deprecated="true" ref="category/java/errorprone.xml/EmptyIfStmt"/>-->
+<!--    <rule deprecated="true" ref="category/java/errorprone.xml/OverrideBothEqualsAndHashcode"/>-->
+<!--    <rule deprecated="true" ref="category/java/errorprone.xml/AvoidFieldNameMatchingMethodName"/>-->
+<!--    <rule deprecated="true" ref="category/java/errorprone.xml/NonCaseLabelInSwitchStatement"/>-->
+<!--    <rule deprecated="true" ref="category/java/errorprone.xml/FinalizeDoesNotCallSuperFinalize"/>-->
+<!--    <rule deprecated="true" ref="category/java/errorprone.xml/AvoidCallingFinalize"/>-->
+<!--    <rule deprecated="true" ref="category/java/errorprone.xml/AvoidCatchingThrowable"/>-->
+<!--    <rule deprecated="true" ref="category/java/errorprone.xml/ProperCloneImplementation"/>-->
+<!--    <rule deprecated="true" ref="category/java/bestpractices.xml/CheckResultSet"/>-->
+<!--    <rule deprecated="true" ref="category/java/errorprone.xml/DontUseFloatTypeForLoopIndices"/>-->
+<!--    <rule deprecated="true" ref="category/java/errorprone.xml/AvoidDecimalLiteralsInBigDecimalConstructor"/>-->
+<!--    <rule deprecated="true" ref="category/java/bestpractices.xml/AvoidPrintStackTrace"/>-->
+
+
+
+
+<!--    &lt;!&ndash;    p3c  49条 &ndash;&gt;-->
+<!--    &lt;!&ndash;    6 &ndash;&gt;-->
+<!--    <rule deprecated="true" ref="category/java/P3C/ali-comment.xml"/>-->
+<!--    &lt;!&ndash;    8（有1条未启用）LockShouldWithTryFinallyRule &ndash;&gt;-->
+<!--    <rule deprecated="true" ref="category/java/P3C/ali-concurrent.xml"/>-->
+<!--    &lt;!&ndash;    2&ndash;&gt;-->
+<!--    <rule deprecated="true" ref="category/java/P3C/ali-constant.xml"/>-->
+<!--    &lt;!&ndash;    3&ndash;&gt;-->
+<!--    <rule deprecated="true" ref="category/java/P3C/ali-exception.xml"/>-->
+<!--    &lt;!&ndash;    3（有一条未启用）AvoidNegationOperatorRule &ndash;&gt;-->
+<!--    <rule deprecated="true" ref="category/java/P3C/ali-flowcontrol.xml"/>-->
+<!--    &lt;!&ndash;    11&ndash;&gt;-->
+<!--    <rule deprecated="true" ref="category/java/P3C/ali-naming.xml"/>-->
+<!--    &lt;!&ndash;    6 （有一条未启用） BigDecimalAvoidDoubleConstructorRule&ndash;&gt;-->
+<!--    <rule deprecated="true" ref="category/java/P3C/ali-oop.xml"/>-->
+<!--    &lt;!&ndash;    orm未启用&ndash;&gt;-->
+<!--    &lt;!&ndash;    <rule deprecated="true" ref="category/java/P3C/ali-orm.xml/"/>&ndash;&gt;-->
+<!--    &lt;!&ndash;    4（3条未启用）MethodTooLongRule AvoidDoubleOrFloatEqualCompareRule UseRightCaseForDateFormatRule &ndash;&gt;-->
+<!--    <rule deprecated="true" ref="category/java/P3C/ali-other.xml"/>-->
+<!--    &lt;!&ndash;    6&ndash;&gt;-->
+<!--    <rule deprecated="true" ref="category/java/P3C/ali-set.xml"/>-->
+
+
+
+    <!--    &lt;!&ndash;    p3c  49条 &ndash;&gt;-->
+    <!--    &lt;!&ndash;    6 &ndash;&gt;-->
+    <!--    <rule deprecated="true" ref="category/java/P3C/ali-comment.xml/AvoidCommentBehindStatementRule"/>-->
+    <!--    <rule deprecated="true" ref="category/java/P3C/ali-comment.xml/RemoveCommentedCodeRule"/>-->
+    <!--    <rule deprecated="true" ref="category/java/P3C/ali-comment.xml/ClassMustHaveAuthorRule"/>-->
+    <!--    <rule deprecated="true" ref="category/java/P3C/ali-comment.xml/EnumConstantsMustHaveCommentRule"/>-->
+    <!--    <rule deprecated="true" ref="category/java/P3C/ali-comment.xml/CommentsMustBeJavadocFormatRule"/>-->
+    <!--    <rule deprecated="true" ref="category/java/P3C/ali-comment.xml/AbstractMethodOrInterfaceMethodMustUseJavadocRule"/>-->
+    <!--    &lt;!&ndash;    8（有1条未启用） &ndash;&gt;-->
+    <!--    <rule deprecated="true" ref="category/java/P3C/ali-concurrent.xml/AvoidCallStaticSimpleDateFormatRule"/>-->
+    <!--    <rule deprecated="true" ref="category/java/P3C/ali-concurrent.xml/AvoidConcurrentCompetitionRandomRule"/>-->
+    <!--    <rule deprecated="true" ref="category/java/P3C/ali-concurrent.xml/ThreadShouldSetNameRule"/>-->
+    <!--    <rule deprecated="true" ref="category/java/P3C/ali-concurrent.xml/ThreadLocalShouldRemoveRule"/>-->
+    <!--    <rule deprecated="true" ref="category/java/P3C/ali-concurrent.xml/CountDownShouldInFinallyRule"/>-->
+    <!--    <rule deprecated="true" ref="category/java/P3C/ali-concurrent.xml/ThreadPoolCreationRule"/>-->
+    <!--    <rule deprecated="true" ref="category/java/P3C/ali-concurrent.xml/AvoidManuallyCreateThreadRule"/>-->
+    <!--    <rule deprecated="true" ref="category/java/P3C/ali-concurrent.xml/AvoidUseTimerRule"/>-->
+
+    <!--    &lt;!&ndash;    2&ndash;&gt;-->
+    <!--    <rule deprecated="true" ref="category/java/P3C/ali-constant.xml/UndefineMagicConstantRule"/>-->
+    <!--    <rule deprecated="true" ref="category/java/P3C/ali-constant.xml/UpperEllRule"/>-->
+    <!--    &lt;!&ndash;    3&ndash;&gt;-->
+    <!--    <rule deprecated="true" ref="category/java/P3C/ali-exception.xml/MethodReturnWrapperTypeRule"/>-->
+    <!--    <rule deprecated="true" ref="category/java/P3C/ali-exception.xml/TransactionMustHaveRollbackRule"/>-->
+    <!--    <rule deprecated="true" ref="category/java/P3C/ali-exception.xml/AvoidReturnInFinallyRule"/>-->
+    <!--    &lt;!&ndash;    3（有一条未启用） &ndash;&gt;-->
+    <!--    <rule deprecated="true" ref="category/java/P3C/ali-flowcontrol.xml/NeedBraceRule"/>-->
+    <!--    <rule deprecated="true" ref="category/java/P3C/ali-flowcontrol.xml/AvoidComplexConditionRule"/>-->
+    <!--    <rule deprecated="true" ref="category/java/P3C/ali-flowcontrol.xml/SwitchStatementRule"/>-->
+    <!--    &lt;!&ndash;    11&ndash;&gt;-->
+    <!--    <rule deprecated="true" ref="category/java/P3C/ali-naming.xml/AvoidStartWithDollarAndUnderLineNamingRule"/>-->
+    <!--    <rule deprecated="true" ref="category/java/P3C/ali-naming.xml/PackageNamingRule"/>-->
+    <!--    <rule deprecated="true" ref="category/java/P3C/ali-naming.xml/TestClassShouldEndWithTestNamingRule"/>-->
+    <!--    <rule deprecated="true" ref="category/java/P3C/ali-naming.xml/AbstractClassShouldStartWithAbstractNamingRule"/>-->
+    <!--    <rule deprecated="true" ref="category/java/P3C/ali-naming.xml/ExceptionClassShouldEndWithExceptionRule"/>-->
+    <!--    <rule deprecated="true" ref="category/java/P3C/ali-naming.xml/ArrayNamingShouldHaveBracketRule"/>-->
+    <!--    <rule deprecated="true" ref="category/java/P3C/ali-naming.xml/ClassNamingShouldBeCamelRule"/>-->
+    <!--    <rule deprecated="true" ref="category/java/P3C/ali-naming.xml/ConstantFieldShouldBeUpperCaseRule"/>-->
+    <!--    <rule deprecated="true" ref="category/java/P3C/ali-naming.xml/LowerCamelCaseVariableNamingRule"/>-->
+    <!--    <rule deprecated="true" ref="category/java/P3C/ali-naming.xml/ConstantFieldShouldBeUpperCaseRule"/>-->
+    <!--    <rule deprecated="true" ref="category/java/P3C/ali-naming.xml/BooleanPropertyShouldNotStartWithIsRule"/>-->
+
+    <!--    &lt;!&ndash;    6 （有一条未启用）&ndash;&gt;-->
+    <!--    <rule deprecated="true" ref="category/java/P3C/ali-oop.xml/StringConcatRule"/>-->
+    <!--    <rule deprecated="true" ref="category/java/P3C/ali-oop.xml/PojoMustUsePrimitiveFieldRule"/>-->
+    <!--    <rule deprecated="true" ref="category/java/P3C/ali-oop.xml/PojoMustOverrideToStringRule"/>-->
+    <!--    <rule deprecated="true" ref="category/java/P3C/ali-oop.xml/PojoNoDefaultValueRule"/>-->
+    <!--    <rule deprecated="true" ref="category/java/P3C/ali-oop.xml/WrapperTypeEqualityRule"/>-->
+    <!--    <rule deprecated="true" ref="category/java/P3C/ali-oop.xml/EqualsAvoidNullRule"/>-->
+
+
+    <!--    &lt;!&ndash;    orm未启用&ndash;&gt;-->
+    <!--    &lt;!&ndash;    <rule deprecated="true" ref="category/java/P3C/ali-orm.xml/"/>&ndash;&gt;-->
+
+    <!--    &lt;!&ndash;    4（3条未启用）&ndash;&gt;-->
+    <!--    <rule deprecated="true" ref="category/java/P3C/ali-other.xml/AvoidNewDateGetTimeRule"/>-->
+    <!--    <rule deprecated="true" ref="category/java/P3C/ali-other.xml/AvoidMissUseOfMathRandomRule"/>-->
+    <!--    <rule deprecated="true" ref="category/java/P3C/ali-other.xml/AvoidPatternCompileInMethodRule"/>-->
+    <!--    <rule deprecated="true" ref="category/java/P3C/ali-other.xml/AvoidApacheBeanUtilsCopyRule"/>-->
+
+
+    <!--    &lt;!&ndash;    6&ndash;&gt;-->
+    <!--    <rule deprecated="true" ref="category/java/P3C/ali-set.xml/CollectionInitShouldAssignCapacityRule"/>-->
+    <!--    <rule deprecated="true" ref="category/java/P3C/ali-set.xml/ClassCastExceptionWithToArrayRule"/>-->
+    <!--    <rule deprecated="true" ref="category/java/P3C/ali-set.xml/DontModifyInForeachCircleRule"/>-->
+    <!--    <rule deprecated="true" ref="category/java/P3C/ali-set.xml/ConcurrentExceptionWithModifyOriginSubListRule"/>-->
+    <!--    <rule deprecated="true" ref="category/java/P3C/ali-set.xml/ClassCastExceptionWithSubListToArrayListRule"/>-->
+    <!--    <rule deprecated="true" ref="category/java/P3C/ali-set.xml/UnsupportedExceptionWithModifyAsListRule"/>-->
+
+</ruleset>

@@ -1,0 +1,148 @@
+.main {
+  background-color: rgb(2, 6, 33);
+  background-image: url(/static/img/HomePage/bg.png);
+  color: white;
+  padding: 2% 15%;
+  height: 90vh;
+}
+
+.title {
+  text-align: center;
+  font-size: 1.25rem;
+}
+
+/* 核心功能各部分标题 */
+.indicatorContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  list-style: none;
+  margin: 2% 0;
+  padding: 0;
+}
+
+.indicatorItem {
+  margin: 0 1%;
+}
+
+.indicatorButton {
+  width: 6vw;
+  height: 1.67vw;
+  line-height: 1.67vw;
+  display: flex;
+  justify-content: center;
+  color: #fff;
+  background-color: transparent;
+  border: none;
+}
+
+.indicatorButtonActive {
+  width: 6vw;
+  height: 1.67vw;
+  line-height: 1.67vw;
+  display: flex;
+  justify-content: center;
+  color: #fff;
+  background-color: transparent;
+  opacity: 1;
+  box-sizing: border-box;
+  border: 1px solid rgb(56, 99, 248);
+  border-radius: 1.67vw;
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+}
+
+.titleContainerIcon {
+  margin-top: 5%;
+  height: 15px;
+  width: 15px;
+}
+
+/* 核心功能各部分图片 */
+.carousel {
+  display: flex;
+  flex-direction: row;
+  margin-left: 2%;
+  margin-right: auto;
+  position: relative;
+  overflow: hidden;
+  overflow: clip;
+  list-style: none;
+  padding: 0;
+  z-index: 1;
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  transition-property: transform;
+  transition-timing-function: var(--swiper-wrapper-transition-timing-function, initial);
+  box-sizing: content-box;
+  transition-duration: 0ms;
+  transition-delay: 0ms;
+  transform: translate3d(0px, 0px, 0px);
+}
+
+/* .carouselItem {} */
+
+.carouselImg {
+  width: 14.58vw;
+  height: 100%;
+  margin: 0 .52vw;
+  padding-left: .93vw;
+  padding-top: 1.25vw;
+  padding-bottom: .78vw;
+  position: relative;
+  transition-property: transform;
+  display: block;
+  height: 100%
+}
+
+.carouselPaper {
+  width: 14.58vw;
+  height: 100%;
+  margin: 0 .52vw;
+  padding-left: .93vw;
+  padding-top: 1.25vw;
+  padding-bottom: .78vw;
+  background: url(/static/img/HomePage/paperItem.png) no-repeat;
+  background-size: 100% 100%;
+  color: #e8eaf5;
+  text-align: left;
+  padding-left: 18px;
+  padding-top: 24px;
+  padding-bottom: 15px;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.carouselPaperTitle {
+  padding-right: 2.6vw;
+  font-size: .93vw;
+  line-height: 1.46vw;
+}
+
+.carouselPaperAuthor {
+  font-size: .83vw;
+  padding-right: .83vw;
+  line-height: 1.46vw;
+  margin-top: 1.04vw;
+  color: #c7c7c7;
+}
+
+.carouselPaperStored {
+  line-height: 1.25vw;
+  font-size: .73vw;
+  margin-top: .21vw;
+  color: #e8eaf5;
+}

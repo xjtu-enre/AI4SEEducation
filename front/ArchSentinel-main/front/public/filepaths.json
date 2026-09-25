@@ -1,0 +1,6 @@
+{
+  "upstreamFilePath": "D:\\AOSP\\frameworks\\base",
+  "upstreamFileEnrePath": "D:\\AOSP\\result\\LineageOS\\base-out.json",
+  "downstreamFilePath": "D:\\DOWN\\LineageOS\\android_frameworks_base",
+  "downstreamFileEnrePath": "D:\\DOWN\\result\\LineageOS\\frameworks_base-out.json"
+}

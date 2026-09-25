@@ -1,0 +1,220 @@
+<?xml version="1.0"?>
+
+<!--sl-->
+<ruleset name="Sonar">
+    <description>
+        Implementing Sonar rules through PMD custom rules.
+    </description>
+    <rule name="MultilineBlocksCurlyBracesCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.codesmell.MultilineBlocksCurlyBracesCheckRule"
+          message="Multiline blocks should be enclosed in curly braces">
+        <description>
+            <p>Curly braces can be omitted from a one-line block, such as with an <code>if</code> statement or <code>for</code> loop, but doing so can be
+                misleading and induce bugs. </p>
+            <p>This rule raises an issue when the whitespacing of the lines after a one line block indicates an intent to include those lines in the block, but
+                the omission of curly braces means the lines will be unconditionally executed once.</p>
+        </description>
+        <example>
+            if (condition)
+            firstActionInBlock();
+            secondAction();  // Noncompliant; executed unconditionally
+            thirdAction();
+
+            if (condition) firstActionInBlock(); secondAction();  // Noncompliant; secondAction executed unconditionally
+
+            if (condition) firstActionInBlock();  // Noncompliant
+            secondAction();  // Executed unconditionally
+
+            if (condition); secondAction();  // Noncompliant; secondAction executed unconditionally
+
+            String str = null;
+            for (int i = 0; i &lt; array.length; i++)
+            str = array[i];
+            doTheThing(str);  // Noncompliant
+
+
+            <!-->
+            <!-->
+
+            if (condition) {
+            firstActionInBlock();
+            secondAction();
+            }
+            thirdAction();
+
+            String str = null;
+            for (int i = 0; i &lt; array.length; i++) {
+            str = array[i];
+            doTheThing(str);
+            }          //compliant
+        </example>
+        <priority>2</priority>
+    </rule>
+
+    <rule name="SwitchCasesWithoutBreakCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.codesmell.SwitchCasesWithoutBreakCheckRule"
+          message="Switch cases should end with an unconditional 'break' statement">
+        <description>
+            <p>When the execution is not explicitly terminated at the end of a switch case, it continues to execute the statements of the following case. While
+                this is sometimes intentional, it often is a mistake which leads to unexpected behavior. </p>
+        </description>
+        <example>
+            switch (myVariable) {
+            case 1:
+            foo();
+            break;
+            case 2:  // Both 'doSomething()' and 'doSomethingElse()' will be executed. Is it on purpose ?
+            doSomething();
+            default:
+            doSomethingElse();
+            break;
+            }          // Noncompliant
+
+
+            <!-->
+            <!-->
+
+            switch (myVariable) {
+            case 1:
+            foo();
+            break;
+            case 2:
+            doSomething();
+            break;
+            default:
+            doSomethingElse();
+            break;
+            }                 //compliant
+        </example>
+        <priority>2</priority>
+    </rule>
+
+    <rule name="ReflectionOnNonRuntimeAnnotationCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.bug.ReflectionOnNonRuntimeAnnotationCheckRule"
+          message="Reflection should not be used to check non-runtime annotations">
+        <description>
+            <p>The writer of an annotation can set one of three retention policies for it:</p>
+            <ul>
+                <li> <code>RetentionPolicy.SOURCE</code> - these annotations are dropped during compilation, E.G. <code>@Override</code>,
+                    <code>@SuppressWarnings</code>. </li>
+                <li> <code>RetentionPolicy.CLASS</code> - these annotations are present in a compiled class but not loaded into the JVM at runtime. This is the
+                    default. </li>
+                <li> <code>RetentionPolicy.RUNTIME</code> - these annotations are present in the class file and loaded into the JVM. </li>
+            </ul>
+            <p>Only annotations that have been given a <code>RUNTIME</code> retention policy will be available to reflection. Testing for annotations with any
+                other retention policy is simply an error, since the test will always return false.</p>
+            <p>This rule checks that reflection is not used to detect annotations that do not have <code>RUNTIME</code> retention.</p>
+        </description>
+        <example>
+            Method m = String.class.getMethod("getBytes", new Class[] {int.class,
+            int.class, byte[].class, int.class});
+            if (m.isAnnotationPresent(Override.class)) {  // Noncompliant; test will always return false, even when @Override is present in the code
+            // Noncompliant
+        </example>
+        <priority>1</priority>
+    </rule>
+
+    <rule name="ForLoopTerminationConditionCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.codesmell.ForLoopTerminationConditionCheckRule"
+          message="Equality operators should not be used in 'for' loop termination conditions">
+        <description>
+            <p>Testing <code>for</code> loop termination using an equality operator (<code>==</code> and <code>!=</code>) is dangerous, because it could set up an
+                infinite loop. Using a broader relational operator instead casts a wider net, and makes it harder (but not impossible) to accidentally write an
+                infinite loop.</p>
+        </description>
+        <example>
+            for (int i = 1; i != 10; i += 2)  // Noncompliant. Infinite; i goes from 9 straight to 11.
+            {
+            //...
+            }     // Noncompliant
+
+            <!-->
+            <!-->
+
+            for (int i = 1; i &lt;= 10; i += 2)  // Compliant
+            {
+            //...
+            }     // Compliant
+        </example>
+        <priority>2</priority>
+    </rule>
+
+    <rule name="CollectionInappropriateCallsCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.bug.CollectionInappropriateCallsCheckRule"
+          message="Inappropriate 'Collection' calls should not be made">
+        <description>
+            <p>A couple <code>Collection</code> methods can be called with arguments of an incorrect type, but doing so is pointless and likely the result of
+                using the wrong argument. This rule will raise an issue when the type of the argument to <code>List.contains</code> or <code>List.remove</code> is
+                unrelated to the type used for the list declaration.</p>
+        </description>
+        <example>
+            List&lt;String&gt; list = new ArrayList&lt;String&gt;();
+            Integer integer = Integer.valueOf(1);
+
+            if (list.contains(integer)) {  // Noncompliant. Always false.
+            list.remove(integer); // Noncompliant. list.add(integer) doesn't compile, so this will always return false
+            }
+        </example>
+        <priority>2</priority>
+    </rule>
+
+
+    <rule name="HasNextCallingNextCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.bug.HasNextCallingNextCheckRule"
+          message="'Iterator.hasNext()' should not call 'Iterator.next()'">
+        <description>
+            <p>Calling <code>Iterator.hasNext()</code> is not supposed to have any side effects, and therefore should not change the state of the iterator.
+                <code>Iterator.next()</code> advances the iterator by one item. So calling it inside <code>Iterator.hasNext()</code>, breaks the
+                <code>hasNext()</code> contract, and will lead to unexpected behavior in production.</p>
+        </description>
+        <example>
+            public class FibonacciIterator implements Iterator&lt;Integer&gt;{
+            ...
+            @Override
+            public boolean hasNext() {
+            if(next() != null) {
+            return true;
+            }
+            return false;
+            }
+            ...
+            }  // Noncompliant
+        </example>
+        <priority>1</priority>
+    </rule>
+
+    <rule name="PublicStaticMutableMembersCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.vulnerability.PublicStaticMutableMembersCheckRule"
+          message="Mutable fields should not be 'public static'">
+        <description>
+            <p>There is no good reason to have a mutable object as the <code>public</code> (by default), <code>static</code> member of an <code>interface</code>.
+                Such variables should be moved into classes and their visibility lowered. </p>
+            <p>Similarly, mutable <code>static</code> members of classes and enumerations which are accessed directly, rather than through getters and setters,
+                should be protected to the degree possible. That can be done by reducing visibility or making the field <code>final</code> if appropriate. </p>
+            <p>Note that making a mutable field, such as an array, <code>final</code> will keep the variable from being reassigned, but doing so has no effect on
+                the mutability of the internal state of the array (i.e. it doesn't accomplish the goal).</p>
+            <p>This rule raises issues for <code>public static</code> array, <code>Collection</code>, <code>Date</code>, and <code>awt.Point</code> members.</p>
+        </description>
+        <example>
+            public interface MyInterface {
+            public static String [] strings; // Noncompliant
+            }
+
+            public class A {
+            public static String [] strings1 = {"first","second"};  // Noncompliant
+            public static String [] strings2 = {"first","second"};  // Noncompliant
+            public static List&lt;String&gt; strings3 = new ArrayList&lt;&gt;();  // Noncompliant
+            // ...
+            }
+        </example>
+        <priority>2</priority>
+    </rule>
+
+</ruleset>

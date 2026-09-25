@@ -1,0 +1,3 @@
+id,category,qualifiedName,file_path,not_aosp,old_aosp,isIntrusive,intrusiveModify,refactor
+258967,Class,com.android.internal.app.IntentForwarderActivityTest.TestInjector,core/tests/coretests/src/com/android/internal/app/IntentForwarderActivityTest.java,0,-1,1,"{'class_access_modify': 'null-public', 'body_modify': '-'}",[]
+615969,Class,com.android.server.am.ActivityMetricsLogger.WindowingModeTransitionInfoSnapshot,services/core/java/com/android/server/am/ActivityMetricsLogger.java,0,-1,1,"{'class_access_modify': 'private-null', 'body_modify': '-'}",[]

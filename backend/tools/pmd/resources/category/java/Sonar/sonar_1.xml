@@ -1,0 +1,192 @@
+<?xml version="1.0"?>
+
+<!--asiv-->
+<ruleset name="Sonar">
+    <description>
+      Implementing Sonar rules through PMD custom rules.
+    </description>
+
+  <rule name="ClassComparedByNameCheck"
+        language="java"
+        class="net.sourceforge.pmd.lang.java.rule.sonar.bug.ClassComparedByNameCheckRule"
+        message="Avoid comparing class names directly. Use 'instanceof' or 'Class.isAssignableFrom()' instead.">
+    <description>
+      <p>There is no requirement that class names be unique, only that they be unique within a package. Therefore trying to determine an object's type based
+        on its class name is an exercise fraught with danger. One of those dangers is that a malicious user will send objects of the same name as the trusted
+        class and thereby gain trusted access.</p>
+      <p>Instead, the <code>instanceof</code> operator or the <code>Class.isAssignableFrom()</code> method should be used to check the object's underlying
+        type.</p>
+    </description>
+    <example>
+      // Noncompliant
+      package computer;
+      class Pear extends Laptop { ... }
+
+      package food;
+      class Pear extends Fruit { ... }
+
+      class Store {
+
+      public boolean hasSellByDate(Object item) {
+      if ("Pear".equals(item.getClass().getSimpleName())) {
+      return true;  // Results in throwing away week-old computers
+      }
+      return false;
+      }
+
+      public boolean isList(Class&lt;T&gt; valueClass) {
+      if (List.class.getName().equals(valueClass.getName())) {
+      return true;
+      }
+      return false;
+      }
+      }
+
+      // Compliant
+      class Store {
+
+      public boolean hasSellByDate(Object item) {
+      if (item instanceof food.Pear) {
+      return true;
+      }
+      return false;
+      }
+
+      public boolean isList(Class&lt;T&gt; valueClass) {
+      if (valueClass.isAssignableFrom(List.class)) {
+      return true;
+      }
+      return false;
+      }
+      }
+    </example>
+    <priority>2</priority>
+  </rule>
+
+  <rule name="RSAUsesOAEPCheck"
+        language="java"
+        class="net.sourceforge.pmd.lang.java.rule.sonar.vulnerability.RSAUsesOAEPCheckRule"
+        message="Cryptographic RSA algorithms should always incorporate OAEP (Optimal Asymmetric Encryption Padding)">
+    <description>
+      <p>Without OAEP in RSA encryption, it takes less work for an attacker to decrypt the data or infer patterns from the ciphertext. This rule logs an
+        issue as soon as a literal value starts with <code>RSA/NONE</code>. </p>
+    </description>
+    <example>
+      Cipher rsa = javax.crypto.Cipher.getInstance("RSA/NONE/NoPadding");// Noncompliant
+
+      Cipher rsa = javax.crypto.Cipher.getInstance("RSA/ECB/OAEPWITHSHA-256ANDMGF1PADDING");// Compliant
+    </example>
+    <priority>2</priority>
+  </rule>
+
+  <rule name="ShiftOnIntOrLongCheck"
+        language="java"
+        class="net.sourceforge.pmd.lang.java.rule.sonar.bug.ShiftOnIntOrLongCheckRule"
+        message="Ints and longs should not be shifted by zero or more than their number of bits-1"
+  >
+    <description>
+      <p>Since an <code>int</code> is a 32-bit variable, shifting by more than +/-31 is confusing at best and an error at worst. Shifting an <code>int</code> by 32 is the same as shifting it by 0, and shifting it by 33 is the same as shifting it by 1.</p>
+      <p>Similarly, shifting a <code>long</code> by +/-64 is the same as shifting it by 0, and shifting it by 65 is the same as shifting it by 1.</p>
+    </description>
+    <example>
+      //Noncompliant
+      public int shift(int a) {
+      return a &lt;&lt; 48;
+      }
+      //Compliant
+      public int shift(int a) {
+      return a &lt;&lt; 16;
+      }
+
+      //exception
+      bytes[loc+0] = (byte)(value &gt;&gt; 8);
+      bytes[loc+1] = (byte)(value &gt;&gt; 0);
+      <p>This rule doesn't raise an issue when the shift by zero is obviously for cosmetic reasons:</p>
+      <ul>
+        <li> When the value shifted is a literal. </li>
+        <li> When there is a similar shift at the same position on line before or after. E.g.: </li>
+      </ul>
+    </example>
+    <priority>2</priority>
+  </rule>
+
+  <rule name="ThreadAsRunnableArgumentCheck"
+        language="java"
+        class="net.sourceforge.pmd.lang.java.rule.sonar.codesmell.ThreadAsRunnableArgumentCheckRule"
+        message=" Threads should not be used where Runnables are expected"
+  >
+    <description>
+      <p>While it is technically correct to use a <code>Thread</code> where a <code>Runnable</code> is called for, the semantics of the two objects are
+        different, and mixing them is a bad practice that will likely lead to headaches in the future.</p>
+      <p>The crux of the issue is that <code>Thread</code> is a larger concept than <code>Runnable</code>. A <code>Runnable</code> is an object whose
+        running should be managed. A <code>Thread</code> expects to manage the running of itself or other <code>Runnables</code>. </p>
+    </description>
+    <example>
+      // Noncompliant
+      public static void main(String[] args) {
+      Thread r =new Thread() {
+      int p;
+      @Override
+      public void run() {
+      while(true)
+      System.out.println("a");
+      }
+      };
+      new Thread(r).start();  // Noncompliant
+
+      // Compliant
+      public static void main(String[] args) {
+      Runnable r =new Runnable() {
+      int p;
+      @Override
+      public void run() {
+      while(true)
+      System.out.println("a");
+      }
+      };
+      new Thread(r).start();
+    </example>
+    <priority>2</priority>
+  </rule>
+
+  <rule name="UnusedReturnedDataCheck"
+        language="java"
+        class="net.sourceforge.pmd.lang.java.rule.sonar.bug.UnusedReturnedDataCheckRule"
+        message="read and readLine return values should be used">
+    <description>
+      <p>When a method is called that returns data read from some data source, that data should be stored rather than thrown away. Any other course of
+        action is surely a bug.</p>
+      <p>This rule raises an issue when the return value of any of the following is ignored or merely null-checked: <code>BufferedReader.readLine()</code>,
+        <code>Reader.read()</code>, and these methods in any child classes.</p>
+    </description>
+    <example>
+      // Noncompliant
+      public void doSomethingWithFile(String fileName) {
+      BufferedReader buffReader = null;
+      try {
+      buffReader = new BufferedReader(new FileReader(fileName));
+      while (buffReader.readLine() != null) { // Noncompliant
+      // ...
+      }
+      } catch (IOException e) {
+      // ...
+      }
+      }
+
+      // Compliant
+      public void doSomethingWithFile(String fileName) {
+      BufferedReader buffReader = null;
+      try {
+      buffReader = new BufferedReader(new FileReader(fileName));
+      String line = null;
+      while ((line = buffReader.readLine()) != null) {
+      // ...
+      }
+      } catch (IOException e) {
+      // ...
+      }
+      }
+    </example>
+    <priority>1</priority>
+  </rule>
+</ruleset> 

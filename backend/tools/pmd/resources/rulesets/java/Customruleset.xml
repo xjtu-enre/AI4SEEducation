@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><ruleset xmlns="http://pmd.sourceforge.net/ruleset/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Clone Implementation" xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 https://pmd.sourceforge.io/ruleset_2_0_0.xsd">
+    <description>The Clone Implementation ruleset contains a collection of rules that find questionable usages of the clone() method.</description>
+    <rule deprecated="true" ref="category/java/errorprone.xml/CloneMethodMustBePublic"/>
+    <rule deprecated="true" ref="category/java/errorprone.xml/CloneMethodMustImplementCloneable"/>
+    <rule deprecated="true" ref="category/java/errorprone.xml/CloneMethodReturnTypeMustMatchClassName"/>
+    <rule deprecated="true" ref="category/java/errorprone.xml/CloneThrowsCloneNotSupportedException"/>
+    <rule deprecated="true" ref="category/java/errorprone.xml/ProperCloneImplementation"/>
+</ruleset>

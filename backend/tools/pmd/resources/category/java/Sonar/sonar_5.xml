@@ -1,0 +1,905 @@
+<?xml version="1.0"?>
+
+<!--HY-->
+<ruleset name="Sonar">
+    <description>
+        Implementing Sonar rules through PMD custom rules.
+    </description>
+<rule   name = "ToStringReturningNullCheck"
+        class="net.sourceforge.pmd.lang.java.rule.sonar.bug.ToStringReturningNullCheckRule"
+        language="java"
+        since="3.0"
+        message = "toString() and clone() methods should not return null">
+    <description>
+        Calling toString() or clone() on an object should always return a string or an object. Returning null instead contravenes the method's implicit contract.
+    </description>
+    <priority>2</priority>
+    <example>
+        <![CDATA[
+         //Noncompliant code example
+            public String toString () {
+            if (this.collection.isEmpty()) {
+            return null; // Noncompliant
+            } else {
+            // ...
+            }
+        //Compliant solution
+
+            public String toString () {
+            if (this.collection.isEmpty()) {
+            return "";
+            } else {
+            // ...
+            }
+            ]]>
+    </example>
+</rule>
+
+    <rule name="SystemExitCalledCheck"
+          language="java"
+          since="3.0"
+          message="Exit methods should not be called"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.codesmell.SystemExitCalledCheckRule"
+          externalInfoUrl="${pmd.website.baseurl}/pmd_rules_java_customrules.html#ExitMethodsShouldNotBeCalledRule">
+        <description>
+            <p>Calling <code>System.exit(int status)</code> or <code>Rutime.getRuntime().exit(int status)</code> calls the shutdown hooks and shuts downs the
+                entire Java virtual machine. Calling <code>Runtime.getRuntime().halt(int)</code> does an immediate shutdown, without calling the shutdown hooks, and
+                skipping finalization.</p>
+            <p>Each of these methods should be used with extreme care, and only when the intent is to stop the whole Java process. For instance, none of them
+                should be called from applications running in a J2EE container.</p>
+        </description>
+        <priority>2</priority>
+        <example>
+            <![CDATA[-->
+            void f() {
+            System.exit(0);          // Noncompliant {{Remove this call to "exit" or ensure it is really required.}}
+            int a = System.exit(0);  // Noncompliant [[sc=13;ec=24]] {{Remove this call to "exit" or ensure it is really required.}}
+            System.gc();             // Compliant
+            System.exit[0];          // Compliant
+            exit();                  // Compliant
+            Runtime.getRuntime().exit(); // Noncompliant [[sc=5;ec=30]] {{Remove this call to "exit" or ensure it is really required.}}
+            Runtime.getRuntime().foo;    // Compliant
+            Runtime.getRuntime().foo();  // Compliant
+            Runtime.getRuntime()++;      // Compliant
+            Runtime.getRuntime().halt(12); // Noncompliant {{Remove this call to "halt" or ensure it is really required.}}
+            Runtime.getRuntime(123).halt(12);
+            }
+            ]]>-->
+        </example>
+    </rule>
+
+    <rule name="PrintStackTraceCalledWithoutArgumentCheck"
+          language="java"
+          message="Use a logger to log this exception."
+          class = "net.sourceforge.pmd.lang.java.rule.sonar.vulnerability.PrintStackTraceCalledWithoutArgumentCheckRule">
+        <description>
+            <![CDATA[
+            Detects calls to `printStackTrace` method without arguments.
+        ]]>
+        </description>
+        <priority>3</priority>
+        <properties>
+            <property name="violationSuppressXPath" value="//MethodName[starts-with(@Image, 'toString')]" />
+        </properties>
+        <example>
+            <![CDATA[
+            // Bad practice: PrintStackTraceCalledWithoutArgument
+            e.printStackTrace();
+        ]]>
+        </example>
+        <priority>2</priority>
+    </rule>
+
+
+    <rule name = "BigDecimalDoubleConstructorCheck"
+          language="java"
+          message="Use BigDecimal.valueOf instead."
+          class = "net.sourceforge.pmd.lang.java.rule.sonar.bug.BigDecimalDoubleConstructorCheckRule">
+        <description>
+            Because of floating point imprecision, you're unlikely to get the value you expect from the BigDecimal(double) constructor.
+            Instead, you should use BigDecimal.valueOf, which uses a string under the covers to eliminate floating point rounding errors, or the constructor that takes a String argument.
+        </description>
+        <priority>2</priority> <!-- Set the priority according to your preference -->
+        <example>
+            <![CDATA[
+            double d = 1.1;
+
+            BigDecimal bd1 = new BigDecimal(d); // Noncompliant; see comment above
+            BigDecimal bd2 = new BigDecimal(1.1); // Noncompliant; same result
+        ]]>
+
+            <![CDATA[
+            double d = 1.1;
+
+            BigDecimal bd1 = BigDecimal.valueOf(d);
+            BigDecimal bd2 = new BigDecimal("1.1"); // using String constructor will result in precise value
+        ]]>
+        </example>
+    </rule>
+
+
+        <rule name="PublicStaticFieldShouldBeFinalCheck"
+              language="java"
+              class="net.sourceforge.pmd.lang.java.rule.sonar.vulnerability.PublicStaticFieldShouldBeFinalCheckRule"
+              message="public static fields should be constant"
+              externalInfoUrl="">
+            <description>public static fields should be constant</description>
+            <priority>2</priority>
+<!--            <properties>-->
+<!--                <property name="xpath">-->
+<!--                        <value>-->
+<!--                            <![CDATA[-->
+
+<!--                            //VariableDeclarator[(../ClassOrInterfaceDeclaration or ../EnumDeclaration)-->
+<!--                            and (VariableDeclaratorId/@ArrayBracketCount = 0)-->
+<!--                            and (boolean(../Modifier[@Image = 'public']) and boolean(../Modifier[@Image = 'static']))-->
+<!--                            and not(boolean(../Modifier[@Image = 'final']))-->
+<!--                            ]-->
+<!--]]>-->
+
+<!--                        </value>-->
+<!--                </property>-->
+<!--            </properties>-->
+            <example>
+                <![CDATA[
+            public class MyClass {
+                public static int myField;
+            }
+            ]]>
+            </example>
+        </rule>
+
+    <rule name="AbsOnNegativeCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.bug.AbsOnNegativeCheckRule"
+    message="Neither &quot;Math.abs&quot; nor negation should be used on numbers that could be &quot;MIN_VALUE&quot;">
+        <description>It is possible for a call to hashCode to return Integer.MIN_VALUE. Take the absolute value of such a hashcode and you'll still have a negative number. Since your code is likely to assume that it's a positive value instead, your results will be unreliable. Similarly, Integer.MIN_VALUE could be returned from Random.nextInt() or any object's compareTo method, and Long.MIN_VALUE could be returned from Random.nextLong(). Calling Math.abs on values returned from these methods is similarly ill-advised.</description>
+        <example>
+                <![CDATA[
+            public void doSomething(String str) {
+                if (Math.abs(str.hashCode()) > 0) { // Noncompliant
+                    // ...
+                }
+            }
+            ]]>
+
+                <![CDATA[
+            public void doSomething(String str) {
+                if (str.hashCode() != 0) {  //Compliant
+                    // ...
+                }
+            }
+            ]]>
+        </example>
+        <priority>2</priority>
+    </rule>
+
+    <rule name="TransactionalMethodVisibilityCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.bug.TransactionalMethodVisibilityCheckRule"
+          message="Non-public methods should not be @Transactional">
+        <description>
+            <p>Marking a non-public method <code>@Transactional</code> is both useless and misleading because Spring doesn't "see" non-<code>public</code>
+                methods, and so makes no provision for their proper invocation. Nor does Spring make provision for the methods invoked by the method it called.</p>
+            <p>Therefore marking a <code>private</code> method, for instance, <code>@Transactional</code> can only result in a runtime error or exception if the
+                method is actually written to be <code>@Transactional</code>.</p>
+        </description>
+        <example>
+            @Transactional  // Noncompliant
+            private void doTheThing(ArgClass arg) {
+            // ...
+            }
+        </example>
+        <priority>2</priority>
+    </rule>
+
+    <rule name="ScheduledThreadPoolExecutorZeroCheck"
+    language="java"
+    class="net.sourceforge.pmd.lang.java.rule.sonar.bug.ScheduledThreadPoolExecutorZeroCheckRule"
+    message="ScheduledThreadPoolExecutor should not have 0 core threads">
+        <description>
+            <p><code>java.util.concurrent.ScheduledThreadPoolExecutor</code>'s pool is sized with <code>corePoolSize</code>, so setting <code>corePoolSize</code>
+                to zero means the executor will have no threads and run nothing.</p>
+            <p>This rule detects instances where <code>corePoolSize</code> is set to zero, via either its setter or the object constructor.</p>
+        </description>
+        <example>
+            public void do(){
+
+            ScheduledThreadPoolExecutor stpe1 = new ScheduledThreadPoolExecutor(0); // Noncompliant
+
+            ScheduledThreadPoolExecutor stpe2 = new ScheduledThreadPoolExecutor(POOL_SIZE);
+            stpe2.setCorePo
+        </example>
+        <priority>1</priority>
+
+    </rule>
+
+    <rule name="LongBitsToDoubleOnIntCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.bug.LongBitsToDoubleOnIntCheckRule"
+          message="'Double.longBitsToDouble' should not be used for 'int'">
+        <description>
+            <p><code>Double.longBitsToDouble</code> expects a 64-bit, <code>long</code> argument. Pass it a smaller value, such as an <code>int</code> and the
+                mathematical conversion into a <code>double</code> simply won't work as anticipated because the layout of the bits will be interpreted incorrectly, as
+                if a child were trying to use an adult's gloves.</p>
+        </description>
+        <example>
+            int i = 42;
+            double d = Double.longBitsToDouble(i);  // Noncompliant
+        </example>
+        <priority>1</priority>
+    </rule>
+
+    <rule name="ResultSetIsLastCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.codesmell.ResultSetIsLastCheckRule"
+          message="'ResultSet.isLast()' should not be used">
+        <description>
+            <p>There are several reasons to avoid <code>ResultSet.isLast()</code>. First, support for this method is optional for <code>TYPE_FORWARD_ONLY</code>
+                result sets. Second, it can be expensive (the driver may need to fetch the next row to answer the question). Finally, the specification is not clear
+                on what should be returned when the <code>ResultSet</code> is empty, so some drivers may return the opposite of what is expected.</p>
+        </description>
+        <example>
+            stmt.executeQuery("SELECT name, address FROM PERSON");
+            ResultSet rs = stmt.getResultSet();
+            while (! rs.isLast()) { // Noncompliant
+            // process row
+            }
+        </example>
+        <priority>2</priority>
+    </rule>
+
+    <rule name="ThreadWaitCallCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.bug.ThreadWaitCallCheckRule"
+          message="Methods 'wait(...)' 'notify()' and 'notifyAll()' should not be called on Thread instances">
+        <description>
+            <p>There are several reasons to avoid <code>ResultSet.isLast()</code>. First, support for this method is optional for <code>TYPE_FORWARD_ONLY</code>
+                result sets. Second, it can be expensive (the driver may need to fetch the next row to answer the question). Finally, the specification is not clear
+                on what should be returned when the <code>ResultSet</code> is empty, so some drivers may return the opposite of what is expected.</p>
+        </description>
+        <example>
+            stmt.executeQuery("SELECT name, address FROM PERSON");
+            ResultSet rs = stmt.getResultSet();
+            while (! rs.isLast()) { // Noncompliant
+            // process row
+            }
+        </example>
+        <priority>1</priority>
+    </rule>
+
+    <rule name="ArrayHashCodeAndToStringCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.bug.ArrayHashCodeAndToStringCheckRule"
+          message="'hashCode' and 'toString' should not be called on array instances">
+        <description>
+            <p>While <code>hashCode</code> and <code>toString</code> are available on arrays, they are largely useless. <code>hashCode</code> returns the array's
+                "identity hash code", and <code>toString</code> returns nearly the same value. Neither method's output actually reflects the array's contents.
+                Instead, you should pass the array to the relevant static <code>Arrays</code> method.</p>
+        </description>
+        <example>
+            public static void main( String[] args )
+            {
+            String argStr = args.toString(); // Noncompliant
+            int argHash = args.hashCode(); // Noncompliant
+}
+            public static void main( String[] args )
+            {
+            String argStr = Arrays.toString(args); //compliant
+            int argHash = Arrays.hashCode(args); //compliant
+        </example>
+        <priority>2</priority>
+    </rule>
+
+    <rule name="EqualsOnAtomicClassCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.bug.EqualsOnAtomicClassCheckRule"
+          message="'.equals()' should not be used to test the values of 'Atomic' classes">
+        <description>
+            <p><code>AtomicInteger</code>, and <code>AtomicLong</code> extend <code>Number</code>, but they're distinct from <code>Integer</code> and
+                <code>Long</code> and should be handled differently. <code>AtomicInteger</code> and <code>AtomicLong</code> are designed to support lock-free,
+                thread-safe programming on single variables. As such, an <code>AtomicInteger</code> will only ever be "equal" to itself. Instead, you should
+                <code>.get()</code> the value and make comparisons on it.</p>
+            <p>This applies to all the atomic, seeming-primitive wrapper classes: <code>AtomicInteger</code>, <code>AtomicLong</code>, and
+                <code>AtomicBoolean</code>.</p>
+        </description>
+        <example>
+            AtomicInteger aInt1 = new AtomicInteger(0);
+            AtomicInteger aInt2 = new AtomicInteger(0);
+
+            if (aInt1.equals(aInt2)) { ... }  // Noncompliant
+
+            AtomicInteger aInt1 = new AtomicInteger(0);
+            AtomicInteger aInt2 = new AtomicInteger(0);
+
+            if (aInt1.get() == aInt2.get()) { ... } //compliant
+        </example>
+        <priority>1</priority>
+    </rule>
+
+    <rule name="WaitOnConditionCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.codesmell.WaitOnConditionCheckRule"
+          message="'Object.wait(...)' should never be called on objects that implement 'java.util.concurrent.locks.Condition'">
+        <description>
+            <p><code>Condition</code> factors out the <code>Object</code> monitor methods (<code>wait</code>, <code>notify</code> and <code>notifyAll</code>)
+                into distinct objects to give the effect of having multiple wait-sets per object, by combining them with the use of arbitrary Lock implementations.
+                Where a <code>Lock</code> replaces the use of <code>synchronized</code> methods and statements, a <code>Condition</code> replaces the use of the
+                <code>Object</code> monitor methods.</p>
+            <p>The purpose of implementing the <code>Condition</code> interface is to gain access to its more nuanced <code>await</code> methods. Therefore,
+                calling the method <code>Object.wait(...)</code> on a class implementing the <code>Condition</code> interface is silly and confusing.</p>
+        </description>
+        <example>
+            final Lock lock = new ReentrantLock();
+            final Condition notFull  = lock.newCondition();
+            ...
+            notFull.wait();  // Noncompliant
+
+            final Lock lock = new ReentrantLock();
+            final Condition notFull  = lock.newCondition();
+            ...
+            notFull.await(); //compliant
+        </example>
+        <priority>1</priority>
+    </rule>
+
+    <rule name="GetRequestedSessionIdCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.vulnerability.GetRequestedSessionIdCheckRule"
+          message="'HttpServletRequest.getRequestedSessionId()' should not be used">
+        <description>
+            <p>According to the Oracle Java API, the <code>HttpServletRequest.getRequestedSessionId()</code> method:</p>
+            <blockquote>
+                <p>Returns the session ID specified by the client. This may not be the same as the ID of the current valid session for this request. If the client
+                    did not specify a session ID, this method returns null.</p>
+            </blockquote>
+            <p>The session ID it returns is either transmitted in a cookie or a URL parameter so by definition, nothing prevents the end-user from manually
+                updating the value of this session ID in the HTTP request. </p>
+        </description>
+        <example>
+            if(isActiveSession(request.getRequestedSessionId()) ){
+            ...
+            }  // Noncompliant
+        </example>
+        <priority>2</priority>
+    </rule>
+
+    <rule name="CatchIllegalMonitorStateExceptionCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.codesmell.CatchIllegalMonitorStateExceptionCheckRule"
+          message="IllegalMonitorStateException should not be caught">
+        <description>
+            <p>According to Oracle Javadoc:</p>
+            <blockquote>
+                <p><code>IllegalMonitorStateException</code> is thrown when a thread has attempted to wait on an object's monitor or to notify other threads waiting
+                    on an object's monitor without owning the specified monitor.</p>
+            </blockquote>
+            <p>In other words, this exception can be thrown only in case of bad design because <code>Object.wait(...)</code>, <code>Object.notify()</code> and
+                <code>Object.notifyAll()</code> methods should never be called on an object whose monitor is not held. </p>
+        </description>
+        <example>
+            public void doSomething(){
+            ...
+            try {
+            ...
+            anObject.notify();
+            ...
+            } catch(IllegalMonitorStateException e) { // Noncompliant
+            ...
+            }
+            }
+
+            public void doSomething(){
+            ...
+            synchronized(anObject) {  //Compliant
+            ...
+            anObject.notify();
+            ...
+            }
+            }
+        </example>
+        <priority>2</priority>
+    </rule>
+
+    <rule name="ThreadSleepCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.bug.ThreadSleepCheckRule"
+          message="'wait(...)' should be used instead of 'Thread.sleep(...)' when a lock is held">
+        <description>
+            <p>If <code>Thread.sleep(...)</code> is called when the current thread holds a lock, it could lead to performance and scalability issues, or even
+                worse to deadlocks because the execution of the thread holding the lock is frozen. It's better to call <code>wait(...)</code> on the monitor object to
+                temporarily release the lock and allow other threads to run.</p>
+        </description>
+        <example>
+                public void doSomething(){
+                synchronized(monitor) {
+                while(notReady()){
+                Thread.sleep(200);  //Noncompliant
+                }
+                process();
+                }
+                ...
+                }
+
+                public void doSomething(){
+                synchronized(monitor) {
+                while(notReady()){
+                monitor.wait(200);  //Compliant
+                }
+                process();
+                }
+                ...
+                }
+        </example>
+        <priority>2</priority>
+    </rule>
+
+
+    <rule name="MethodNamedEqualsCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.bug.MethodNamedEqualsCheckRule"
+          message="'equals' method overrides should accept 'Object' parameters">
+        <description>
+            <p>"equals" as a method name should be used exclusively to override <code>Object.equals(Object)</code> to prevent any confusion.</p>
+            <p>It is tempting to overload the method to take a specific class instead of <code>Object</code> as parameter, to save the class comparison check.
+                However, this will not work as expected when that is the only override.</p>
+        </description>
+        <example>
+            class MyClass {
+            private int foo = 1;
+
+            public boolean equals(MyClass o) {  // Noncompliant; does not override Object.equals(Object)
+            return o != null &amp;&amp; o.foo == this.foo;
+            }
+
+            public static void main(String[] args) {
+            MyClass o1 = new MyClass();
+            Object o2 = new MyClass();
+            System.out.println(o1.equals(o2));  // Prints "false" because o2 an Object not a MyClass
+            }
+            }
+
+            class MyClass2 {
+            public boolean equals(MyClass2 o) {  // Ignored; `boolean equals(Object)` also present
+            //..
+            }
+
+            public boolean equals(Object o) {
+            //...
+            }
+            }
+
+            class MyClass {
+            private int foo = 1;
+
+            @Override
+            public boolean equals(Object o) {
+            if (this == o) {
+            return true;
+            }
+            if (o == null || getClass() != o.getClass()) {
+            return false;
+            }
+
+            MyClass other = (MyClass)o;
+            return this.foo == other.foo;
+            }
+
+            /* ... */
+            }
+
+            class MyClass2 {
+            public boolean equals(MyClass2 o) {
+            //..
+            }
+
+            public boolean equals(Object o) {
+            //...
+            }
+            }
+        </example>
+        <priority>2</priority>
+    </rule>
+
+    <rule name="ObjectFinalizeOverridenCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.codesmell.ObjectFinalizeOverridenCheckRule"
+          message="The Object.finalize() method should not be overriden">
+        <description>
+            <p>The <code>Object.finalize()</code> method is called on an object by the garbage collector when it determines that there are no more references to
+                the object. But there is absolutely no warranty that this method will be called AS SOON AS the last references to the object are removed. It can be
+                few microseconds to few minutes later. So when system resources need to be disposed by an object, it's better to not rely on this asynchronous
+                mechanism to dispose them.</p>
+        </description>
+        <example>
+            public class MyClass {
+            ...
+            protected void finalize() {
+            releaseSomeResources();    // Noncompliant
+            }
+            ...
+            }
+        </example>
+        <priority>2</priority>
+    </rule>
+
+    <rule name="GarbageCollectorCalledCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.codesmell.GarbageCollectorCalledCheckRule"
+          message="Execution of the Garbage Collector should be triggered only by the JVM">
+        <description>
+            <p>Calling <code>System.gc()</code> or <code>Runtime.getRuntime().gc()</code> is a bad idea for a simple reason: there is no way to know exactly what
+                will be done under the hood by the JVM because the behavior will depend on its vendor, version and options:</p>
+        </description>
+        <example>
+            class A {
+            private void f() {
+            System.gc(); // Noncompliant [[sc=12;ec=14]] {{Don't try to be smarter than the JVM, remove this call to run the garbage collector.}}
+            foo.gc(); // Compliant
+            System.exit(0); // Compliant
+            System.gc; // Compliant
+            System.gc[0]; // Compliant
+            Runtime.getRuntime().gc(); // Noncompliant
+            Runtime.getFoo().gc();
+            Runtime.getRuntime(foo).gc();
+            Foo.getRuntime().gc();
+            foo().getRuntime().gc();
+            foo().gc();
+            (foo()).gc();
+            }
+            }
+
+        </example>
+        <priority>2</priority>
+    </rule>
+
+    <rule name="WaitInSynchronizeCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.bug.WaitInSynchronizeCheckRule"
+          message="'wait', 'notify' and 'notifyAll' should only be called when a lock is obviously held on an object">
+        <description>
+            <p>By contract, the method <code>Object.wait(...)</code>, <code>Object.notify()</code> and <code>Object.notifyAll()</code> should be called by a
+                thread that is the owner of the object's monitor. If this is not the case an <code>IllegalMonitorStateException</code> exception is thrown. This rule
+                reinforces this constraint by making it mandatory to call one of these methods only inside a <code>synchronized</code> method or statement. </p>
+        </description>
+        <example>
+            private void removeElement() {
+            while (!suitableCondition()){
+            obj.wait();
+            }
+            ... // Perform removal
+            }
+        </example>
+        <priority>2</priority>
+    </rule>
+
+    <rule name="WaitInWhileLoopCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.codesmell.WaitInWhileLoopCheckRule"
+          message="'Object.wait(...)' and 'Condition.await(...)' should be called inside a 'while' loop">
+        <description>
+            <p>When waiting upon a <code>Condition</code>, a "spurious wakeup" is permitted to occur, in general, as a concession to the underlying platform
+                semantics. This has little practical impact on most application programs as a Condition should always be waited upon in a loop, testing the state
+                predicate that is being waited for. An implementation is free to remove the possibility of spurious wakeups but it is recommended that applications
+                programmers always assume that they can occur and so always wait in a loop.</p>
+        </description>
+        <example>
+            synchronized (obj) {
+            if (!suitableCondition()){
+            obj.wait(timeout);   //the thread can wake up even if the condition is still false
+            }
+            ... // Perform action appropriate to condition
+            }
+        </example>
+        <priority>2</priority>
+    </rule>
+
+
+    <rule name="BooleanMethodReturnCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.codesmell.BooleanMethodReturnCheckRule"
+          message="Null should not be returned from a 'Boolean' method">
+        <description>
+            <p>While <code>null</code> is technically a valid <code>Boolean</code> value, that fact, and the distinction between <code>Boolean</code> and
+                <code>boolean</code> is easy to forget. So returning <code>null</code> from a <code>Boolean</code> method is likely to cause problems with callers'
+                code.</p>
+        </description>
+        <example>
+            public Boolean isUsable() {
+            // ...
+            return null;  // Noncompliant
+            }
+        </example>
+        <priority>2</priority>
+    </rule>
+
+    <rule name="CustomSerializationMethodCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.bug.CustomSerializationMethodCheckRule"
+          message="Custom serialization method signatures should meet requirements">
+        <description>
+            <p>Writers of <code>Serializable</code> classes can choose to let Java's automatic mechanisms handle serialization and deserialization, or they can
+                choose to handle it themselves by implementing specific methods. However, if the signatures of those methods are not exactly what is expected, they
+                will be ignored and the default serialization mechanisms will kick back in. </p>
+        </description>
+        <example>
+            public class Watermelon implements Serializable {
+            // ...
+            void writeObject(java.io.ObjectOutputStream out)// Noncompliant; not private
+            throws IOException
+            {...}
+
+            private void readObject(java.io.ObjectInputStream in)
+            {...}
+
+            public void readObjectNoData()  // Noncompliant; not private
+            {...}
+
+            static Object readResolve() throws ObjectStreamException  // Noncompliant; this method may have any access modifier, may not be static
+
+            Watermelon writeReplace() throws ObjectStreamException // Noncompliant; this method may have any access modifier, but must return Object
+            {...}
+            }
+        </example>
+        <priority>2</priority>
+    </rule>
+
+    <rule name="StaticMultithreadedUnsafeFieldsCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.bug.StaticMultithreadedUnsafeFieldsCheckRule"
+          message="Non-thread-safe fields should not be static">
+        <description>
+            <p>Not all classes in the standard Java library were written to be thread-safe. Using them in a multi-threaded manner is highly likely to cause data
+                problems or exceptions at runtime.</p>
+            <p>This rule raises an issue when an instance of <code>Calendar</code>, <code>DateFormat</code>, <code>javax.xml.xpath.XPath</code>, or
+                <code>javax.xml.validation.SchemaFactory</code> is marked <code>static</code>.</p>
+        </description>
+        <example>
+            public class MyClass {
+            static private SimpleDateFormat format = new SimpleDateFormat("HH-mm-ss");  // Noncompliant
+            static private Calendar calendar = Calendar.getInstance();  // Noncompliant
+        </example>
+        <priority>2</priority>
+    </rule>
+
+
+    <rule name="PrimitiveWrappersInTernaryOperatorCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.bug.PrimitiveWrappersInTernaryOperatorCheckRule"
+          message="Dissimilar primitive wrappers should not be used with the ternary operator without explicit casting">
+        <description>
+            <p>If wrapped primitive values (e.g. <code>Integers</code> and <code>Floats</code>) are used in a ternary operator (e.g. <code>a?b:c</code>), both
+                values will be unboxed and coerced to a common type, potentially leading to unexpected results. To avoid this, add an explicit cast to a compatible
+                type.</p>
+        </description>
+        <example>
+            Integer i = 123456789;
+            Float f = 1.0f;
+            Number n = condition ? i : f;  // Noncompliant; i is coerced to float. n = 1.23456792E8
+        </example>
+        <priority>2</priority>
+    </rule>
+
+    <rule name="InnerClassOfNonSerializableCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.bug.InnerClassOfNonSerializableCheckRule"
+          message="'Serializable' inner classes of non-serializable classes should be 'static'">
+        <description>
+            <p>Serializing a non-<code>static</code> inner class will result in an attempt at serializing the outer class as well. If the outer class is not
+                serializable, then serialization will fail, resulting in a runtime error. </p>
+            <p>Making the inner class <code>static</code> (i.e. "nested") avoids this problem, therefore inner classes should be <code>static</code> if possible.
+                However, you should be aware that there are semantic differences between an inner class and a nested one: </p>
+            <ul>
+                <li> an inner class can only be instantiated within the context of an instance of the outer class. </li>
+                <li> a nested (<code>static</code>) class can be instantiated independently of the outer class. </li>
+            </ul>
+        </description>
+        <example>
+            public class Pomegranate {
+            // ...
+
+            public class Seed implements Serializable {  // Noncompliant; serialization will fail
+            // ...
+            }
+            }
+        </example>
+        <priority>2</priority>
+    </rule>
+
+    <rule name="SerializableSuperConstructorCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.bug.SerializableSuperConstructorCheckRule"
+          message="The non-serializable super class of a 'Serializable' class should have a no-argument constructor">
+        <description>
+            <p>When a <code>Serializable</code> object has a non-serializable ancestor in its inheritance chain, object deserialization (re-instantiating the
+                object from file) starts at the first non-serializable class, and proceeds down the chain, adding the properties of each subsequent child class, until
+                the final object has been instantiated. </p>
+            <p>In order to create the non-serializable ancestor, its no-argument constructor is called. Therefore the non-serializable ancestor of a
+                <code>Serializable</code> class must have a no-arg constructor. Otherwise the class is <code>Serializable</code> but not deserializable.</p>
+        </description>
+        <example>
+            public class Fruit {
+            private Season ripe;
+
+            public Fruit (Season ripe) {...}
+            public void setRipe(Season ripe) {...}
+            public Season getRipe() {...}
+            }
+
+            public class Raspberry extends Fruit
+            implements Serializable {  // Noncompliant; nonserializable ancestor doesn't have no-arg constructor
+            private static final long serialVersionUID = 1;
+
+            private String variety;
+
+            public Raspberry(Season ripe, String variety) { ...}
+            public void setVariety(String variety) {...}
+            public String getVarity() {...}
+            }
+        </example>
+        <priority>2</priority>
+    </rule>
+
+    <rule name="NonSerializableWriteCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.bug.NonSerializableWriteCheckRule"
+          message="Non-serializable classes should not be written">
+        <description>
+            <p>Nothing in a non-serializable class will be written out to file, and attempting to serialize such a class will result in an exception being thrown.
+                Only a class that <code>implements Serializable</code> or one that extends such a class can successfully be serialized (or de-serialized). </p>
+        </description>
+        <example>
+            public class Vegetable {  // neither implements Serializable nor extends a class that does
+            //...
+            }
+
+            public class Menu {
+            public void meal() throws IOException {
+            Vegetable veg;
+            //...
+            FileOutputStream fout = new FileOutputStream(veg.getName());
+            ObjectOutputStream oos = new ObjectOutputStream(fout);
+            oos.writeObject(veg);  // Noncompliant. Nothing will be written
+            }
+            }
+        </example>
+        <priority>2</priority>
+    </rule>
+
+
+    <rule name="SerializableObjectInSessionCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.bug.SerializableObjectInSessionCheckRule"
+          message="Non-serializable objects should not be stored in 'HttpSession' objects">
+        <description>
+            <p>If you have no intention of writting an <code>HttpSession</code> object to file, then storing non-<code>serializable</code> objects in it may not
+                seem like a big deal. But whether or not you explicitly serialize the session, it may be written to disk anyway, as the server manages its memory use
+                in a process called "passivation". Further, some servers automatically write their active sessions out to file at shutdown &amp; deserialize any such
+                sessions at startup.</p>
+            <p>The point is, that even though <code>HttpSession</code> does not <code>extend Serializable</code>, you must nonetheless assume that it will be
+                serialized, and understand that if you've stored non-serializable objects in the session, errors will result. </p>
+        </description>
+        <example>
+            public class Address {
+            //...
+            }
+
+            //...
+            HttpSession session = request.getSession();
+            session.setAttribute("address", new Address());  // Noncompliant; Address isn't serializable
+        </example>
+        <priority>2</priority>
+    </rule>
+
+    <rule name="SecureCookieCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.vulnerability.SecureCookieCheckRule"
+          message="Cookies should be 'secure'">
+        <description>
+            <p>The "secure" attribute prevents cookies from being sent over plaintext connections such as HTTP, where they would be easily eavesdropped upon.
+                Instead, cookies with the secure attribute are only sent over encrypted HTTPS connections.</p>
+        </description>
+        <example>
+            Cookie c = new Cookie(SECRET, secret);  // Noncompliant; cookie is not secure
+            response.addCookie(c);
+        </example>
+        <priority>2</priority>
+    </rule>
+
+    <rule name="FileCreateTempFileCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.vulnerability.FileCreateTempFileCheckRule"
+          message="'File.createTempFile' should not be used to create a directory">
+        <description>
+            <p>Using <code>File.createTempFile</code> as the first step in creating a temporary directory causes a race condition and is inherently unreliable and
+                insecure. Instead, <code>Files.createTempDirectory</code> (Java 7+) or a library function such as Guava's similarly-named
+                <code>Files.createTempDir</code> should be used.</p>
+        </description>
+        <example>
+            File tempDir;
+            tempDir = File.createTempFile("", ".");
+            tempDir.delete();
+            tempDir.mkdir();  // Noncompliant
+        </example>
+        <priority>2</priority>
+    </rule>
+
+    <rule name="InvalidDateValuesCheck"
+          language="java"
+          class="net.sourceforge.pmd.lang.java.rule.sonar.bug.InvalidDateValuesCheckRule"
+          message="Invalid 'Date' values should not be used">
+        <description>
+            <p>Whether the valid value ranges for <code>Date</code> fields start with 0 or 1 varies by field. For instance, month starts at 0, and day of month
+                starts at 1. Enter a date value that goes past the end of the valid range, and the date will roll without error or exception. For instance, enter 12
+                for month, and you'll get January of the following year.</p>
+            <p>This rule checks for bad values used in conjunction with <code>java.util.Date</code>, <code>java.sql.Date</code>, and
+                <code>java.util.Calendar</code>. Specifically, values outside of the valid ranges:</p>
+            <table>
+                <tbody>
+                    <tr>
+                        <th>Field</th>
+                        <th>Valid</th>
+                    </tr>
+                    <tr>
+                        <td>month</td>
+                        <td>0-11</td>
+                    </tr>
+                    <tr>
+                        <td>date (day)</td>
+                        <td>0-31</td>
+                    </tr>
+                    <tr>
+                        <td>hour</td>
+                        <td>0-23</td>
+                    </tr>
+                    <tr>
+                        <td>minute</td>
+                        <td>0-60</td>
+                    </tr>
+                    <tr>
+                        <td>second</td>
+                        <td>0-61</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>Note that this rule does not check for invalid leap years, leap seconds (second = 61), or invalid uses of the 31st day of the month.</p>
+        </description>
+        <example>
+            Date d = new Date();
+            d.setDate(25);
+            d.setYear(2014);
+            d.setMonth(12);  // Noncompliant; rolls d into the next year
+
+            Calendar c = new GregorianCalendar(2014, 12, 25);  // Noncompliant
+            if (c.get(Calendar.MONTH) == 12) {  // Noncompliant; invalid comparison
+            // ...
+            }
+        </example>
+        <priority>2</priority>
+    </rule>
+
+        <rule name="PrintfFailCheck"
+              language="java"
+              class="net.sourceforge.pmd.lang.java.rule.sonar.bug.PrintfFailCheckRule"
+              message="Printf-style format strings should not lead to unexpected behavior at runtime">
+            <description>
+                <p>Because <code>printf</code>-style format strings are interpreted at runtime, rather than validated by the Java compiler, they can contain errors
+                    that lead to unexpected behavior or runtime errors. This rule statically validates the good behavior of <code>printf</code>-style formats when calling
+                    the <code>format(...)</code> methods of <code>java.util.Formatter</code>, <code>java.lang.String</code>, <code>java.io.PrintStream</code>,
+                    <code>MessageFormat</code>, and <code>java.io.PrintWriter</code> classes and the <code>printf(...)</code> methods of <code>java.io.PrintStream</code>
+                    or <code>java.io.PrintWriter</code> classes. </p>
+            </description>
+            <example>
+                String.format("The value of my integer is %d", "Hello World");  // Noncompliant; an 'int' is expected rather than a String
+                String.format("Duke's Birthday year is %tX", c);  //Noncompliant; X is not a supported time conversion character
+                String.format("Display %0$d and then %d", 1);   //Noncompliant; arguments are numbered starting from 1
+                String.format("Not enough arguments %d and %d", 1);  //Noncompliant; the second argument is missing
+                String.format("%&lt; is equals to %d", 2);   //Noncompliant; the argument index '&lt;' refers to the previous format specifier but there isn't one
+
+                MessageFormat.format("Result {1}.", value); // Noncompliant; Not enough arguments. (first element is {0})
+                MessageFormat.format("Result {{0}.", value); // Noncompliant; Unbalanced number of curly brace (single curly braces should be escaped)
+                MessageFormat.format("Result ' {0}", value); // Noncompliant; Unbalanced number of quotes (single quote must be escaped)
+            </example>
+            <priority>2</priority>
+        </rule>
+</ruleset>
