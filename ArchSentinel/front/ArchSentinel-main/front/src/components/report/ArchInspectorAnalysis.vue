@@ -99,7 +99,7 @@
 import EventBus from '../eventBus';
 import pieChart from './pieChart.vue';
 import barChart from './barChart.vue';
-import api_key from "../../../public/api_key.json";
+import { CHAT_API_KEY } from '../../config/runtime';
 import { normalizeData } from './normalizeData';
 
 export default {
@@ -118,7 +118,7 @@ export default {
                 "改进建议": "1. 优先修复高优先级违规问题，特别是那些可能导致系统崩溃或信息泄露的问题，如捕获Throwable、资源未关闭、错误日志输出等。\n2. 引入严格的代码审查制度和CI自动静态检查机制，确保所有提交均通过质量网关。\n3. 建议团队采用统一的代码规范（如阿里Java开发手册），并强制执行。\n4. 对于中低优先级的问题，可以按照模块或迭代逐步推进整改，结合SonarQube等工具做持续性治理。\n5. 开展开发团队的编码规范与安全开发培训，提升整体工程素养，避免重复出现相似问题。"
             },
             rateColors: ['#99A9BF', '#F7BA2A', '#FF9900'],
-            API_KEY: api_key.API_KEY
+            API_KEY: CHAT_API_KEY
 
         }
     },

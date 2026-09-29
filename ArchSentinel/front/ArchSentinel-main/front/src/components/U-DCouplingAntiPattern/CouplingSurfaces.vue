@@ -180,8 +180,7 @@ import * as echarts from 'echarts'
 import axios from 'axios'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/atom-one-dark.css'
-import facade from '../../../public/facade.json'
-import filepath from '../../../public/filepaths.json'
+import { getAnalysisPaths, resultUrls } from '../../services/analysisResults'
 import EventBus from '../eventBus'
 
 export default {
@@ -233,14 +232,15 @@ export default {
   },
   methods: {
     // 读取文件内容
-    handleJSONRead() {
+    async handleJSONRead() {
       this.dataLoading = true
 
       // 清空存储对象
       try {
         this.src_dest_result = []
-        // 解析 JSON 数据
-        const parsedData = facade
+        // 从后端读取本次工具执行产生的耦合面结果
+        const response = await axios.get(resultUrls.facade)
+        const parsedData = response.data
 
         if (!parsedData.res || !Array.isArray(parsedData.res.e2n)) {
           console.error('错误的json结构: e2n not found')
@@ -360,13 +360,14 @@ export default {
       this.upstreamCode = ''
       this.downstreamCode = ''
 
-      this.upstreamFilePath = decodeURIComponent(filepath.upstreamFilePath)
-      this.downstreamFilePath = decodeURIComponent(filepath.downstreamFilePath)
       this.dataLoading = true
       console.log('this.upstreamFilePath')
       console.log(this.upstreamFilePath)
 
       try {
+        const paths = await getAnalysisPaths()
+        this.upstreamFilePath = paths.upstreamFilePath
+        this.downstreamFilePath = paths.downstreamFilePath
         // 调用后端接口获取上下游代码
         const response = await axios.post(
           '/api/getFacadeCode',

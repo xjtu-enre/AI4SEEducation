@@ -23,4 +23,20 @@ pnpm-debug.log*
 *.sw?
 
 
+# Backend tool outputs are served through /api/results and must not be bundled
+# into the frontend or committed as multi-megabyte snapshots.
+/public/api_key.json
+/public/DownFiles-*.json
+/public/UpFiles-out.json
+/public/classes.violations.csv
+/public/description.json
+/public/facade.json
+/public/filepaths.json
 /public/final_ownership.csv
+/public/metricsEvolution.json
+/public/metricsTree*.json
+/public/metricTree.json
+/public/pmd.csv
+/public/refactor.json
+/public/report.json
+/public/intrusive_analysis/

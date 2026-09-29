@@ -173,10 +173,7 @@
 <script>
 // @ts-ignore
 import cytoscape from "cytoscape";
-import axios from 'axios';
-import enreData from "../../../public/DownFiles-out.json"
-
-import metricData from "../../../public/metricsTreeNex.json"
+import { getJsonResult, resultUrls } from '../../services/analysisResults';
 import * as echarts from 'echarts';
 import EventBus from "../eventBus";
 import fcose from 'cytoscape-fcose'
@@ -302,8 +299,10 @@ export default {
         return this.parentIdMap.get(entityId);
       },
         async getData() {
-          // let response = await axios.get('/DownFiles-out.json');
-          // this.data = response.data;
+          const [enreData, metricData] = await Promise.all([
+            getJsonResult(resultUrls.downstreamEnre),
+            getJsonResult(resultUrls.metricsNext)
+          ]);
           this.data = enreData;
           this.rawMetricData = metricData["modules"];
 
@@ -948,4 +947,4 @@ export default {
   top: 0;
 }
 </style>
-  
+

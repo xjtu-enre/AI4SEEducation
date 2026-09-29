@@ -147,10 +147,30 @@ export default {
                 folderName: folderName, // 提取的文件夹名
                 totalSize: totalSize,
                 literallySize: literallySize,
+                fileCount: files.length,
+                cloc: null,
                 files: files
             };
 
             return info;
+        },
+        updateLanguageData() {
+            const files = [
+                ...(this.UpFileInfo.files || []),
+                ...(this.DownFileInfo.files || [])
+            ]
+            const languageByExtension = {
+                java: 'Java', js: 'JavaScript', ts: 'TypeScript', py: 'Python',
+                c: 'C', h: 'C/C++ Header', cpp: 'C++', cc: 'C++', cs: 'C#',
+                go: 'Go', rs: 'Rust', kt: 'Kotlin', scala: 'Scala', rb: 'Ruby', php: 'PHP'
+            }
+            const counts = {}
+            files.forEach(file => {
+                const extension = file.name.includes('.') ? file.name.split('.').pop().toLowerCase() : ''
+                const language = languageByExtension[extension] || 'Other'
+                counts[language] = (counts[language] || 0) + 1
+            })
+            EventBus.languageData = Object.entries(counts).map(([name, value]) => ({ name, value }))
         },
         async handleUpFiles(event) {
             this.UpFilesDataLoading = true
@@ -159,6 +179,7 @@ export default {
 
             this.UpFileInfo = this.handleFilesInfo(files)
             EventBus.UpFileInfo = this.UpFileInfo
+            this.updateLanguageData()
             this.$refs.childLeft.handleFileInfo(this.UpFileInfo)
 
             event.preventDefault() // 阻止默认表单提交行为
@@ -184,12 +205,12 @@ export default {
                 this.upstreamFileEnrePath = response.data.UpFilesEnreDirPath
                 EventBus.upstreamFilePath = this.upstreamFilePath
                 EventBus.upstreamFileEnrePath = this.upstreamFileEnrePath
+                await this.$refs.childLeft.getEntity()
                 this.$message.success(`上游文件处理成功！`)
                 // this.sendDataToParent()
             } catch (error) {
-                // console.error('上传失败:', error)
-                // this.$message.error('上传失败，请重试')
-                this.$message.success(`上游文件处理成功！`)
+                console.error('上游文件处理失败:', error)
+                this.$message.error('上游文件处理失败，请检查后端工具日志')
             } finally {
                 this.UpFilesDataLoading = false
             }
@@ -202,6 +223,7 @@ export default {
 
             this.DownFileInfo = this.handleFilesInfo(files)
             EventBus.DownFileInfo = this.DownFileInfo
+            this.updateLanguageData()
             console.log('DownFileInfo', this.DownFileInfo)
             this.$refs.childRight.handleFileInfo(this.DownFileInfo)
 
@@ -228,12 +250,12 @@ export default {
                 this.downstreamFileEnrePath = response.data.DownFilesEnreDirPath
                 EventBus.downstreamFilePath = this.downstreamFilePath
                 EventBus.downstreamFileEnrePath = this.downstreamFileEnrePath
+                await this.$refs.childRight.getEntity()
                 this.$message.success(`下游文件处理成功！`)
                 // this.sendDataToParent()
             } catch (error) {
-                // console.error('上传失败:', error)
-                // this.$message.error('上传失败，请重试')
-                this.$message.success(`下游文件处理成功！`)
+                console.error('下游文件处理失败:', error)
+                this.$message.error('下游文件处理失败，请检查后端工具日志')
             }  finally {
                 this.DownFilesDataLoading = false
             }

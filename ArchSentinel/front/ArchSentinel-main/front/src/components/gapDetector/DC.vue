@@ -35,7 +35,7 @@ export default {
   methods: {
     loadDataAndInitChart() {
       axios
-        .get("/DownFiles-DC.json")
+        .get("/api/results/gap/DC")
         .then((res) => {
           this.jsonData = res.data.instances;
           this.dataLoading = false

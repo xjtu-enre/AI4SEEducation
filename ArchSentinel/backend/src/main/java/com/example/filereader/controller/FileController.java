@@ -6,7 +6,6 @@ import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -94,48 +93,12 @@ public class FileController {
             int exitCode1 = process1.waitFor();
             System.out.println("Command executed with exit code: " + exitCode1);
 
-            // 进行文件的复制
-            Path nowDir = Paths.get(toolsDirPath);
-            // 获取UpFiles-gap-out和UpFiles-enre-out文件夹路径
-            Path upFilesEnreOut = nowDir.resolve("UpFiles-enre-out");
-
-            // 获取业务前端 public 目录
-            Path targetDir = getFrontendPublicDir(currentDir);
-
-            // 确保目标目录存在
-            if (!Files.exists(targetDir)) {
-                Files.createDirectories(targetDir);
-            }
-
-            // 存储文件路径
-            Path filePath = targetDir.resolve("filePaths.json");
-
-            // 检查文件是否存在，如果不存在则创建
-            if (!Files.exists(filePath)) {
-                Files.createDirectories(targetDir); // 确保目标目录存在
-                Files.write(filePath, "{\n  \"upstreamFilePath\": \"\",\n  \"upstreamFileEnrePath\": \"\",\n  \"downstreamFilePath\": \"\",\n  \"downstreamFileEnrePath\": \"\"\n}".getBytes());
-            }
-
-            // 使用 Jackson 读取 JSON 文件
-            ObjectMapper mapper = new ObjectMapper();
-            ObjectNode rootNode = (ObjectNode) mapper.readTree(filePath.toFile());
-
-            // 修改 JSON 内容
-            rootNode.put("upstreamFilePath", upFilesDirPath);
-            rootNode.put("upstreamFileEnrePath", enreOutPath);
-
-            // 将修改后的 JSON 写回文件
-            mapper.writerWithDefaultPrettyPrinter().writeValue(filePath.toFile(), rootNode);
-
-            // 复制UpFiles-enre-out目录下的所有文件到目标目录
-            copyFiles(upFilesEnreOut, targetDir);
-
-            System.out.println("文件复制完成！");
-
             // 构造返回结果
             Map<String, Object> result = Map.of(
                     "UpFilesDirPath", upFilesDirPath,
-                    "UpFilesEnreDirPath", enreOutPath
+                    "UpFilesEnreDirPath", enreOutPath,
+                    "enreResultUrl", "/api/results/enre/upstream",
+                    "pathsUrl", "/api/results/paths"
             );
             // 修复工作目录
             setWorkingDirectory(currentDir);
@@ -208,52 +171,13 @@ public class FileController {
             System.out.println("Command executed with exit code: " + exitCode2);
 
 
-            // 进行文件的复制
-            Path nowDir = Paths.get(toolsDirPath);
-            // 获取UpFiles-gap-out和UpFiles-enre-out文件夹路径
-            Path downFilesGapOut = nowDir.resolve("DownFiles-gap-out");
-            Path downFilesEnreOut = nowDir.resolve("DownFiles-enre-out");
-
-            // 获取业务前端 public 目录
-            Path targetDir = getFrontendPublicDir(currentDir);
-
-            // 确保目标目录存在
-            if (!Files.exists(targetDir)) {
-                Files.createDirectories(targetDir);
-            }
-
-            // 存储文件路径
-            Path filePath = targetDir.resolve("filePaths.json");
-
-            // 检查文件是否存在，如果不存在则创建
-            if (!Files.exists(filePath)) {
-                Files.createDirectories(targetDir); // 确保目标目录存在
-                Files.write(filePath, "{\n  \"upstreamFilePath\": \"\",\n  \"upstreamFileEnrePath\": \"\",\n  \"downstreamFilePath\": \"\",\n  \"downstreamFileEnrePath\": \"\"\n}".getBytes());
-            }
-
-            // 使用 Jackson 读取 JSON 文件
-            ObjectMapper mapper = new ObjectMapper();
-            ObjectNode rootNode = (ObjectNode) mapper.readTree(filePath.toFile());
-
-            // 修改 JSON 内容
-            rootNode.put("downstreamFilePath", downFilesDirPath);
-            rootNode.put("downstreamFileEnrePath", enreOutPath);
-
-            // 将修改后的 JSON 写回文件
-            mapper.writerWithDefaultPrettyPrinter().writeValue(filePath.toFile(), rootNode);
-
-            // 复制UpFiles-gap-out目录下的所有文件到目标目录
-            copyFiles(downFilesGapOut, targetDir);
-
-            // 复制UpFiles-enre-out目录下的所有文件到目标目录
-            copyFiles(downFilesEnreOut, targetDir);
-
-            System.out.println("文件复制完成！");
-
             // 构造返回结果
             Map<String, Object> result = Map.of(
                     "DownFilesDirPath", downFilesDirPath,
-                    "DownFilesEnreDirPath", enreOutPath
+                    "DownFilesEnreDirPath", enreOutPath,
+                    "enreResultUrl", "/api/results/enre/downstream",
+                    "gapResultBaseUrl", "/api/results/gap",
+                    "pathsUrl", "/api/results/paths"
             );
             // 修复工作目录
             setWorkingDirectory(currentDir);
@@ -563,34 +487,11 @@ public class FileController {
         int exitCode2 = process2.waitFor();
         System.out.println("Command executed with exit code: " + exitCode2);
 
-        // 进行文件的复制
-        Path nowDir = Paths.get(archunitDirPath);
-        // 获取archunit生成结果class.violations.csv文件夹路径
-        Path archunitOut = nowDir.resolve("class.violations.csv");
-
-        // 获取业务前端 public 目录
-        Path targetDir = getFrontendPublicDir(currentDir);
-
-        // 确保目标目录存在
-        if (!Files.exists(targetDir)) {
-            Files.createDirectories(targetDir);
-        }
-
-        // 目标文件路径
-        Path targetFile = targetDir.resolve(archunitOut.getFileName());
-
-        String result;
-        // 复制 class.violations.csv 文件，若已存在则替换
-        if (Files.exists(archunitOut)) {
-            Files.copy(archunitOut, targetFile, StandardCopyOption.REPLACE_EXISTING);
-            result = "文件复制成功: " + targetFile;
-            System.out.println(result);
-        } else {
-            result = "文件不存在: " + archunitOut;
-            System.out.println("文件不存在: " + archunitOut);
-        }
-
-        return ResponseEntity.ok(result);
+        return ResponseEntity.ok(Map.of(
+                "message", "架构约束检查完成",
+                "resultPath", archOutPath,
+                "resultUrl", "/api/results/arch-violations"
+        ));
 
 
     }
@@ -804,40 +705,6 @@ public class FileController {
         } else {
             System.out.println("目录不存在: " + newDir);
             return false;
-        }
-    }
-
-    private Path getFrontendPublicDir(String currentDir) {
-        Path workingDir = Paths.get(currentDir).toAbsolutePath().normalize();
-        Path repositoryRoot = workingDir.getFileName() != null
-                && workingDir.getFileName().toString().equalsIgnoreCase("backend")
-                ? workingDir.getParent()
-                : workingDir;
-
-        return repositoryRoot
-                .resolve("front")
-                .resolve("ArchSentinel-main")
-                .resolve("front")
-                .resolve("public");
-    }
-
-    // 复制文件或文件夹
-    private void copyFiles(Path sourceDir, Path targetDir) throws IOException {
-        if (Files.exists(sourceDir) && Files.isDirectory(sourceDir)) {
-            // 遍历源目录下的所有文件
-            try (DirectoryStream<Path> stream = Files.newDirectoryStream(sourceDir)) {
-                for (Path entry : stream) {
-                    Path targetPath = targetDir.resolve(entry.getFileName());
-
-                    if (Files.isDirectory(entry)) {
-                        // 如果是文件夹，递归调用
-                        copyFiles(entry, targetPath);
-                    } else {
-                        // 如果是文件，复制到目标目录
-                        Files.copy(entry, targetPath, StandardCopyOption.REPLACE_EXISTING);
-                    }
-                }
-            }
         }
     }
 

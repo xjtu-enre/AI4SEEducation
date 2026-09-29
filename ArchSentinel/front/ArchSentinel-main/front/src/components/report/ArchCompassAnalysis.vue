@@ -100,7 +100,7 @@
 import EventBus from '../eventBus';
 import pieChart from './pieChart.vue';
 import barChart from './barChart.vue';
-import api_key from "../../../public/api_key.json";
+import { CHAT_API_KEY } from '../../config/runtime';
 import { normalizeData } from './normalizeData';
 
 
@@ -126,7 +126,7 @@ export default {
                 "改进建议": "1. 明确类之间的继承策略与访问控制规则，避免违规扩展；2. 针对 static 类进行枚举化或功能封装重构，提升一致性；3. 设立架构守卫规则，自动化检查并持续集成改进流程，减少结构性风险积累。"
             },
             rateColors: ['#99A9BF', '#F7BA2A', '#FF9900'],
-            API_KEY: api_key.API_KEY,
+            API_KEY: CHAT_API_KEY,
         }
     },
     mounted(){

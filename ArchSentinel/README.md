@@ -54,3 +54,15 @@ npm run start
 ## 构建
 
 两个前端均可通过 `npm run build` 生成生产构建。更多说明请参阅各子项目中的 README。
+
+## 分析结果数据流
+
+业务前端不再内置 ENRE、GAP、PMD、ArchUnit、RefactoringMiner 等工具的结果快照。工具执行完成后，结果保存在 `backend/tools` 下，并由后端统一通过 `/api/results/*` 提供：
+
+- `/api/results/enre/{upstream|downstream}`：实体与依赖分析结果
+- `/api/results/gap/{type}`：架构反模式检测结果
+- `/api/results/arch-violations`：架构约束违规结果
+- `/api/results/file/{name}`：PMD、实体归属、耦合面、重构和度量结果
+- `/api/results/paths`：代码片段查询所需的上下游项目及依赖文件路径
+
+分析生成的 JSON/CSV 和本地 API Key 均已加入忽略规则，不应提交到 Git。若需启用报告页的在线问答，在业务前端目录创建 `.env.local` 并配置 `VUE_APP_CHAT_API_KEY`。

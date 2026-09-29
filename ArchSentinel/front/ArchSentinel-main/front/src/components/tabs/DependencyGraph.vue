@@ -20,7 +20,7 @@
 // @ts-ignore
 import cytoscape from "cytoscape";
 import fcose from 'cytoscape-fcose'
-import enreData from "../../../public/UpFiles-out.json"
+import { getJsonResult, resultUrls } from '../../services/analysisResults'
 
 export default {
   name: 'Architecture',
@@ -74,7 +74,7 @@ export default {
       return this.parentIdMap.get(entityId);
     },
     async getData() {
-      this.data = enreData;
+      this.data = await getJsonResult(resultUrls.upstreamEnre);
       for (const variable of this.data["variables"]) {
         this.entityIdMap.set(variable["id"], variable);
         if (!this.parentIdMap.has(variable["parentId"])) {

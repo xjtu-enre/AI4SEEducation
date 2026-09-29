@@ -51,7 +51,7 @@
 <script>
 import EventBus from '@/components/eventBus';
 import pieChart from '../pieChart.vue';
-import api_key from "../../../../public/api_key.json";
+import { CHAT_API_KEY } from '../../../config/runtime';
 import { normalizeData } from '../normalizeData';
 
 export default {
@@ -80,7 +80,7 @@ export default {
                 ]
             },
             rateColors: ['#99A9BF', '#F7BA2A', '#FF9900'],
-            API_KEY: api_key.API_KEY,
+            API_KEY: CHAT_API_KEY,
         }
     },
     mounted(){

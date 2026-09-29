@@ -48,7 +48,7 @@
 <script>
 import EventBus from "@/components/eventBus";
 import pieChart from "../pieChart.vue";
-import api_key from "../../../../public/api_key.json";
+import { CHAT_API_KEY } from '../../../config/runtime';
 import { normalizeData } from "../normalizeData";
 
 export default {
@@ -66,7 +66,7 @@ export default {
                 "改进建议": "1. 加强重构操作后的自动化测试覆盖率，尤其是对访问修饰符修改后的模块进行回归测试；2. 鼓励更多类级别的结构优化（如类解耦、职责分离），不仅限于方法和变量级重构；3. 规范重命名策略，结合统一命名规范与文档自动化工具，降低理解成本；4. 在持续集成流程中引入重构行为的质量控制机制，如审查或静态分析审计。"
             },
             rateColors: ['#99A9BF', '#F7BA2A', '#FF9900'],
-            API_KEY: api_key.API_KEY,
+            API_KEY: CHAT_API_KEY,
         };
     },
     mounted() {

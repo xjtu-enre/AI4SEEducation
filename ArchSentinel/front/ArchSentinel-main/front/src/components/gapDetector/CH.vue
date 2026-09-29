@@ -83,7 +83,7 @@ export default {
   methods: {
     loadDataAndInitChart() {
       axios
-        .get('/DownFiles-CH.json')
+        .get('/api/results/gap/CH')
         .then((res) => {
           this.jsonData = res.data.instances
           this.processGraphData()

@@ -62,10 +62,10 @@
 
 <script>
 import EventBus from '@/components/eventBus';
-import metrics from '../../../../public/metricsEvolution.json';
 import * as echarts from 'echarts';
-import api_key from "../../../../public/api_key.json";
+import { CHAT_API_KEY } from '../../../config/runtime';
 import { normalizeData } from '../normalizeData';
+import { getJsonResult, resultUrls } from '../../../services/analysisResults';
 
 export default {
     data(){
@@ -106,15 +106,15 @@ export default {
                 ]
             },
             rateColors: ['#99A9BF', '#F7BA2A', '#FF9900'],
-            API_KEY: api_key.API_KEY,
+            API_KEY: CHAT_API_KEY,
 
         }
     },
-    mounted(){
+    async mounted(){
         this.metricAdvice = normalizeData(this.metricAdvice);
 
         this.tableData = EventBus.metriData;
-        this.chartData = metrics;
+        this.chartData = await getJsonResult(resultUrls.metricsEvolution);
         // 默认显示 coupling 类别
         this.selectedMetrics = this.categories.coupling;
         this.renderChart();

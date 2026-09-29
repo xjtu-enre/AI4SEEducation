@@ -97,7 +97,7 @@ export default {
     // 加载数据并初始化图表
     loadDataAndInitChart() {
       axios
-        .get('/DownFiles-AWD.json')
+        .get('/api/results/gap/AWD')
         .then((res) => {
           this.jsonData = res.data.instances
           this.processBarData()

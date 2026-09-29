@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import api_key from "../../../public/api_key.json"
+import { CHAT_API_KEY } from '../../config/runtime'
 
 
 export default {
@@ -22,7 +22,7 @@ export default {
         response: '',
         loading: false,
         // ⚠️ 请替换为你自己的 OpenAI API Key，仅限学习用途
-        API_KEY: api_key.API_KEY
+        API_KEY: CHAT_API_KEY
       }
   },
   methods: {
@@ -74,4 +74,4 @@ textarea {
     margin-top: 1rem;
 }
 </style>
-  
+

@@ -158,7 +158,7 @@ export default {
     // 读取 public 文件夹中的 pmd.csv 文件
     async loadPmdCsv() {
       try {
-        const response = await fetch('/pmd.csv')
+        const response = await fetch('/api/results/file/pmd')
         const csvContent = await response.text()
 
         // 使用 Papa.parse 解析 CSV 数据

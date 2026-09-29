@@ -84,7 +84,7 @@ export default {
     // 读取文件内容
     async handleFileRead() {
       this.dataLoading = true
-      const response = await fetch('/final_ownership.csv') // 从 public 文件夹加载
+      const response = await fetch('/api/results/file/ownership')
       const csvContent = await response.text()
       this.fileContent = [] // 初始化数据
       this.ownershipTypeCounts = {} // 初始化统计数据

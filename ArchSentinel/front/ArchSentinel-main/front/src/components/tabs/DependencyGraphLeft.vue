@@ -174,9 +174,7 @@
 // @ts-ignore
 import cytoscape from "cytoscape";
 import fcose from 'cytoscape-fcose';
-import axios from 'axios';
-import enreData from "../../../public/UpFiles-out.json"
-import metricData from "../../../public/metricsTreePre.json"
+import { getJsonResult, resultUrls } from '../../services/analysisResults';
 import * as echarts from 'echarts';
 import EventBus from "../eventBus";
 
@@ -307,6 +305,10 @@ export default {
       return this.parentIdMap.get(entityId);
     },
       async getData() {
+        const [enreData, metricData] = await Promise.all([
+          getJsonResult(resultUrls.upstreamEnre),
+          getJsonResult(resultUrls.metricsPre)
+        ]);
         this.data = enreData;
         this.rawMetricData = metricData["modules"];
 

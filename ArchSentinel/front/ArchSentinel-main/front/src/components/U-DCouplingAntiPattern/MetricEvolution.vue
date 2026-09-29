@@ -43,8 +43,8 @@
 </template>
 
 <script>
-import jsonData from '../../../public/description.json';
-import metrics from '../../../public/metricsEvolution.json';
+import axios from 'axios';
+import { resultUrls } from '../../services/analysisResults';
 import * as echarts from 'echarts';
 import EventBus from '../eventBus';
 
@@ -70,7 +70,13 @@ export default {
 
     };
   },
-  mounted() {
+  async mounted() {
+    const [descriptionResponse, metricsResponse] = await Promise.all([
+      axios.get(resultUrls.metricsDescription),
+      axios.get(resultUrls.metricsEvolution)
+    ]);
+    const jsonData = descriptionResponse.data;
+    const metrics = metricsResponse.data;
     this.tableData = this.formatTableData(jsonData);
     EventBus.metriData = this.tableData;
     this.chartData = metrics;

@@ -118,7 +118,7 @@ export default {
       
       // 创建一个用于保存所有请求的 Promise 数组
       const requests = files.map((file) => {
-        return axios.get(`/DownFiles-${file}.json`)
+        return axios.get(`/api/results/gap/${file}`)
           .then((res) => {
             // 更新 total 对应的值
             this.total[file] = res.data.count;
@@ -133,7 +133,7 @@ export default {
             }
           })
           .catch((error) => {
-            console.error(`加载文件 /DownFiles-${file}.json 时出错:`, error);
+            console.error(`加载后端分析结果 ${file} 时出错:`, error);
             return Promise.resolve();  // 确保即使请求失败也返回已解决的 Promise
           })
           .finally(()=>{

@@ -48,9 +48,9 @@ import jsPDF from 'jspdf'
 import EventBus from './eventBus'
 import ComprehensiveEvaluation from './report/ComprehensiveEvaluation.vue'
 import ProjectAnalysis from './report/ProjectAnalysis.vue'
-import api_key from "../../public/api_key.json"
-import reportMessage from "../../public/report.json";
+import { CHAT_API_KEY } from '../config/runtime'
 import { normalizeData } from './report/normalizeData';
+import { getJsonResult, resultUrls } from '../services/analysisResults';
 
 export default {
   name: 'ArchReport',
@@ -61,18 +61,18 @@ export default {
   data() {
     return {
       UpFileInfo: {
-        folderName: 'avro-1.7.3',
-        literallySize: '8.22 MB',
-        fileCount: 949,
-        cloc: 154411
+        folderName: '未上传上游项目',
+        literallySize: 0,
+        fileCount: 0,
+        cloc: 0
       },
       DownFileInfo: {
-        folderName: 'avro-1.12.0',
-        literallySize: '13.8 MB',
-        fileCount: 1833,
-        cloc: 249992
+        folderName: '未上传下游项目',
+        literallySize: 0,
+        fileCount: 0,
+        cloc: 0
       },
-      API_KEY: api_key.API_KEY,
+      API_KEY: CHAT_API_KEY,
       
       totalAdvice: {
         "总体情况": "该项目整体呈现出规模化演进、模块数量与功能日益复杂的趋势。从早期版本到当前版本，代码体量与结构显著增长，体现出较强的业务支撑能力和持续维护意识。然而，随着复杂度增加，项目在模块解耦、编码规范、架构一致性、代码质量及演化策略等方面暴露出较多中高风险问题，尤其是高耦合、低内聚、反模式频发、实体碎片化、侵入式修改泛滥等现象，已对架构稳定性、维护性与可持续演进构成挑战。部分指标（如传播成本上升、解耦性下滑、封装性退化）也显示项目可能正面临系统性技术债累积的风险。",
@@ -103,8 +103,8 @@ export default {
   mounted() {
     this.totalAdvice = normalizeData(this.totalAdvice);
     
-    // this.UpFileInfo = EventBus.UpFileInfo
-    // this.DownFileInfo = EventBus.DownFileInfo
+    this.UpFileInfo = EventBus.UpFileInfo || this.UpFileInfo
+    this.DownFileInfo = EventBus.DownFileInfo || this.DownFileInfo
     this.pmdList = EventBus.pmdList
     this.antiPatternList = EventBus.antiPatternList
   },
@@ -157,8 +157,9 @@ export default {
         this.loading = true
         this.response = ''
 
+        const reportMessage = await getJsonResult(resultUrls.report)
         this.userInput = "你现在是软件架构高级工程师，现在我会给你这个项目的各个维度的分析结论，请你依据分析结论给出最终的总结建议。这是各个维度的分析结论：" +
-        reportMessage + "。接下来请你对该项目给出最终的总结建议。请按照以下json形式回复我：" +
+        JSON.stringify(reportMessage) + "。接下来请你对该项目给出最终的总结建议。请按照以下json形式回复我：" +
         " { totalAdvice : {总体情况：、现存问题：、改进建议} }."
 
         try {

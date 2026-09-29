@@ -137,10 +137,9 @@ import pieChart from './pieChart.vue'
 import ArchInspectorAnalysis from './ArchInspectorAnalysis.vue';
 import ArchCompassAnalysis from './ArchCompassAnalysis.vue';
 import ArchVitalsAnalysis from './ArchVitalsAnalysis.vue';
-import api_key from "../../../public/api_key.json"
+import { CHAT_API_KEY } from '../../config/runtime'
 import * as echarts from 'echarts';
-import upMetricData from "../../../public/metricsTreePre.json";
-import downMetricData from "../../../public/metricsTreeNex.json"
+import { getJsonResult, resultUrls } from '../../services/analysisResults';
 import { normalizeData } from './normalizeData';
 
 export default {
@@ -148,16 +147,16 @@ export default {
     data(){
         return {
             UpFileInfo: {
-                folderName: 'avro-1.7.3',
-                literallySize: '8.22 MB',
-                fileCount: 949,
-                cloc: 154411
+                folderName: '未上传上游项目',
+                literallySize: 0,
+                fileCount: 0,
+                cloc: 0
             },
             DownFileInfo: {
-                folderName: 'avro-1.12.0',
-                literallySize: '13.8 MB',
-                fileCount: 1833,
-                cloc: 249992
+                folderName: '未上传下游项目',
+                literallySize: 0,
+                fileCount: 0,
+                cloc: 0
             },
 
             currentCategory: 'coupling',
@@ -169,6 +168,8 @@ export default {
             },
             upFilechart: null,
             downFilechart: null,
+            upMetricData: {},
+            downMetricData: {},
 
             basicInfoList: [],
             basicRating: 3.5,
@@ -178,27 +179,21 @@ export default {
                 "改进建议": "1. 加强模块解耦和职责划分，采用包拆分、领域驱动设计或微服务划分策略，缓解模块膨胀问题。\n2. 对新增类和方法进行职责审查，防止出现‘上帝类’、‘长方法’等坏味道。\n3. 倡导接口优先、组合优于继承、依赖注入等设计原则，减少继承链和运行时动态行为的复杂性。\n4. 引入静态代码分析工具（如SonarQube）结合架构图谱，持续监控实体、依赖、调用等演进趋势，防止技术债积累。\n5. 建议将大型模块重构为更小、边界清晰的子系统，并逐步引入自动化测试和接口契约验证，以降低因规模扩大带来的回归风险。"
             },
             rateColors: ['#99A9BF', '#F7BA2A', '#FF9900'],
-            API_KEY: api_key.API_KEY
+            API_KEY: CHAT_API_KEY
         }
     },
-    mounted() {
+    async mounted() {
+        [this.upMetricData, this.downMetricData] = await Promise.all([
+            getJsonResult(resultUrls.metricsPre),
+            getJsonResult(resultUrls.metricsNext)
+        ])
         this.basicAdvice = normalizeData(this.basicAdvice)
         
-        // this.UpFileInfo = EventBus.UpFileInfo
-        // this.DownFileInfo = EventBus.DownFileInfo
+        this.UpFileInfo = EventBus.UpFileInfo || this.UpFileInfo
+        this.DownFileInfo = EventBus.DownFileInfo || this.DownFileInfo
         this.getBasicInfo()
 
-        this.$refs.languagePieChart.initPieChart({
-            data:[
-                {value: '48.0', name: 'Java'},
-                {value: '16.2', name: 'C#'},
-                {value: '10.1', name: 'C'},
-                {value: '8.8', name: 'C++'},
-                {value: '4.6', name: 'Python'},
-                {value: '3.6', name: 'JavaScript'},
-                {value: '8.7', name: 'Other'},
-            ]
-        });
+        this.$refs.languagePieChart.initPieChart({ data: EventBus.languageData || [] });
 
         this.$refs.entityBarChart.initBarChart({
             title: '项目实体类型分布对比',
@@ -219,8 +214,8 @@ export default {
         // console.log(EventBus.downData.relation)
         this.upFilechart = echarts.init(this.$refs.upFilechart);
         this.downFilechart = echarts.init(this.$refs.downFilechart);
-        this.updateChart(upMetricData, this.upFilechart);
-        this.updateChart(downMetricData, this.downFilechart);
+        this.updateChart(this.upMetricData, this.upFilechart);
+        this.updateChart(this.downMetricData, this.downFilechart);
     },
     methods:{
         getBasicInfo(){
@@ -271,8 +266,8 @@ export default {
         },
         switchCategory(cat) {
             this.currentCategory = cat;
-            this.updateChart(upMetricData, this.upFilechart);
-            this.updateChart(downMetricData, this.downFilechart);
+            this.updateChart(this.upMetricData, this.upFilechart);
+            this.updateChart(this.downMetricData, this.downFilechart);
         },
         updateChart(metricData, chart) {
             const metrics = this.categories[this.currentCategory];

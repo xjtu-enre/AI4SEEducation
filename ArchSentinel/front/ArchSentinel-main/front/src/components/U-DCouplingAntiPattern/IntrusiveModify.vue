@@ -92,7 +92,7 @@ import Papa from 'papaparse'
 import axios from 'axios'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/atom-one-dark.css'
-import filepath from '../../../public/filepaths.json'
+import { getAnalysisPaths, intrusiveResultUrl } from '../../services/analysisResults'
 import EventBus from '../eventBus'
 
 export default {
@@ -172,7 +172,7 @@ export default {
     },
     async handleIntrusiveFile(file) {
       try {
-        const response = await fetch(`/intrusive_analysis/${file}`)
+        const response = await fetch(intrusiveResultUrl(file))
         const csvContent = await response.text()
 
         const parsedData = Papa.parse(csvContent, {
@@ -268,16 +268,12 @@ export default {
       this.downstreamCode = ''
 
       this.dataLoading = true
-      this.upstreamFilePath = decodeURIComponent(filepath.upstreamFilePath)
-      this.downstreamFilePath = decodeURIComponent(filepath.downstreamFilePath)
-      this.upstreamFileEnrePath = decodeURIComponent(
-        filepath.upstreamFileEnrePath
-      )
-      this.downstreamFileEnrePath = decodeURIComponent(
-        filepath.downstreamFileEnrePath
-      )
-
       try {
+        const paths = await getAnalysisPaths()
+        this.upstreamFilePath = paths.upstreamFilePath
+        this.downstreamFilePath = paths.downstreamFilePath
+        this.upstreamFileEnrePath = paths.upstreamFileEnrePath
+        this.downstreamFileEnrePath = paths.downstreamFileEnrePath
         // 调用后端接口获取上下游代码
         const response = await axios.post(
           '/api/getIntrusiveCode',

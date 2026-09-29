@@ -77,7 +77,7 @@ export default {
   methods: {
     loadDataAndInitChart() {
       axios
-        .get('/DownFiles-MH.json')
+        .get('/api/results/gap/MH')
         .then((res) => {
           this.jsonData = res.data.instances
           this.processTableData()

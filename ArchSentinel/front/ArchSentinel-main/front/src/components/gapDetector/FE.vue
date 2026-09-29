@@ -143,7 +143,7 @@ export default {
   methods: {
     loadDataAndInitChart() {
       axios
-        .get('/DownFiles-FE.json')
+        .get('/api/results/gap/FE')
         .then((res) => {
           this.jsonData = res.data.instances
           this.processTableData()

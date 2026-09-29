@@ -10,6 +10,7 @@ export const EventBus = reactive({
 
   UpFileInfo: null,
   DownFileInfo: null,
+  languageData: [],
   antiPatternList: [],
   customAntiPatternList: [],
 

@@ -131,7 +131,7 @@ export default {
   methods: {
     loadDataAndInitChart() {
       axios
-        .get('/DownFiles-CD.json')
+        .get('/api/results/gap/CD')
         .then((res) => {
           this.jsonData = res.data.instances
           this.processTableData()

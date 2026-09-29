@@ -180,7 +180,7 @@ import * as echarts from 'echarts'
 import axios from 'axios'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/atom-one-dark.css'
-import filepath from "../../../public/filepaths.json"
+import { getAnalysisPaths, resultUrls } from '../../services/analysisResults'
 import EventBus from '../eventBus'
 
 const DETAILDIALOG = 0
@@ -271,7 +271,7 @@ export default {
   },
   methods: {
     init() {
-      axios.get('/refactor.json').then((res) => {
+      axios.get(resultUrls.refactor).then((res) => {
         // this.jsonData = res.data.commits;
         const commits = res.data.commits || []
         if (commits.length > 0) {
@@ -453,9 +453,10 @@ export default {
     async handleCodeClick(row) {
       this.loading = true
       this.codeInfoVisible = true
-      this.upstreamFilePath = decodeURIComponent(filepath.upstreamFilePath);
-      this.downstreamFilePath = decodeURIComponent(filepath.downstreamFilePath);
       try {
+        const paths = await getAnalysisPaths()
+        this.upstreamFilePath = paths.upstreamFilePath
+        this.downstreamFilePath = paths.downstreamFilePath
         // 调用后端接口获取上下游代码
         const response = await axios.post(
           '/api/getRefactorCode',

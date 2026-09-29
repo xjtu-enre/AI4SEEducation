@@ -15,3 +15,8 @@
 # Bundled archives are retained; extracted third-party source copies are not.
 backend/tools/PMD-main/
 backend/tools/UpFiles/
+backend/tools/DownFiles/
+backend/tools/UpFiles-enre-out/
+backend/tools/DownFiles-enre-out/
+backend/tools/DownFiles-gap-out/
+backend/tools/results/

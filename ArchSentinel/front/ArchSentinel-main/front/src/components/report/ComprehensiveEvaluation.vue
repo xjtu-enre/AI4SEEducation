@@ -92,7 +92,7 @@
 
 <script>
 import EventBus from '../eventBus'
-import api_key from "../../../public/api_key.json"
+import { CHAT_API_KEY } from '../../config/runtime'
 
 
 export default {
@@ -122,7 +122,7 @@ export default {
             userInput: '',
             response: '',
             loading: false,
-            API_KEY: api_key.API_KEY,
+            API_KEY: CHAT_API_KEY,
             ViolationInfoList: [],
             ViolationInfoTotalSum: 0,
             ViolationInfoWarn: {

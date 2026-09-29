@@ -64,7 +64,7 @@ export default {
   methods: {
     loadDataAndInitChart() {
       axios
-        .get('/DownFiles-SS.json')
+        .get('/api/results/gap/SS')
         .then((res) => {
           this.jsonData = res.data.shotgunSurgeryStructureList
           this.processTableData()
